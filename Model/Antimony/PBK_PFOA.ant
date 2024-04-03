@@ -19,7 +19,11 @@ model PFOA()
   
   // EXPOSURE PARAMETERS
   exposure_duration = 18750 # Duration of exposure (d)
-  
+  age_start_derm_exp = 14 # dermal and inhalation exposure starting age (e.g. occupational, or personal care products; exposure may start at a later age than 0)
+  age_stop_derm_exp = 50 # dermal and inhalation exposure stopping age (e.g. occupational, or personal care products; exposure may stop at an earlier age than 80)
+  age_start_inh_exp = 0 # dermal and inhalation exposure starting age (e.g. occupational, or personal care products; exposure may start at a later age than 0)
+  age_stop_inh_exp = 50 # dermal and inhalation exposure stopping age (e.g. occupational, or personal care products; exposure may stop at an earlier age than 80)
+
   // Drinking water exposure 
   Drinkrate = 13 # Drinking water rate (mL/kg/day)
   
@@ -172,8 +176,8 @@ model PFOA()
   Oraldose_PFOA_on := piecewise(Intakemilka_PFOA/BW, age < 0.083, Intakemilkb_PFOA/BW, age >= 0.083 && age < 0.167, Intakemilkc_PFOA/BW, age >= 0.167 && age < 0.250, Intakemilkd_PFOA/BW, age >= 0.250 && age < 0.333, Intakemilke_PFOA/BW, age >= 0.333 && age < 0.417, Intakemilkf_PFOA/BW, age >= 0.417 && age < 0.500, Intakemilkg_PFOA/BW,age >= 0.500 && age < 0.583,Intakemilkh_PFOA/BW,age >= 0.583 && age < 0.667,Intakemilki_PFOA/BW,age >= 0.667 && age < 0.750, Intakemilkj_PFOA/BW,age >= 0.750 && age < 0.833,Intakemilkk_PFOA/BW,age >= 0.833 && age < 0.917, Intakemilkl_PFOA/BW, age >= 0.917 && age < 1, Oralexpo_PFOA)  # (ug/day)
   Oraldose_PFOA := piecewise(Oraldose_PFOA_on*BW, day < exposure_duration, 0)
   Drinkdose_PFOA := piecewise((Drinkconc_PFOA*Drinkrate/1000)*BW, day < exposure_duration, 0)
-  Inhalation_PFOA := piecewise(Cinh_PFOA_total_day, dayoftheweek >= 1 && dayoftheweek <= 5 && age >= age_start && age <= age_stop && month >= 5 && month <= 10, 0)
-                                                                                                                         
+  Inhalation_PFOA := piecewise(Cinh_PFOA_total_day, age >= age_start_inh_exp && age <= age_stop_inh_exp, 0) 
+  
   // Scaled cardiac output and perfusion
   QC := QCC*BW^0.75;  # Cardiac output adjusted for BW (L/d)
   QCP := QC*(1-Htc) ; # Cardiac output adjusted for plasma flow (L/d)
@@ -200,7 +204,7 @@ model PFOA()
   Vlun := VlunC*BW # Functional residual capacity # https://en.wikipedia.org/wiki
   VR := 0.84*BW-VL-VF-VK-Vfil-VG-VPlas-VSk-Vlun;  # Rest of the body volume (L). Need to know where the number 0.84 comes from???
   
-  VT = 0.007*BW # Tidal volume # https://en.wikipedia.org/wiki/Tidal_volume
+  VT := 0.007*BW # Tidal volume # https://en.wikipedia.org/wiki/Tidal_volume
   
   //Functional_residual_capacity
   VFRC := 0.030*BW # Tidal volume
@@ -210,10 +214,11 @@ model PFOA()
   Vbal := (0.84*BW)-(VL+VF+VK+Vfil+VG+VPlas+VSk+Vlun) # Balance check--better be 0 
   Vsurf := fss*SkinTarea*hsurf/1000 # volume of dermal layer on exposed skin surface (L) 1 m^2 = 10,000 cm^2 * cm = cm^3 = ml / 1000 = L
   
-  Dermaldose_PFOA_day = Cdermal_PFOA_total_day*Vsurf
+  Dermaldose_PFOA_day := Cdermal_PFOA_total_day*Vsurf
 
   // Dermal exposure
-  Csurf_PFOA = 0
+  Csurf_PFOA := piecewise(Cdermal_PFOA_total_day, age >= age_start_derm_exp && age <= age_stop_derm_exp, 0)
+  
   Vsc := fss*SkinTarea*hsc/1000 # volume of exposed stratum corneum (L) cm^2 * cm = cm^3 = ml / 1000 = L
   Vve := fss*SkinTarea*hve/1000 # volume of exposed viable epidermis (L) cm^2 * cm = cm^3 = ml / 1000 = L
   
@@ -310,4 +315,3 @@ model PFOA()
   Aven -> Alung; QCP*(Aven/Vven_plas)
   
 end
-

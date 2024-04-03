@@ -1,4 +1,8 @@
-# Westerhout et al., 2024 PFAS PBPK model
+# Westerhout et al., 2024 combined PFOA and PFOS PBK model
+# Parameter values are obtained from [EFSA 2020] unless specified otherwise
+# Remark: the doses are given in ug, the volumes in L, so concentrations are in ug/L
+# From ug/L to uM is by dividing by MW
+
 rm(list=ls()) # to clear out the global environment
 
 library(deSolve)
@@ -8,12 +12,15 @@ library(gridExtra)
 
 #### Settings ----
 TSTART <- 0
-TSTOP <- 18750 # days
-DT <- 1
+TSTOP <- 365*50 # simulation duration (days); 50 years
+exposure_duration = 365*50 # Duration of exposure (d); 50 years
+DT <- 1 # time step (days)
 TIME <- seq(TSTART,TSTOP,by=DT)
-AGE <- 0 # to use as a starting point, rather than birth
-age_start <- 20 # occupational exposure starting age
-age_stop <- 60 # occupational exposure stopping age
+AGE <- 0 # to use as a starting point, e.g. 20 years of age instead of birth
+age_start_derm_exp <- 14 # dermal and inhalation exposure starting age (e.g. occupational, or personal care products; exposure may start at a later age than 0)
+age_stop_derm_exp <- 50 # dermal and inhalation exposure stopping age (e.g. occupational, or personal care products; exposure may stop at an earlier age than 80)
+age_start_inh_exp <- 0 # dermal and inhalation exposure starting age (e.g. occupational, or personal care products; exposure may start at a later age than 0)
+age_stop_inh_exp <- 50 # dermal and inhalation exposure stopping age (e.g. occupational, or personal care products; exposure may stop at an earlier age than 80)
 
 Variables_df <- as.data.frame(list(TIME = TIME))
 Variables_df <- Variables_df %>%
@@ -23,42 +30,35 @@ Variables_df <- Variables_df %>%
   mutate(year = ceiling(day/(365))) %>%
   mutate(age = AGE + (TIME/(365)))
 
-# The background amounts are derived from a single run with EFSA TWI values
-# In the Westerhout model, the plasma compartment is split into arterial and venous blood
+# In the Westerhout model, in comparison to the EFSA 2020 model, the plasma compartment is split into arterial and venous blood.
 # In addition, the lung compartment is new and the skin compartment is now included.
-# We don't know the appropriate starting values for these compartments before we do a run,
-# so we first set them to 0 (except for the arterial and venous blood compartments, 
-# which we base on the plasma value). 
-# The starting values for the rest compartment are also not given and are currently set to a value
-# that was determined after a single run.
+# We did not know the appropriate starting values for these compartments before we did a run,
+# so we first set them to 0 (except for the arterial and venous blood compartments, which we based on the plasma value). 
+# The starting value for the rest compartment was also not given and was set to 0.
 
-# The parameters ending with "PFOA_background" and "PFOS_background" can be changed after the first run
-# to the part that is currently after '#'
-# The output of the first run: "Background amounts 20240219.csv" needs to be manually modified 
-# so that the initial amounts in the lungs, skin and remaining compartments are representative
-# After doing so, save the file as '20240219 - Background amounts extended - adapted.csv'
+# The output of the the run with EFSA TWI values "Westerhout 2024 - Results.csv" was manually modified
+# so that the initial amounts in the lungs, skin and remaining compartments at time 0 are representative 
+# and the mass balance was in check.
+# After doing so, the file was saved as 'Westerhout 2024 - EFSA TWI background amounts.csv'
 
 # In the future runs, load the file here and use this for background amounts:
-Background_PFAS_amounts <- read.csv2(file = 'Model/R/Westerhout 2024 - Background amounts 20240306.csv',na.strings=c(""," ","NA"),stringsAsFactors = FALSE)
+Background_PFAS_amounts <- read.csv2(file = 'Model/R/Westerhout 2024 - EFSA TWI background amounts.csv',na.strings=c(""," ","NA"),stringsAsFactors = FALSE)
 Background_PFAS_amounts[] <- lapply(Background_PFAS_amounts, as.numeric)
+# Note that this file is also used to determine the starting values in case you start the simulation at a later age
+# instead of birth (relevant for the occupational setting).
 
 # EXPOSURE PARAMETERS
-exposure_duration = 18750 # Duration of exposure (d)
-
 # Drinking water exposure 
 Drinkrate = 13 # Drinking water rate (mL/kg/day)
-# Drinkrate = 13/24 # Drinking water rate (mL/kg/hour)
 # Dermal exposure 
 Dermexpo = 0 # 0 = NO, 1 = YES
 Dermconc = 0.0 # Dermal concentration (mg/mL) 
-Dermvol = 0.001 # Dermal exposure volume (mL)
+Dermvol = 0.001 # Dermal exposure volume (mL); cannot be 0
 Dermdose = Dermconc*Dermvol*1000 # (ug) 
-Skinarea = 972 # Exposed area on skin (cm^2) 
+Skinarea = 972 # Exposed area on skin (cm^2); surface area of the hands [https://www.epa.gov/sites/default/files/2015-09/documents/efh-chapter07.pdf]
 Skinthickness = 0.1 # Skin thickness (cm) 
 
-# source("Physiological parameters per day.R")
 #### Physiological parameters ----
-
 # Physiological parameters (from Brown, et al. 1997)
 #fractional blood flows
 QCC = 300 # 12.5*24   # Cardiac blood output (L/d/kg^0.75)
@@ -83,7 +83,7 @@ Htc = 0.44 # hematocrit
 BWbirth=3.68 # Body weight at birth in kg new add opinion 2020 
 
 # Skin parameters 
-fss <- 0.005 # fraction palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
+fss <- 0.11 # 0.005 # fraction palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
 hsurf <- 0.01 # applied layer thickness in cm, value is assumed to be 0.1 mm
 hsc <- 0.0015 # Stratum corneum thickness (cm) # [Krüse 2007]
 hve <- 0.0100 # Viable epidermis thickness (cm) # [Krüse 2007]
@@ -96,12 +96,6 @@ ffatbl <- 0.007 # Fraction of fat in blood [Polak 2012]
 
 Kpcell <- 0.93 # cm/h; Krüse model is normalized to 1 cm^2 # Permeability coefficient from arterial wall into the blood compartment [Krüse 2007]
 
-#### PFAS ----
-# Combined PFOA, PFNA, PFHxS and PFOS PBPK models as presented in Scientific Opinion on PFAS by EFSA 2020
-# PFOA and PFNA are predicted with the PFOA model, whereas PFOS and PFHxS are predicted with the PFOS model
-# Remark: the doses are given in ug, the volumes in L, so concentrations are in ug/L
-# From ug/L to uM is by dividing by MW
-# source("20230208 - PFOA parameters extended per day - EFSA TWI.R")
 #### PFOA ----
 # Physicochemical properties
 MW_PFOA = 414.07
@@ -118,7 +112,7 @@ Kpsc_PFOA = 0.000088 # [Franko 2011]
 Kpve_PFOA <- 0.000088 # [Franko 2011]
 # Kpve_PFOA <- 0.000000949 # [Fasano 2005]
 
-Pab_PFOA <- 1/(10^(6.96-(1.04*log10(VP_PFOA)) - 0.533*logP_PFOA - 0.00495*MW_PFOA))
+Pab_PFOA <- 1/(10^(6.96-(1.04*log10(VP_PFOA)) - 0.533*logP_PFOA - 0.00495*MW_PFOA)) # [Buist 2012]
 
 # Oral exposure via the mother
 Oralexpo_PFOA = 0.000187 # µg/kg/day [EFSA 2020; page 143]
@@ -129,11 +123,13 @@ PFOAmaternal = 2.0 # maternal concentration ng/mL at delivery [EFSA opinion 2020
 Cinh_PFOA = 0 # ug/L; 0.526 ug/m3 [Nilsson 2013]
 Cinh_82FTOH = 0 # ug/L; 114 ug/m3 [Nilsson 2013]
 Biotransformation = 0.003 # 8:2-FTOH to PFOA [Gomis 2016]
-Cinh_PFOA_total_day = Cinh_PFOA/4 + (Cinh_82FTOH*Biotransformation)/4 # 6h exposure spread across a 24h day
+Cinh_PFOA_total_day = Cinh_PFOA + (Cinh_82FTOH*Biotransformation) # exposure spread across a 24h day
+# In case of a temporary inhalation exposure during the day, multiply Cinh_PFOA with the fraction of the day that exposure took place (e.g. 6h = 25% -> Cinh_PFOA_total_day = Cinh_PFOA*0.25)
 
 # Dermal exposure
 Cdermal_PFOA = 0 # ug/kg = 0.680 ug/g [Freberg 2010]
-Cdermal_PFOA_total_day = Cdermal_PFOA/4 # 6h exposure spread across a 24h day
+Cdermal_PFOA_total_day = Cdermal_PFOA # exposure spread across a 24h day
+# In case of a temporary dermal exposure during the day, multiply Cdermal_PFOA with the fraction of the day that exposure took place (e.g. 6h = 25% -> Cdermal_PFOA_total_day = Cdermal_PFOA*0.25)
 
 # Chemical-specific parameters (PFOA) 
 Tmc_PFOA = 144000 # 6000*24   # Maximum resorption rate 
@@ -180,16 +176,16 @@ Intakemilkj_PFOA = Intakemilki_PFOA*(1-DECLINE_PFOA)#intakeviabreastfeeding10mon
 Intakemilkk_PFOA = Intakemilkj_PFOA*(1-DECLINE_PFOA)#intakeviabreastfeeding11month 
 Intakemilkl_PFOA = Intakemilkk_PFOA*(1-DECLINE_PFOA)#intakeviabreastfeeding12month 
 
-CONCbirth_PFOA = PFOAmaternal*PT_PFOA # PFOA concentration at birth, new add in 2020 
-APlasbirth_PFOA = CONCbirth_PFOA*Free_PFOA*VPlasC*BWbirth # initial amount in plasma at birth 
-AGbirth_PFOA = APlasbirth_PFOA*0.99929853 # initial amount in gut at birth 
-ALbirth_PFOA = APlasbirth_PFOA*66.8360764 # initial amount in liver at birth 
-AFbirth_PFOA = APlasbirth_PFOA*10.000151 # initial amount in fat at birth 
-AKbirth_PFOA = APlasbirth_PFOA*5.88575746 # initial amount in kidney at birth 
-ARbirth_PFOA = APlasbirth_PFOA*74.9108792 # initial amount in rest of the body at birth 
-Afilbirth_PFOA = APlasbirth_PFOA*0.0000209606 # initial amount filtrate at birth 
-Adelaybirth_PFOA = APlasbirth_PFOA*42.27910714 # initial amount in storage at birth 
-Aurinebirth_PFOA = APlasbirth_PFOA*769.1347494 # initial amount in urine at birth 
+# CONCbirth_PFOA = PFOAmaternal*PT_PFOA # PFOA concentration at birth, new add in 2020 
+# APlasbirth_PFOA = CONCbirth_PFOA*Free_PFOA*VPlasC*BWbirth # initial amount in plasma at birth 
+# AGbirth_PFOA = APlasbirth_PFOA*0.99929853 # initial amount in gut at birth 
+# ALbirth_PFOA = APlasbirth_PFOA*66.8360764 # initial amount in liver at birth 
+# AFbirth_PFOA = APlasbirth_PFOA*10.000151 # initial amount in fat at birth 
+# AKbirth_PFOA = APlasbirth_PFOA*5.88575746 # initial amount in kidney at birth 
+# ARbirth_PFOA = APlasbirth_PFOA*74.9108792 # initial amount in rest of the body at birth 
+# Afilbirth_PFOA = APlasbirth_PFOA*0.0000209606 # initial amount filtrate at birth 
+# Adelaybirth_PFOA = APlasbirth_PFOA*42.27910714 # initial amount in storage at birth 
+# Aurinebirth_PFOA = APlasbirth_PFOA*769.1347494 # initial amount in urine at birth 
 
 # PFOA age-dependent starting values
 # APlas_PFOA_background = Background_PFAS_amounts$APlas_PFOA[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
@@ -206,7 +202,6 @@ ASk_PFOA_background = Background_PFAS_amounts$ASk_PFOA[which(Background_PFAS_amo
 Alun_PFOA_background = Background_PFAS_amounts$Alun_PFOA[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
 AR_PFOA_background = Background_PFAS_amounts$AR_PFOA[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
 
-# source("20230208 - PFOS parameters extended per day - EFSA TWI.R")
 #### PFOS ----
 # Physicochemical properties
 MW_PFOS = 500.13
@@ -219,7 +214,7 @@ Kver_PFOS = ((1-ffatbl)+(ffatbl*(10^logP_PFOS)))/((1-ffatepi)+(ffatepi*(10^logP_
 Kpsc_PFOS = 10^(0.74*logP_PFOS - 0.006*MW_PFOS - 2.8) # Stratum corneum permeability coefficient (cm/h) # [Polak 2012; KrÃ¼se 2007; Bunge and Cleek 1995; Cleek and Bunge 1993; Potts and Guy 1992]
 Kpve_PFOS <- 2.6/(MW_PFOS^0.5) # Viable epidermis permeability coefficient (cm/h) # [Polak 2012 -> EPA 2004]
 
-Pab_PFOS <- 1/(10^(6.96-(1.04*log10(VP_PFOS)) - 0.533*logP_PFOS - 0.00495*MW_PFOS))
+Pab_PFOS <- 1/(10^(6.96-(1.04*log10(VP_PFOS)) - 0.533*logP_PFOS - 0.00495*MW_PFOS)) # [Buist 2012]
 
 # Oral exposure via the mother
 Oralexpo_PFOS = 0.000444 # µg/kg/day [EFSA 2020; page 143]
@@ -228,11 +223,13 @@ PFOSmaternal = 4.89 # maternal concentration ng/mL at delivery [EFSA opinion 202
 
 # Inhalation exposure
 Cinh_PFOS = 0 # mg/L; 0 ug/m3
-Cinh_PFOS_total_day = Cinh_PFOS/4 # 6h exposure spread across a 24h day
+Cinh_PFOS_total_day = Cinh_PFOS # exposure spread across a 24h day
+# In case of a temporary inhalation exposure during the day, multiply Cinh_PFOS with the fraction of the day that exposure took place (e.g. 6h = 25% -> Cinh_PFOS_total_day = Cinh_PFOS*0.25)
 
 # Dermal exposure
 Cdermal_PFOS = 0 # ug/kg = 0 ug/g [Freberg 2010]
-Cdermal_PFOS_total_day = Cdermal_PFOS/4 # 6h exposure spread across a 24h day
+Cdermal_PFOS_total_day = Cdermal_PFOS # exposure spread across a 24h day
+# In case of a temporary dermal exposure during the day, multiply Cdermal_PFOS with the fraction of the day that exposure took place (e.g. 6h = 25% -> Cdermal_PFOS_total_day = Cdermal_PFOS*0.25)
 
 # Chemical-specific parameters (PFOS) 
 Tmc_PFOS = 84000 # 3500*24   # Maximum resorption rate 
@@ -279,16 +276,16 @@ Intakemilkj_PFOS = Intakemilki_PFOS*(1-DECLINE_PFOS)#intakeviabreastfeeding10mon
 Intakemilkk_PFOS = Intakemilkj_PFOS*(1-DECLINE_PFOS)#intakeviabreastfeeding11month 
 Intakemilkl_PFOS = Intakemilkk_PFOS*(1-DECLINE_PFOS)#intakeviabreastfeeding12month 
 
-CONCbirth_PFOS = PFOSmaternal*PT_PFOS # PFOS concentration at birth, new add in 2020 
-APlasbirth_PFOS = CONCbirth_PFOS*Free_PFOS*VPlasC*BWbirth # initial amount in plasma at birth 
-AGbirth_PFOS = APlasbirth_PFOS*9.112506818 # initial amount in gut at birth 
-ALbirth_PFOS = APlasbirth_PFOS*90.41427413 # initial amount in liver at birth 
-AFbirth_PFOS = APlasbirth_PFOS*27.99955778 # initial amount in fat at birth 
-AKbirth_PFOS = APlasbirth_PFOS*3.587821811 # initial amount in kidney at birth 
-ARbirth_PFOS = APlasbirth_PFOS*100.1289877 # initial amount in rest of the body at birth 
-Afilbirth_PFOS = APlasbirth_PFOS*0.0000150221 # initial amount filtrate at birth 
-Adelaybirth_PFOS = APlasbirth_PFOS*9.156014881 # initial amount in storage at birth 
-Aurinebirth_PFOS = APlasbirth_PFOS*565.1438095 # initial amount in urine at birth 
+# CONCbirth_PFOS = PFOSmaternal*PT_PFOS # PFOS concentration at birth, new add in 2020 
+# APlasbirth_PFOS = CONCbirth_PFOS*Free_PFOS*VPlasC*BWbirth # initial amount in plasma at birth 
+# AGbirth_PFOS = APlasbirth_PFOS*9.112506818 # initial amount in gut at birth 
+# ALbirth_PFOS = APlasbirth_PFOS*90.41427413 # initial amount in liver at birth 
+# AFbirth_PFOS = APlasbirth_PFOS*27.99955778 # initial amount in fat at birth 
+# AKbirth_PFOS = APlasbirth_PFOS*3.587821811 # initial amount in kidney at birth 
+# ARbirth_PFOS = APlasbirth_PFOS*100.1289877 # initial amount in rest of the body at birth 
+# Afilbirth_PFOS = APlasbirth_PFOS*0.0000150221 # initial amount filtrate at birth 
+# Adelaybirth_PFOS = APlasbirth_PFOS*9.156014881 # initial amount in storage at birth 
+# Aurinebirth_PFOS = APlasbirth_PFOS*565.1438095 # initial amount in urine at birth 
 
 # PFOS age-dependent starting values
 # APlas_PFOS_background = Background_PFAS_amounts$APlas_PFOS[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
@@ -305,7 +302,6 @@ ASk_PFOS_background = Background_PFAS_amounts$ASk_PFOS[which(Background_PFAS_amo
 Alun_PFOS_background = Background_PFAS_amounts$Alun_PFOS[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
 AR_PFOS_background = Background_PFAS_amounts$AR_PFOS[which(Background_PFAS_amounts$age==round(AGE, digits=1))]
 
-# source("Time-dependent variables extended per day - EFSA TWI.R")
 #### Time-dependent variables ----
 Variables_df <- Variables_df %>%
   mutate(BW = BWbirth + 4.47*age - 0.093*age^2 + 0.00061*age^3) %>%
@@ -347,14 +343,13 @@ Variables_df <- Variables_df %>%
   mutate(Drinkdose_PFOS = if_else(day > exposure_duration,0,Drinkdose_PFOS)) %>% # stop exposure after exposure_duration
   
   # Inhalation exposure
-  mutate(Inhalation_PFOA = 0) %>%
-  mutate(Inhalation_PFOA = if_else(dayoftheweek >= 1 & dayoftheweek <= 5,Cinh_PFOA_total_day,Inhalation_PFOA)) %>% # stop exposure after exposure_duration
-  mutate(Inhalation_PFOA = if_else(month >= 5 & month <= 10,0,Inhalation_PFOA)) %>% # stop exposure after exposure_duration
-  mutate(Inhalation_PFOA = if_else(age >= age_start & age <= age_stop,Inhalation_PFOA,0)) %>% # stop exposure after exposure_duration
-  mutate(Inhalation_PFOS = 0) %>%
-  mutate(Inhalation_PFOS = if_else(dayoftheweek >= 1 & dayoftheweek <= 5,Cinh_PFOS_total_day,Inhalation_PFOS)) %>% # stop exposure after exposure_duration
-  mutate(Inhalation_PFOS = if_else(month >= 5 & month <= 10,0,Inhalation_PFOS)) %>% # stop exposure after exposure_duration
-  mutate(Inhalation_PFOS = if_else(age >= age_start & age <= age_stop,Inhalation_PFOS,0)) %>% # stop exposure after exposure_duration
+  # Daily inhalation exposure
+  mutate(Inhalation_PFOA = Cinh_PFOA_total_day) %>%
+  mutate(Inhalation_PFOS = Cinh_PFOS_total_day) %>%
+  
+  # In case of age-dependent inhalation exposure, set the value to 0 for the ages that are not included
+  mutate(Inhalation_PFOA = if_else(age >= age_start_inh_exp & age <= age_stop_inh_exp,Inhalation_PFOA,0)) %>%
+  mutate(Inhalation_PFOS = if_else(age >= age_start_inh_exp & age <= age_stop_inh_exp,Inhalation_PFOS,0)) %>%
   
   # Blood flows
   mutate(QC = QCC*BW**0.75) %>% # Cardiac output (L/d) 
@@ -393,8 +388,12 @@ Variables_df <- Variables_df %>%
   mutate(Dermaldose_PFOS_day = Cdermal_PFOS_total_day*Vsurf) %>%
   
   # Dermal exposure
-  mutate(Csurf_PFOA = 0) %>%
-  mutate(Csurf_PFOS = 0) %>%
+  mutate(Csurf_PFOA = Cdermal_PFOA_total_day) %>%
+  mutate(Csurf_PFOS = Cdermal_PFOS_total_day) %>%
+  
+  # In case of age-dependent dermal exposure, set the value to 0 for the ages that are not included
+  mutate(Csurf_PFOA = if_else(age >= age_start_derm_exp & age <= age_stop_derm_exp,Csurf_PFOA,0)) %>%
+  mutate(Csurf_PFOS = if_else(age >= age_start_derm_exp & age <= age_stop_derm_exp,Csurf_PFOS,0)) %>%
   
   mutate(Vsc = fss*SkinTarea*hsc/1000) %>% # volume of exposed stratum corneum (L) cm^2 * cm = cm^3 = ml / 1000 = L
   mutate(Vve = fss*SkinTarea*hve/1000) %>% # volume of exposed viable epidermis (L) cm^2 * cm = cm^3 = ml / 1000 = L
@@ -670,51 +669,49 @@ PFAS_extended <- function(t, A, parms) {
 #### parms ----
 # Parameters used in the model
 parms_PFAS_extended <- c(Kt_PFOA, Free_PFOA, FreeL_PFOA, FreeF_PFOA, FreeK_PFOA, FreeSk_PFOA, FreeR_PFOA, FreeG_PFOA,
-                                     PL_PFOA, PF_PFOA, PK_PFOA, PSk_PFOA, PR_PFOA, PG_PFOA,
-                                     Kt_PFOS, Free_PFOS, FreeL_PFOS, FreeF_PFOS, FreeK_PFOS, FreeSk_PFOS, FreeR_PFOS, FreeG_PFOS,
-                                     PL_PFOS, PF_PFOS, PK_PFOS, PSk_PFOS, PR_PFOS, PG_PFOS,
-                                     Pab_PFOA,
-                                     Pab_PFOS,
-                                     Kscve_PFOA,
-                                     Kscve_PFOS,
-                                     Kver_PFOA,
-                                     Kver_PFOS,
-                                     Remove = 0)
+                         PL_PFOA, PF_PFOA, PK_PFOA, PSk_PFOA, PR_PFOA, PG_PFOA,
+                         Kt_PFOS, Free_PFOS, FreeL_PFOS, FreeF_PFOS, FreeK_PFOS, FreeSk_PFOS, FreeR_PFOS, FreeG_PFOS,
+                         PL_PFOS, PF_PFOS, PK_PFOS, PSk_PFOS, PR_PFOS, PG_PFOS,
+                         Pab_PFOA,
+                         Pab_PFOS,
+                         Kscve_PFOA,
+                         Kscve_PFOS,
+                         Kver_PFOA,
+                         Kver_PFOS,
+                         Remove = 0)
 
 #### A_init ----
 # Initial values
 A_init_PFAS_extended <- c(Alun_PFOA = Alun_PFOA_background,
-                                      Asc_PFOA = 0,
-                                      Atrans_PFOA = 0,
-                                      Ave_PFOA = 0,
-                                      ASk_PFOA = ASk_PFOA_background,
-                                      Aven_PFOA = Aven_PFOA_background,
-                                      Aart_PFOA = Aart_PFOA_background,
-                                      AG_PFOA = AG_PFOA_background,
-                                      AL_PFOA = AL_PFOA_background, # Initial amount in liver (ug)
-                                      AF_PFOA = AF_PFOA_background,
-                                      AK_PFOA = AK_PFOA_background,
-                                      Afil_PFOA = Afil_PFOA_background,
-                                      Adelay_PFOA = Adelay_PFOA_background,
-                                      Aurine_PFOA = Aurine_PFOA_background,
-                                      AR_PFOA = AR_PFOA_background,
-                                      Alun_PFOS = Alun_PFOS_background,
-                                      Asc_PFOS = 0,
-                                      Atrans_PFOS = 0,
-                                      Ave_PFOS = 0,
-                                      ASk_PFOS = ASk_PFOS_background,
-                                      Aven_PFOS = Aven_PFOS_background,
-                                      Aart_PFOS = Aart_PFOS_background,
-                                      AG_PFOS = AG_PFOS_background,
-                                      AL_PFOS = AL_PFOS_background, # Initial amount in liver (ug)
-                                      AF_PFOS = AF_PFOS_background,
-                                      AK_PFOS = AK_PFOS_background,
-                                      Afil_PFOS = Afil_PFOS_background,
-                                      Adelay_PFOS = Adelay_PFOS_background,
-                                      Aurine_PFOS = Aurine_PFOS_background,
-                                      AR_PFOS = AR_PFOS_background)
-
-# Cholesterol startwaarden zijn aangepast op basis van 20 jarige met continue achtergrond blootstelling aan PFAS
+                          Asc_PFOA = 0,
+                          Atrans_PFOA = 0,
+                          Ave_PFOA = 0,
+                          ASk_PFOA = ASk_PFOA_background,
+                          Aven_PFOA = Aven_PFOA_background,
+                          Aart_PFOA = Aart_PFOA_background,
+                          AG_PFOA = AG_PFOA_background,
+                          AL_PFOA = AL_PFOA_background, 
+                          AF_PFOA = AF_PFOA_background,
+                          AK_PFOA = AK_PFOA_background,
+                          Afil_PFOA = Afil_PFOA_background,
+                          Adelay_PFOA = Adelay_PFOA_background,
+                          Aurine_PFOA = Aurine_PFOA_background,
+                          AR_PFOA = AR_PFOA_background,
+                          Alun_PFOS = Alun_PFOS_background,
+                          Asc_PFOS = 0,
+                          Atrans_PFOS = 0,
+                          Ave_PFOS = 0,
+                          ASk_PFOS = ASk_PFOS_background,
+                          Aven_PFOS = Aven_PFOS_background,
+                          Aart_PFOS = Aart_PFOS_background,
+                          AG_PFOS = AG_PFOS_background,
+                          AL_PFOS = AL_PFOS_background, 
+                          AF_PFOS = AF_PFOS_background,
+                          AK_PFOS = AK_PFOS_background,
+                          Afil_PFOS = Afil_PFOS_background,
+                          Adelay_PFOS = Adelay_PFOS_background,
+                          Aurine_PFOS = Aurine_PFOS_background,
+                          AR_PFOS = AR_PFOS_background)
 
 #### OUTPUT ----
 # PFOA & PFOS
@@ -724,36 +721,25 @@ output.df <- Variables_df %>%
   rename(time = TIME) %>%
   left_join(output.df)
 write.csv(output.df, 'Results/validation_result.csv')
-
 # PFOA concentration in plasma (ug/L)
 Figure_PFAS <- ggplot() +
   geom_line(data=output.df, aes(x=age, y=Cart_PFOA, color="Cart_PFOA", lty="Cart_PFOA")) +
   geom_line(data=output.df, aes(x=age, y=Cart_PFOS, color="Cart_PFOS", lty="Cart_PFOS")) +
-
+  
   scale_colour_manual(name='Output',
                       values=c('Cart_PFOA'='#000000',
                                'Cart_PFOS'='#000000'),
                       labels=c('Cart_PFOA'='PFOA concentration in plasma',
                                'Cart_PFOS'='PFOS concentration in plasma')) +
-
+  
   scale_linetype_manual(name='Output',
                         values=c('Cart_PFOA'='solid',
                                  'Cart_PFOS'='dashed'),
                         labels=c('Cart_PFOA'='PFOA concentration in plasma',
                                  'Cart_PFOS'='PFOS concentration in plasma')) +
-
+  
   theme_bw() +
   labs(title="PFAS concentration-time profiles",x="\nAge (y)", y="Concentration (\u03BCg/L)\n") +
   theme(plot.title = element_text(hjust = 0.5))
 
-tiff("Westerhout 2024 - Figure PFAS kinetics.tif",
-     res=600, compression = "lzw",
-     height=6,
-     width=8,
-     units="in")
 Figure_PFAS
-
-dev.off()
-
-Figure_PFAS
-
