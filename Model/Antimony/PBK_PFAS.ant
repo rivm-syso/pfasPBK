@@ -1,13 +1,9 @@
 // Based on Westerhout et al., 2024 PFOA PBPK model
 
 model PFOA()
-    
-  // Time dependent variables
-  age = 40
-  BWbirth = 3.68 # Body weight at birth in kg new add opinion 2020 
-  BW := BWbirth + 4.47*age - 0.093*age^2 + 0.00061*age^3
-  
+
   // PHYSIOLOGY
+  BW = 70             # Body weight (perhaps make time dependent: input age and bw-at-age)
 
   // Perfusion fractions
   QCC = 300;          # 12.5*24   # Cardiac blood output (L/d/kg^0.75)
@@ -16,7 +12,7 @@ model PFOA()
   QKC = 0.175;        # Fraction cardiac output going to kidney
   QSkC = 0.058;       # Fraction cardiac output going to skin
   QGC = 0.181;        # Fraction of cardiac output going to gut and the liver via portal arthery
-  
+
   // Fraction tissue volumes
   VLC = 0.026;        # Fraction liver volume
   VFC = 0.214;        # Fraction fat volume
@@ -40,27 +36,27 @@ model PFOA()
   ffatepi = 0.02      # Fraction of fat in epidermis [Polak 2012]
   ffatbl = 0.007      # Fraction of fat in blood [Polak 2012]
   Kpcell = 0.93       # cm/h; Krüse model is normalized to 1 cm^2 # Permeability coefficient from arterial wall into the blood compartment [Krüse 2007]
-  
+
   // Physicochemical properties
   MW = 414.07
   logP = 4.81
-  VP = 2.34           # 10^0.37 # Pa [Zhang 2021]; 1 mmHg = 133.322368 Pa; 0.15 mmHg (https://haz-map.com/Agents/6596) = 20 Pa
+  VP = 2.34           # Vapor pressure (Pa) 10^0.37 [Zhang 2021]; 1 mmHg = 133.322368 Pa; 0.15 mmHg (https://haz-map.com/Agents/6596) = 20 Pa
 
-  Tmc = 144000        # 6000*24   # Maximum resorption rate 
-  Kt = 55             # Resorption affinity# same as monkey
+  Tmc = 144000        # 6000*24  # Maximum resorption rate (ug/d/kg^.75)^a (based on half-life of 2.3 years in humans)
+  Kt = 55             # Resorption affinity (ug/L) (same as monkey)
   kurinec = 0.0072    # 0.0003*24 # urinary elimination rate constant (/d/kg^-0.25)# estimated 
   Free = 0.02         # Free fraction in plasma# same as monkey 
-  
+
   // Inhalation exposure
   Biotransformation = 0.003 # 8:2-FTOH to PFOA [Gomis 2016]
-  
+
   // Partition coefficients from Harada, et al 2005 
   PL = 2.2            # Liver/plasma partition coefficient
   PF = 0.04           # Fat/plasma partition coefficient
   PK = 1.05           # Kidney/plasma partition coefficient
   PSk = 0.1           # Skin/plasma partition coefficient
   PR = 0.12           # Rest of the body/plasma partition coefficient
-  PG = 0.05           # Gut/blood plasma coefficient  
+  PG = 0.05           # Gut/blood plasma coefficient
   PLun = 1.27         # Lung/plasma partition coefficient; [Fabrega 2014]
 
   // Dermal exposure
