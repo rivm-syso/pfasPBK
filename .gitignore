@@ -1,0 +1,10 @@
+# Visual studio code
+.vscode/*
+
+# R
+.Rproj.user
+
+# Python
+*.pyc
+**/__pycache__
+.ipynb_checkpoints
