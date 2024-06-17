@@ -100,8 +100,8 @@ model PFOA()
   Vfil := VfilC*BW;           # Scaled filtrate compartment volume
   VG := VGC*BW;               # Gut volume (L)
   VPlas := VPlasC*BW;         # Scaled plasma volume(L)
-  Vart_plas := 0.39*VPlas     # Scaled arterial plasma volume [Brown 1997]
-  Vven_plas := 0.61*VPlas     # Scaled venous plasma volume [Brown 1997]
+  VArt_Plas := 0.39*VPlas     # Scaled arterial plasma volume [Brown 1997]
+  VVen_Plas := 0.61*VPlas     # Scaled venous plasma volume [Brown 1997]
   VSk := (Skinarea*Skinthickness)/1000;  # Skin volume (L)
   Vlun := VlunC*BW # Functional residual capacity # https://en.wikipedia.org/wiki
   VR := 0.84*BW-VL-VF-VK-Vfil-VG-VPlas-VSk-Vlun;  # Rest of the body volume (L). Need to know where the number 0.84 comes from???  
@@ -126,8 +126,8 @@ model PFOA()
   compartment Sc                # Stratum corneum
   compartment Ve := Vve         # Viable epidermis
   compartment Skin := VSk;      # Skin compartment
-  compartment Ven := Vven_plas
-  compartment Art := Vart_plas 
+  compartment Ven_plas := VVen_Plas
+  compartment Art_plas := VArt_Plas 
   compartment Gut := VG;        # Gut compartment
   compartment Liv := VL;        # Liver compartment
   compartment Fat := VF;        # Fat compartment
@@ -142,8 +142,8 @@ model PFOA()
   substanceOnly species Asc in Sc
   substanceOnly species Ave in Ve
   substanceOnly species ASk in Skin
-  substanceOnly species Aven in Ven
-  substanceOnly species Aart in Art
+  substanceOnly species Aven_plas in Ven_plas
+  substanceOnly species Aart_plas in Art_plas
   substanceOnly species AG in Gut
   substanceOnly species AL in Liv
   substanceOnly species AF in Fat
@@ -158,8 +158,8 @@ model PFOA()
   Asc = 0
   Ave = 0
   ASk = 0
-  Aven = 0
-  Aart = 0
+  Aven_plas = 0
+  Aart_plas = 0
   AG = 0        # amount in gut
   AL = 0;       # amount in liver
   AF = 0;       # amount in fat
@@ -177,26 +177,26 @@ model PFOA()
   Ave -> Atrans; 2*CLve*(Ave / Vve)
   Ave -> ASk; CLcell*(Ave / Vve)/Kver
   
-  Alung -> Aart; QCP*(Alung / (Valv*Pab + Vlun))
-  Aart -> AG; QG*(Aart/Vart_plas)
-  Aart -> AL; QL*(Aart/Vart_plas)
-  Aart -> AF; QF*(Aart/Vart_plas)
-  Aart -> AK; QK*(Aart/Vart_plas)
-  Aart -> Afil; Qfil*(Aart/Vart_plas)
-  Aart -> AR; QR*(Aart/Vart_plas)
-  Aart -> ASk; QSk*(Aart/Vart_plas)
+  Alung -> Aart_plas; QCP*(Alung / (Valv*Pab + Vlun))
+  Aart_plas -> AG; QG*(Aart_plas/VArt_Plas)
+  Aart_plas -> AL; QL*(Aart_plas/VArt_Plas)
+  Aart_plas -> AF; QF*(Aart_plas/VArt_Plas)
+  Aart_plas -> AK; QK*(Aart_plas/VArt_Plas)
+  Aart_plas -> Afil; Qfil*(Aart_plas/VArt_Plas)
+  Aart_plas -> AR; QR*(Aart_plas/VArt_Plas)
+  Aart_plas -> ASk; QSk*(Aart_plas/VArt_Plas)
   
   AG -> AL; QG*FreeG*(AG/VG)
   Afil -> AK; (Tm*(Afil/Vfil))/(Kt+(Afil/Vfil))
   Afil -> Adelay; Qfil*(Afil/Vfil)
   Adelay -> Aurine; kurine*Adelay 
   
-  AL -> Aven; (QL+QG)*FreeL*(AL/VL)
-  AF -> Aven; QF*FreeF*(AF/VF)
-  AK -> Aven; QK*FreeK*(AK/VK)
-  AR -> Aven; QR*FreeR*(AR/VR)
-  ASk -> Aven; QSk*FreeSk*(ASk/VSk)
+  AL -> Aven_plas; (QL+QG)*FreeL*(AL/VL)
+  AF -> Aven_plas; QF*FreeF*(AF/VF)
+  AK -> Aven_plas; QK*FreeK*(AK/VK)
+  AR -> Aven_plas; QR*FreeR*(AR/VR)
+  ASk -> Aven_plas; QSk*FreeSk*(ASk/VSk)
   
-  Aven -> Alung; QCP*(Aven/Vven_plas)
+  Aven_plas -> Alung; QCP*(Aven_plas/VVen_Plas)
   
 end

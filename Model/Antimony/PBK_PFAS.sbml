@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model metaid="PFOA" id="PFOA">
+    <listOfUnitDefinitions>
+      <unitDefinition id="L_PER_HR">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="CentiM">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="-2" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition>
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
+          <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="L_PER_DAY_KiloGM3DIV4">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
+          <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="CentiM_PER_HR">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="-2" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="GM_PER_MOL">
+        <listOfUnits>
+          <unit kind="gram" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="mole" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="L">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="Lung" spatialDimensions="3" size="0.49" constant="false"/>
+      <compartment id="Trans" spatialDimensions="3" size="1e-07" units="L" constant="true"/>
+      <compartment id="Sc" spatialDimensions="3" size="1" units="L" constant="true"/>
+      <compartment id="Ve" spatialDimensions="3" size="0.000767090653718623" units="L" constant="false"/>
+      <compartment id="Skin" spatialDimensions="3" size="0.0972" units="L" constant="false"/>
+      <compartment id="Ven" spatialDimensions="3" size="1.82756" units="L" constant="false"/>
+      <compartment id="Art" spatialDimensions="3" size="1.16844" units="L" constant="false"/>
+      <compartment id="Gut" spatialDimensions="3" size="1.197" units="L" constant="false"/>
+      <compartment id="Liv" spatialDimensions="3" size="1.82" units="L" constant="false"/>
+      <compartment id="Fat" spatialDimensions="3" size="14.98" units="L" constant="false"/>
+      <compartment id="Kid" spatialDimensions="3" size="0.28" units="L" constant="false"/>
+      <compartment id="Fil" spatialDimensions="3" size="0.028" units="L" constant="false"/>
+      <compartment id="Delay" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="Urine" spatialDimensions="3" size="1" units="L" constant="true"/>
+      <compartment id="Rest" spatialDimensions="3" size="36.9118" units="L" constant="false"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Alung" compartment="Lung" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Atrans" compartment="Trans" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Asc" compartment="Sc" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Ave" compartment="Ve" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="ASk" compartment="Skin" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Aven" compartment="Ven" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Aart" compartment="Art" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AG" compartment="Gut" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AL" compartment="Liv" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AF" compartment="Fat" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AK" compartment="Kid" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Afil" compartment="Fil" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Adelay" compartment="Delay" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="Aurine" compartment="Urine" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AR" compartment="Rest" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="BW" value="70" constant="true"/>
+      <parameter id="QCC" value="300" units="L_PER_DAY_KiloGM3DIV4" constant="true"/>
+      <parameter id="QFC" value="0.052" constant="true"/>
+      <parameter id="QLC" value="0.069" constant="true"/>
+      <parameter id="QKC" value="0.175" constant="true"/>
+      <parameter id="QSkC" value="0.058" constant="true"/>
+      <parameter id="QGC" value="0.181" constant="true"/>
+      <parameter id="VLC" value="0.026" constant="true"/>
+      <parameter id="VFC" value="0.214" constant="true"/>
+      <parameter id="VKC" value="0.004" constant="true"/>
+      <parameter id="VfilC" value="0.0004" constant="true"/>
+      <parameter id="VGC" value="0.0171" constant="true"/>
+      <parameter id="VlunC" value="0.007" constant="true"/>
+      <parameter id="VPlasC" value="0.0428" constant="true"/>
+      <parameter id="Htc" value="0.44" constant="true"/>
+      <parameter id="Skinarea" value="972" constant="true"/>
+      <parameter id="Skinthickness" value="0.1" constant="true"/>
+      <parameter id="fss" value="0.005" constant="true"/>
+      <parameter id="hsurf" value="0.01" units="CentiM" constant="true"/>
+      <parameter id="hsc" value="0.0015" units="CentiM" constant="true"/>
+      <parameter id="hve" value="0.01" units="CentiM" constant="true"/>
+      <parameter id="hcell" value="5e-05" units="CentiM" constant="true"/>
+      <parameter id="ffatsc" value="0.05" constant="true"/>
+      <parameter id="ffatve" value="0.02" constant="true"/>
+      <parameter id="ffatepi" value="0.02" constant="true"/>
+      <parameter id="ffatbl" value="0.007" constant="true"/>
+      <parameter id="Kpcell" value="0.93" units="CentiM_PER_HR" constant="true"/>
+      <parameter id="MW" value="414.07" units="GM_PER_MOL" constant="true"/>
+      <parameter id="logP" value="4.81" constant="true"/>
+      <parameter id="VP" value="2.34" constant="true"/>
+      <parameter id="Tmc" value="144000" constant="true"/>
+      <parameter id="Kt" value="55" constant="true"/>
+      <parameter id="kurinec" value="0.0072" constant="true"/>
+      <parameter id="Free" value="0.02" constant="true"/>
+      <parameter id="Biotransformation" value="0.003" constant="true"/>
+      <parameter id="PL" value="2.2" constant="true"/>
+      <parameter id="PF" value="0.04" constant="true"/>
+      <parameter id="PK" value="1.05" constant="true"/>
+      <parameter id="PSk" value="0.1" constant="true"/>
+      <parameter id="PR" value="0.12" constant="true"/>
+      <parameter id="PG" value="0.05" constant="true"/>
+      <parameter id="PLun" value="1.27" constant="true"/>
+      <parameter id="Kpsc" value="8.8e-05" constant="true"/>
+      <parameter id="Kpve" value="8.8e-05" constant="true"/>
+      <parameter id="kurine" value="0.00248918964942198" constant="false"/>
+      <parameter id="SkinTarea" value="15341.8130743724" constant="false"/>
+      <parameter id="Kscve" value="0.400185803316969" constant="false"/>
+      <parameter id="Kver" value="0.350502983676703" constant="false"/>
+      <parameter id="Pab" value="0.0108983560368945" constant="false"/>
+      <parameter id="FreeL" value="0.00909090909090909" constant="false"/>
+      <parameter id="FreeF" value="0.5" constant="false"/>
+      <parameter id="FreeK" value="0.019047619047619" constant="false"/>
+      <parameter id="FreeSk" value="0.2" constant="false"/>
+      <parameter id="FreeR" value="0.166666666666667" constant="false"/>
+      <parameter id="FreeG" value="0.4" constant="false"/>
+      <parameter id="FreeLun" value="0.015748031496063" constant="false"/>
+      <parameter id="QC" value="7260.13647748076" constant="false"/>
+      <parameter id="QCP" value="4065.67642738923" constant="false"/>
+      <parameter id="QL" value="280.531673489857" constant="false"/>
+      <parameter id="QF" value="211.41517422424" constant="false"/>
+      <parameter id="QK" value="711.493374793115" constant="false"/>
+      <parameter id="Qfil" value="142.298674958623" constant="false"/>
+      <parameter id="QG" value="735.88743335745" constant="false"/>
+      <parameter id="QSk" value="235.809232788575" constant="false"/>
+      <parameter id="QR" value="1890.53953873599" constant="false"/>
+      <parameter id="Qbal" value="0" constant="false"/>
+      <parameter id="VL" value="1.82" units="L" constant="false"/>
+      <parameter id="VF" value="14.98" units="L" constant="false"/>
+      <parameter id="VK" value="0.28" units="L" constant="false"/>
+      <parameter id="Vfil" value="0.028" units="L" constant="false"/>
+      <parameter id="VG" value="1.197" units="L" constant="false"/>
+      <parameter id="VPlas" value="2.996" units="L" constant="false"/>
+      <parameter id="Vart_plas" value="1.16844" units="L" constant="false"/>
+      <parameter id="Vven_plas" value="1.82756" units="L" constant="false"/>
+      <parameter id="VSk" value="0.0972" units="L" constant="false"/>
+      <parameter id="Vlun" value="0.49" units="L" constant="false"/>
+      <parameter id="VR" value="36.9118" units="L" constant="false"/>
+      <parameter id="VT" value="0.49" constant="false"/>
+      <parameter id="VFRC" value="2.1" constant="false"/>
+      <parameter id="Valv" value="2.345" constant="false"/>
+      <parameter id="Vbal" value="36.9118" constant="false"/>
+      <parameter id="Vsurf" value="0.000767090653718623" constant="false"/>
+      <parameter id="Vsc" value="0.000115063598057793" units="L" constant="false"/>
+      <parameter id="Vve" value="0.000767090653718623" units="L" constant="false"/>
+      <parameter id="Tm" value="3484865.50919077" constant="false"/>
+      <parameter id="CLsc" value="0.000162009546065373" units="L_PER_HR" constant="false"/>
+      <parameter id="CLve" value="0.000162009546065373" units="L_PER_HR" constant="false"/>
+      <parameter id="CLcell" value="1.71214633909997" constant="false"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="Lung">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Vlun </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Ve">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Vve </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Skin">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VSk </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Ven">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Vven_plas </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Art">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Vart_plas </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Gut">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VG </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Liv">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VL </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Fat">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VF </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Kid">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VK </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Fil">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> Vfil </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Rest">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> VR </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="kurine">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> kurinec </ci>
+            <apply>
+              <power/>
+              <ci> BW </ci>
+              <cn> -0.25 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="SkinTarea">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 9.1 </cn>
+            <apply>
+              <power/>
+              <apply>
+                <times/>
+                <ci> BW </ci>
+                <cn type="integer"> 1000 </cn>
+              </apply>
+              <cn> 0.666 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Kscve">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> ffatve </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> ffatve </ci>
+                <apply>
+                  <power/>
+                  <cn type="integer"> 10 </cn>
+                  <ci> logP </ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> ffatsc </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> ffatsc </ci>
+                <apply>
+                  <power/>
+                  <cn type="integer"> 10 </cn>
+                  <ci> logP </ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Kver">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> ffatbl </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> ffatbl </ci>
+                <apply>
+                  <power/>
+                  <cn type="integer"> 10 </cn>
+                  <ci> logP </ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <cn type="integer"> 1 </cn>
+                <ci> ffatepi </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> ffatepi </ci>
+                <apply>
+                  <power/>
+                  <cn type="integer"> 10 </cn>
+                  <ci> logP </ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Pab">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <power/>
+              <cn type="integer"> 10 </cn>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <minus/>
+                    <cn> 6.96 </cn>
+                    <apply>
+                      <times/>
+                      <cn> 1.04 </cn>
+                      <apply>
+                        <log/>
+                        <logbase>
+                          <cn type="integer"> 10 </cn>
+                        </logbase>
+                        <ci> VP </ci>
+                      </apply>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <cn> 0.533 </cn>
+                    <ci> logP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <cn> 0.00495 </cn>
+                  <ci> MW </ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeL">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PL </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PF </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeK">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PK </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeSk">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PSk </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeG">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PG </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="FreeLun">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> Free </ci>
+            <ci> PLun </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QC">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QCC </ci>
+            <apply>
+              <power/>
+              <ci> BW </ci>
+              <cn> 0.75 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QCP">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QC </ci>
+            <apply>
+              <minus/>
+              <cn type="integer"> 1 </cn>
+              <ci> Htc </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QL">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QLC </ci>
+            <ci> QCP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QFC </ci>
+            <ci> QCP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QK">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QKC </ci>
+            <ci> QCP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Qfil">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.2 </cn>
+            <ci> QK </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QG">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QGC </ci>
+            <ci> QCP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QSk">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> QSkC </ci>
+            <ci> QCP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="QR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <minus/>
+                    <ci> QCP </ci>
+                    <ci> QL </ci>
+                  </apply>
+                  <ci> QF </ci>
+                </apply>
+                <ci> QK </ci>
+              </apply>
+              <ci> QG </ci>
+            </apply>
+            <ci> QSk </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Qbal">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> QCP </ci>
+            <apply>
+              <plus/>
+              <ci> QR </ci>
+              <ci> QL </ci>
+              <ci> QF </ci>
+              <ci> QK </ci>
+              <ci> QG </ci>
+              <ci> QSk </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VL">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VLC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VF">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VFC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VK">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VKC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vfil">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VfilC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VG">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VGC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VPlas">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VPlasC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vart_plas">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.39 </cn>
+            <ci> VPlas </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vven_plas">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.61 </cn>
+            <ci> VPlas </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VSk">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> Skinarea </ci>
+              <ci> Skinthickness </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vlun">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> VlunC </ci>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <minus/>
+                    <apply>
+                      <minus/>
+                      <apply>
+                        <minus/>
+                        <apply>
+                          <minus/>
+                          <apply>
+                            <times/>
+                            <cn> 0.84 </cn>
+                            <ci> BW </ci>
+                          </apply>
+                          <ci> VL </ci>
+                        </apply>
+                        <ci> VF </ci>
+                      </apply>
+                      <ci> VK </ci>
+                    </apply>
+                    <ci> Vfil </ci>
+                  </apply>
+                  <ci> VG </ci>
+                </apply>
+                <ci> VPlas </ci>
+              </apply>
+              <ci> VSk </ci>
+            </apply>
+            <ci> Vlun </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VT">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.007 </cn>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="VFRC">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.03 </cn>
+            <ci> BW </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Valv">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> VFRC </ci>
+            <apply>
+              <times/>
+              <cn> 0.5 </cn>
+              <ci> VT </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vbal">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <cn> 0.84 </cn>
+              <ci> BW </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> VL </ci>
+              <ci> VF </ci>
+              <ci> VK </ci>
+              <ci> Vfil </ci>
+              <ci> VG </ci>
+              <ci> VPlas </ci>
+              <ci> VSk </ci>
+              <ci> Vlun </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vsurf">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hsurf </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vsc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hsc </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vve">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hve </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Tm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> Tmc </ci>
+            <apply>
+              <power/>
+              <ci> BW </ci>
+              <cn> 0.75 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="CLsc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <cn type="integer"> 24 </cn>
+              <ci> Kpsc </ci>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="CLve">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <cn type="integer"> 24 </cn>
+              <ci> Kpve </ci>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="CLcell">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <cn type="integer"> 24 </cn>
+              <ci> Kpcell </ci>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction id="_J0" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Asc" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Atrans" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <cn type="integer"> 2 </cn>
+              <ci> CLsc </ci>
+              <apply>
+                <divide/>
+                <ci> Asc </ci>
+                <ci> Vsc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J1" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Atrans" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Ave" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <cn type="integer"> 2 </cn>
+              <ci> CLve </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <divide/>
+                  <ci> Atrans </ci>
+                  <cn type="e-notation"> 1 <sep/> -7 </cn>
+                </apply>
+                <ci> Kscve </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J2" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Atrans" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Asc" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <cn type="integer"> 2 </cn>
+              <ci> CLsc </ci>
+              <apply>
+                <divide/>
+                <ci> Atrans </ci>
+                <cn type="e-notation"> 1 <sep/> -7 </cn>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J3" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Ave" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Atrans" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <cn type="integer"> 2 </cn>
+              <ci> CLve </ci>
+              <apply>
+                <divide/>
+                <ci> Ave </ci>
+                <ci> Vve </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J4" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Ave" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ASk" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> CLcell </ci>
+                <apply>
+                  <divide/>
+                  <ci> Ave </ci>
+                  <ci> Vve </ci>
+                </apply>
+              </apply>
+              <ci> Kver </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J5" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Alung" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QCP </ci>
+              <apply>
+                <divide/>
+                <ci> Alung </ci>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> Valv </ci>
+                    <ci> Pab </ci>
+                  </apply>
+                  <ci> Vlun </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J6" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AG" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QG </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J7" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AL" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QL </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J8" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AF" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QF </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J9" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AK" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QK </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J10" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Afil" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Qfil </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J11" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AR" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QR </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J12" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ASk" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QSk </ci>
+              <apply>
+                <divide/>
+                <ci> Aart </ci>
+                <ci> Vart_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J13" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AG" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AL" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QG </ci>
+              <ci> FreeG </ci>
+              <apply>
+                <divide/>
+                <ci> AG </ci>
+                <ci> VG </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J14" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Afil" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AK" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> Tm </ci>
+                <apply>
+                  <divide/>
+                  <ci> Afil </ci>
+                  <ci> Vfil </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> Kt </ci>
+                <apply>
+                  <divide/>
+                  <ci> Afil </ci>
+                  <ci> Vfil </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J15" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Afil" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Adelay" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> Qfil </ci>
+              <apply>
+                <divide/>
+                <ci> Afil </ci>
+                <ci> Vfil </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J16" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Adelay" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aurine" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kurine </ci>
+              <ci> Adelay </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J17" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AL" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <ci> QL </ci>
+                <ci> QG </ci>
+              </apply>
+              <ci> FreeL </ci>
+              <apply>
+                <divide/>
+                <ci> AL </ci>
+                <ci> VL </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J18" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AF" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QF </ci>
+              <ci> FreeF </ci>
+              <apply>
+                <divide/>
+                <ci> AF </ci>
+                <ci> VF </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J19" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AK" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QK </ci>
+              <ci> FreeK </ci>
+              <apply>
+                <divide/>
+                <ci> AK </ci>
+                <ci> VK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J20" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AR" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QR </ci>
+              <ci> FreeR </ci>
+              <apply>
+                <divide/>
+                <ci> AR </ci>
+                <ci> VR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J21" reversible="true">
+        <listOfReactants>
+          <speciesReference species="ASk" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QSk </ci>
+              <ci> FreeSk </ci>
+              <apply>
+                <divide/>
+                <ci> ASk </ci>
+                <ci> VSk </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="_J22" reversible="true">
+        <listOfReactants>
+          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Alung" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> QCP </ci>
+              <apply>
+                <divide/>
+                <ci> Aven </ci>
+                <ci> Vven_plas </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
