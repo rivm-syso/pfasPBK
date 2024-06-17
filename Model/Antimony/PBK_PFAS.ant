@@ -126,8 +126,8 @@ model PFOA()
   compartment Sc                # Stratum corneum
   compartment Ve := Vve         # Viable epidermis
   compartment Skin := VSk;      # Skin compartment
-  compartment Ven_plas := VVen_Plas
-  compartment Art_plas := VArt_Plas 
+  compartment Ven_Plas := VVen_Plas
+  compartment Art_Plas := VArt_Plas 
   compartment Gut := VG;        # Gut compartment
   compartment Liv := VL;        # Liver compartment
   compartment Fat := VF;        # Fat compartment
@@ -142,8 +142,8 @@ model PFOA()
   substanceOnly species Asc in Sc
   substanceOnly species Ave in Ve
   substanceOnly species ASk in Skin
-  substanceOnly species Aven_plas in Ven_plas
-  substanceOnly species Aart_plas in Art_plas
+  substanceOnly species AVen_Plas in Ven_Plas
+  substanceOnly species AArt_Plas in Art_Plas
   substanceOnly species AG in Gut
   substanceOnly species AL in Liv
   substanceOnly species AF in Fat
@@ -158,8 +158,8 @@ model PFOA()
   Asc = 0
   Ave = 0
   ASk = 0
-  Aven_plas = 0
-  Aart_plas = 0
+  AVen_Plas = 0
+  AArt_Plas = 0
   AG = 0        # amount in gut
   AL = 0;       # amount in liver
   AF = 0;       # amount in fat
@@ -177,26 +177,26 @@ model PFOA()
   Ave -> Atrans; 2*CLve*(Ave / Vve)
   Ave -> ASk; CLcell*(Ave / Vve)/Kver
   
-  Alung -> Aart_plas; QCP*(Alung / (Valv*Pab + Vlun))
-  Aart_plas -> AG; QG*(Aart_plas/VArt_Plas)
-  Aart_plas -> AL; QL*(Aart_plas/VArt_Plas)
-  Aart_plas -> AF; QF*(Aart_plas/VArt_Plas)
-  Aart_plas -> AK; QK*(Aart_plas/VArt_Plas)
-  Aart_plas -> Afil; Qfil*(Aart_plas/VArt_Plas)
-  Aart_plas -> AR; QR*(Aart_plas/VArt_Plas)
-  Aart_plas -> ASk; QSk*(Aart_plas/VArt_Plas)
+  Alung -> AArt_Plas; QCP*(Alung / (Valv*Pab + Vlun))
+  AArt_Plas -> AG; QG*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> AL; QL*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> AF; QF*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> AK; QK*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> Afil; Qfil*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> AR; QR*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> ASk; QSk*(AArt_Plas/VArt_Plas)
   
   AG -> AL; QG*FreeG*(AG/VG)
   Afil -> AK; (Tm*(Afil/Vfil))/(Kt+(Afil/Vfil))
   Afil -> Adelay; Qfil*(Afil/Vfil)
   Adelay -> Aurine; kurine*Adelay 
   
-  AL -> Aven_plas; (QL+QG)*FreeL*(AL/VL)
-  AF -> Aven_plas; QF*FreeF*(AF/VF)
-  AK -> Aven_plas; QK*FreeK*(AK/VK)
-  AR -> Aven_plas; QR*FreeR*(AR/VR)
-  ASk -> Aven_plas; QSk*FreeSk*(ASk/VSk)
+  AL -> AVen_Plas; (QL+QG)*FreeL*(AL/VL)
+  AF -> AVen_Plas; QF*FreeF*(AF/VF)
+  AK -> AVen_Plas; QK*FreeK*(AK/VK)
+  AR -> AVen_Plas; QR*FreeR*(AR/VR)
+  ASk -> AVen_Plas; QSk*FreeSk*(ASk/VSk)
   
-  Aven_plas -> Alung; QCP*(Aven_plas/VVen_Plas)
+  AVen_Plas -> Alung; QCP*(AVen_Plas/VVen_Plas)
   
 end

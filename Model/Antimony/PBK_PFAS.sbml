@@ -2,22 +2,9 @@
 <sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
   <model metaid="PFOA" id="PFOA">
     <listOfUnitDefinitions>
-      <unitDefinition id="L_PER_HR">
+      <unitDefinition id="L">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
-        </listOfUnits>
-      </unitDefinition>
-      <unitDefinition id="CentiM">
-        <listOfUnits>
-          <unit kind="metre" exponent="1" scale="-2" multiplier="1"/>
-        </listOfUnits>
-      </unitDefinition>
-      <unitDefinition>
-        <listOfUnits>
-          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
-          <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="L_PER_DAY_KiloGM3DIV4">
@@ -25,6 +12,11 @@
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
           <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
           <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="CentiM">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="-2" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="CentiM_PER_HR">
@@ -39,27 +31,148 @@
           <unit kind="mole" exponent="-1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="L">
+      <unitDefinition id="L_PER_HR">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
         </listOfUnits>
       </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment id="Lung" name="lung" spatialDimensions="3" size="0.49" constant="false"/>
+      <compartment metaid="meta_Lung" id="Lung" name="lung" spatialDimensions="3" size="0.49" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Lung">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0000479"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
       <compartment id="Trans" name="transfer compartment" spatialDimensions="3" size="1e-07" units="L" constant="true"/>
-      <compartment id="Sc" name="stratum corneum" spatialDimensions="3" size="1" units="L" constant="true"/>
+      <compartment metaid="meta_Sc" id="Sc" name="stratum corneum" spatialDimensions="3" size="1" units="L" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Sc">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0002027"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
       <compartment id="Ve" name="viable epidermis" spatialDimensions="3" size="0.000767090653718623" units="L" constant="false"/>
-      <compartment id="Skin" name="skin" spatialDimensions="3" size="0.0972" units="L" constant="false"/>
-      <compartment id="Ven" name="venous blood" spatialDimensions="3" size="1.82756" units="L" constant="false"/>
-      <compartment id="Art" name="arterial blood" spatialDimensions="3" size="1.16844" units="L" constant="false"/>
-      <compartment id="Gut" name="gut" spatialDimensions="3" size="1.197" units="L" constant="false"/>
-      <compartment id="Liv" name="liver" spatialDimensions="3" size="1.82" units="L" constant="false"/>
-      <compartment id="Fat" name="adipose tissue" spatialDimensions="3" size="14.98" units="L" constant="false"/>
-      <compartment id="Kid" name="kidney" spatialDimensions="3" size="0.28" units="L" constant="false"/>
+      <compartment metaid="meta_Skin" id="Skin" name="skin" spatialDimensions="3" size="0.0972" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Skin">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0002097"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Ven_Plas" id="Ven_Plas" name="venous blood" spatialDimensions="3" size="1.82756" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Ven_Plas">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0013756"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Art_Plas" id="Art_Plas" name="arterial blood" spatialDimensions="3" size="1.16844" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Art_Plas">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0013755"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Gut" id="Gut" name="gut" spatialDimensions="3" size="1.197" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Gut">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0001555"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Liv" id="Liv" name="liver" spatialDimensions="3" size="1.82" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Liv">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0002107"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Fat" id="Fat" name="adipose tissue" spatialDimensions="3" size="14.98" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Fat">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0001013"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="meta_Kid" id="Kid" name="kidney" spatialDimensions="3" size="0.28" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Kid">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0002113"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
       <compartment id="Fil" name="filtrate" spatialDimensions="3" size="0.028" units="L" constant="false"/>
       <compartment id="Delay" name="storage compartment of urine" spatialDimensions="3" size="1" units="L" constant="true"/>
-      <compartment id="Urine" name="urine" spatialDimensions="3" size="1" units="L" constant="true"/>
+      <compartment metaid="meta_Urine" id="Urine" name="urine" spatialDimensions="3" size="1" units="L" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Urine">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://identifiers.org/UBERON:0001088"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
       <compartment id="Rest" name="rest-of-body" spatialDimensions="3" size="36.9118" units="L" constant="false"/>
     </listOfCompartments>
     <listOfSpecies>
@@ -68,8 +181,8 @@
       <species id="Asc" name="quantity in stratum corneum" compartment="Sc" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
       <species id="Ave" name="quantity in viable epidermis" compartment="Ve" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
       <species id="ASk" name="quantity in skin" compartment="Skin" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species id="Aven" name="quantity in venous blood plasma" compartment="Ven" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
-      <species id="Aart" name="quantity in arterial blood plasma" compartment="Art" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AVen_Plas" name="quantity in venous blood plasma" compartment="Ven_Plas" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
+      <species id="AArt_Plas" name="quantity in arterial blood plasma" compartment="Art_Plas" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
       <species id="AG" name="quantity in gut" compartment="Gut" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
       <species id="AL" name="quantity in liver" compartment="Liv" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
       <species id="AF" name="quantity in fat" compartment="Fat" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
@@ -80,7 +193,19 @@
       <species id="AR" name="quantity in rest-of-body" compartment="Rest" initialAmount="0" hasOnlySubstanceUnits="true" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="BW" name="body mass" value="70" constant="true"/>
+      <parameter metaid="meta_BW" id="BW" name="body mass" value="70" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_BW">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/NCIT_C81328"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_KiloGM3DIV4" constant="true"/>
       <parameter id="QFC" name="fraction cardiac output going to fat" value="0.052" constant="true"/>
       <parameter id="QLC" name="fraction cardiac output going to liver" value="0.069" constant="true"/>
@@ -108,7 +233,19 @@
       <parameter id="ffatbl" name="fraction of fat in blood" value="0.007" constant="true"/>
       <parameter id="Kpcell" name="blood vessel wall thickness" value="0.93" units="CentiM_PER_HR" constant="true"/>
       <parameter id="MW" name="molar weight" value="414.07" units="GM_PER_MOL" constant="true"/>
-      <parameter id="logP" name="logP" value="4.81" constant="true"/>
+      <parameter metaid="meta_logP" id="logP" name="logP" value="4.81" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_logP">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://semanticscience.org/resource/CHEMINF_000251"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="VP" name="vapor pressure" value="2.34" constant="true"/>
       <parameter id="Tmc" name="maximum resorption rate" value="144000" constant="true"/>
       <parameter id="Kt" name="resorption affinity" value="55" constant="true"/>
@@ -152,8 +289,8 @@
       <parameter id="Vfil" name="filtrate compartment volume" value="0.028" units="L" constant="false"/>
       <parameter id="VG" name="gut volume" value="1.197" units="L" constant="false"/>
       <parameter id="VPlas" name="plasma volume" value="2.996" units="L" constant="false"/>
-      <parameter id="Vart_plas" name="arterial blood plasma volume" value="1.16844" units="L" constant="false"/>
-      <parameter id="Vven_plas" name="venous blood plasma volume" value="1.82756" units="L" constant="false"/>
+      <parameter id="VArt_Plas" name="arterial blood plasma volume" value="1.16844" units="L" constant="false"/>
+      <parameter id="VVen_Plas" name="venous blood plasma volume" value="1.82756" units="L" constant="false"/>
       <parameter id="VSk" name="skin volume" value="0.0972" units="L" constant="false"/>
       <parameter id="Vlun" name="lung volume" value="0.49" units="L" constant="false"/>
       <parameter id="VR" name="rest-of-body volume" value="36.9118" units="L" constant="false"/>
@@ -185,14 +322,14 @@
           <ci> VSk </ci>
         </math>
       </assignmentRule>
-      <assignmentRule variable="Ven">
+      <assignmentRule variable="Ven_Plas">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <ci> Vven_plas </ci>
+          <ci> VVen_Plas </ci>
         </math>
       </assignmentRule>
-      <assignmentRule variable="Art">
+      <assignmentRule variable="Art_Plas">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <ci> Vart_plas </ci>
+          <ci> VArt_Plas </ci>
         </math>
       </assignmentRule>
       <assignmentRule variable="Gut">
@@ -619,7 +756,7 @@
           </apply>
         </math>
       </assignmentRule>
-      <assignmentRule variable="Vart_plas">
+      <assignmentRule variable="VArt_Plas">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <times/>
@@ -628,7 +765,7 @@
           </apply>
         </math>
       </assignmentRule>
-      <assignmentRule variable="Vven_plas">
+      <assignmentRule variable="VVen_Plas">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <times/>
@@ -978,7 +1115,7 @@
           <speciesReference species="Alung" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1004,7 +1141,7 @@
       </reaction>
       <reaction id="_J6" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="AG" stoichiometry="1" constant="true"/>
@@ -1016,8 +1153,8 @@
               <ci> QG </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1025,7 +1162,7 @@
       </reaction>
       <reaction id="_J7" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="AL" stoichiometry="1" constant="true"/>
@@ -1037,8 +1174,8 @@
               <ci> QL </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1046,7 +1183,7 @@
       </reaction>
       <reaction id="_J8" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="AF" stoichiometry="1" constant="true"/>
@@ -1058,8 +1195,8 @@
               <ci> QF </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1067,7 +1204,7 @@
       </reaction>
       <reaction id="_J9" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="AK" stoichiometry="1" constant="true"/>
@@ -1079,8 +1216,8 @@
               <ci> QK </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1088,7 +1225,7 @@
       </reaction>
       <reaction id="_J10" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="Afil" stoichiometry="1" constant="true"/>
@@ -1100,8 +1237,8 @@
               <ci> Qfil </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1109,7 +1246,7 @@
       </reaction>
       <reaction id="_J11" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="AR" stoichiometry="1" constant="true"/>
@@ -1121,8 +1258,8 @@
               <ci> QR </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1130,7 +1267,7 @@
       </reaction>
       <reaction id="_J12" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aart" stoichiometry="1" constant="true"/>
+          <speciesReference species="AArt_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="ASk" stoichiometry="1" constant="true"/>
@@ -1142,8 +1279,8 @@
               <ci> QSk </ci>
               <apply>
                 <divide/>
-                <ci> Aart </ci>
-                <ci> Vart_plas </ci>
+                <ci> AArt_Plas </ci>
+                <ci> VArt_Plas </ci>
               </apply>
             </apply>
           </math>
@@ -1247,7 +1384,7 @@
           <speciesReference species="AL" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1273,7 +1410,7 @@
           <speciesReference species="AF" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1295,7 +1432,7 @@
           <speciesReference species="AK" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1317,7 +1454,7 @@
           <speciesReference species="AR" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1339,7 +1476,7 @@
           <speciesReference species="ASk" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1358,7 +1495,7 @@
       </reaction>
       <reaction id="_J22" reversible="true">
         <listOfReactants>
-          <speciesReference species="Aven" stoichiometry="1" constant="true"/>
+          <speciesReference species="AVen_Plas" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
           <speciesReference species="Alung" stoichiometry="1" constant="true"/>
@@ -1370,8 +1507,8 @@
               <ci> QCP </ci>
               <apply>
                 <divide/>
-                <ci> Aven </ci>
-                <ci> Vven_plas </ci>
+                <ci> AVen_Plas </ci>
+                <ci> VVen_Plas </ci>
               </apply>
             </apply>
           </math>
