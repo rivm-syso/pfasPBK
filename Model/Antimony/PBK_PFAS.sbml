@@ -28,11 +28,21 @@
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="KiloGM">
+        <listOfUnits>
+          <unit kind="gram" exponent="1" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="L_PER_DAY_KiloGM3DIV4">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
           <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
           <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="CentiM2">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="-2" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="CentiM">
@@ -58,19 +68,9 @@
           <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="CentiM2">
-        <listOfUnits>
-          <unit kind="metre" exponent="2" scale="-2" multiplier="1"/>
-        </listOfUnits>
-      </unitDefinition>
-      <unitDefinition id="KiloGM">
-        <listOfUnits>
-          <unit kind="gram" exponent="1" scale="3" multiplier="1"/>
-        </listOfUnits>
-      </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment metaid="meta_Lung" id="Lung" spatialDimensions="3" size="0.49" constant="false">
+      <compartment metaid="meta_Lung" id="Lung" spatialDimensions="3" size="0.49" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Lung">
@@ -190,7 +190,19 @@
         </annotation>
       </compartment>
       <compartment id="Fil" spatialDimensions="3" size="0.028" units="L" constant="false"/>
-      <compartment id="Delay" spatialDimensions="3" size="1" units="L" constant="true"/>
+      <compartment metaid="meta_Delay" id="Delay" spatialDimensions="3" size="1" units="L" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Delay">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0004228"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
       <compartment metaid="meta_Urine" id="Urine" spatialDimensions="3" size="1" units="L" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
