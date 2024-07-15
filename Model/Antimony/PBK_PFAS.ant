@@ -1,6 +1,6 @@
 // Based on Westerhout et al., 2024 PFOA PBPK model
 
-model PFOA()
+model PFAS()
 
   // PHYSIOLOGY
   BW = 70             # Body weight (perhaps make time dependent: input age and bw-at-age)
@@ -21,7 +21,7 @@ model PFOA()
   VGC = 0.0171;       # Fraction gut volume
   VlunC = 0.007       # Fraction lung volume (ICRP 89)
   VPlasC = 0.0428;    # Fraction plasma volume (58% of blood)
-  Htc = 0.44;         # hematocrit
+  Htc = 0.44;         # Hematocrit
 
   // Skin parameters 
   Skinarea = 972      # Exposed area on skin (cm^2) 

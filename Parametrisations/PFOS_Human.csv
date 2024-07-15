@@ -1,0 +1,29 @@
+Parameter,Value,Remark
+MW, 500.13,
+logP, 4.49,
+VP, 0.27,Pa; 1 mmHg = 133.322368 Pa; 0.002 mmHg 
+Tmc, 84000,3500*24 
+Kt, 23,same as monkey
+Free, 0.025,same as monkey 
+PL, 3.72,from Harada et al. 2005
+PF, 0.14,from Harada et al. 2005
+PK, 0.8,from Harada et al. 2005
+PSk, 0.29,from Harada et al. 2005
+PR, 0.2,from Harada et al. 2005
+PG, 0.57,from Harada et al. 2005
+PLun, 0.15,from Harada et al. 2005
+kurinec, 0.024,estimated (0.001*24)
+QCC, 300,
+QFC, 0.052,
+QLC, 0.069,
+QKC, 0.175,
+QSkC, 0.058,
+QGC, 0.181,
+VLC, 0.026,
+VFC, 0.214,
+VKC, 0.004,
+VfilC, 0.0004,
+VGC, 0.0171,
+VlunC, 0.007,
+VPlasC, 0.0428,
+Htc, 0.44,
