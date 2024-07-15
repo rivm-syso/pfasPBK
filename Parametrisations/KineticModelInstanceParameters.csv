@@ -1,0 +1,59 @@
+idModelInstance,Parameter,Value,Remark
+PBK_PFOA_Human,MW,414.07,
+PBK_PFOA_Human,logP,4.81,
+PBK_PFOA_Human,VP,2.34,
+PBK_PFOA_Human,Kpsc,0.000088,from Franko 2011
+PBK_PFOA_Human,Kpve,0.000088,from Franko 2011
+PBK_PFOA_Human,Tmc,144000,
+PBK_PFOA_Human,Kt,55,
+PBK_PFOA_Human,Free,0.02,
+PBK_PFOA_Human,PL,2.2,
+PBK_PFOA_Human,PF,0.04,
+PBK_PFOA_Human,PK,1.05,
+PBK_PFOA_Human,PSk,0.1,
+PBK_PFOA_Human,PR,0.12,
+PBK_PFOA_Human,PG,0.05,
+PBK_PFOA_Human,PLun,1.27,
+PBK_PFOA_Human,kurinec,0.0072,
+PBK_PFOA_Human,QCC,300,
+PBK_PFOA_Human,QFC,0.052,
+PBK_PFOA_Human,QLC,0.069,
+PBK_PFOA_Human,QKC,0.175,
+PBK_PFOA_Human,QSkC,0.058,
+PBK_PFOA_Human,QGC,0.181,
+PBK_PFOA_Human,VLC,0.026,
+PBK_PFOA_Human,VFC,0.214,
+PBK_PFOA_Human,VKC,0.004,
+PBK_PFOA_Human,VfilC,0.0004,
+PBK_PFOA_Human,VGC,0.0171,
+PBK_PFOA_Human,VlunC,0.007,
+PBK_PFOA_Human,VPlasC,0.0428,
+PBK_PFOA_Human,Htc,0.44,
+PBK_PFOS_Human,MW,500.13,
+PBK_PFOS_Human,logP,4.49,
+PBK_PFOS_Human,VP,0.27,Pa; 1 mmHg = 133.322368 Pa; 0.002 mmHg
+PBK_PFOS_Human,Tmc,84000,3500*24
+PBK_PFOS_Human,Kt,23,same as monkey
+PBK_PFOS_Human,Free,0.025,same as monkey
+PBK_PFOS_Human,PL,3.72,from Harada et al. 2005
+PBK_PFOS_Human,PF,0.14,from Harada et al. 2005
+PBK_PFOS_Human,PK,0.8,from Harada et al. 2005
+PBK_PFOS_Human,PSk,0.29,from Harada et al. 2005
+PBK_PFOS_Human,PR,0.2,from Harada et al. 2005
+PBK_PFOS_Human,PG,0.57,from Harada et al. 2005
+PBK_PFOS_Human,PLun,0.15,from Harada et al. 2005
+PBK_PFOS_Human,kurinec,0.024,estimated (0.001*24)
+PBK_PFOS_Human,QCC,300,
+PBK_PFOS_Human,QFC,0.052,
+PBK_PFOS_Human,QLC,0.069,
+PBK_PFOS_Human,QKC,0.175,
+PBK_PFOS_Human,QSkC,0.058,
+PBK_PFOS_Human,QGC,0.181,
+PBK_PFOS_Human,VLC,0.026,
+PBK_PFOS_Human,VFC,0.214,
+PBK_PFOS_Human,VKC,0.004,
+PBK_PFOS_Human,VfilC,0.0004,
+PBK_PFOS_Human,VGC,0.0171,
+PBK_PFOS_Human,VlunC,0.007,
+PBK_PFOS_Human,VPlasC,0.0428,
+PBK_PFOS_Human,Htc,0.44,
