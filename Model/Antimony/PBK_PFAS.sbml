@@ -77,6 +77,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0000479"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000479"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -91,6 +92,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0002027"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002027"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -105,6 +107,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0002097"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002097"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -118,6 +121,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0013756"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0013756"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -131,6 +135,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0013755"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0013755"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -144,6 +149,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0001555"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001555"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -157,6 +163,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0002107"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002107"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -170,6 +177,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0001013"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001013"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -183,6 +191,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0002113"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002113"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -210,6 +219,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://identifiers.org/UBERON:0001088"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001088"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
