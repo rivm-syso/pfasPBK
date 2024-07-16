@@ -1,4 +1,4 @@
-element_id,sbml_type,element_description,unit,URI,description,remark
+element_id,sbml_type,element_name,unit,URI,description,remark
 substanceUnits,document,model substances unit,ug,,Model substances unit.,
 timeUnits,document,model time unit,d,,Model time unit.,
 volumeUnits,document,model volume unit,L,,Model volume unit.,
