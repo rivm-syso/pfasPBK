@@ -1,0 +1,5 @@
+tellurium==2.2.10
+antimony==2.13.2
+sbmlutils==0.8.7
+seaborn==0.13.2
+pandas==2.2.2
