@@ -11,7 +11,7 @@ model generic_PFAS()
   age := time / 365 # used as a starting point, rather than birth [years]
   
   // EXPOSURE PARAMETERS
-  exposure_duration = 18750 # Duration of exposure (d)
+  exposure_duration = 60*365 # Duration of exposure (d)
   age_start_derm_exp = 14 # dermal and inhalation exposure starting age (e.g. occupational, or personal care products; exposure may start at a later age than 0)
   age_stop_derm_exp = 50 # dermal and inhalation exposure stopping age (e.g. occupational, or personal care products; exposure may stop at an earlier age than 80)
   
@@ -148,7 +148,8 @@ model generic_PFAS()
   Oraldose_PFAS := piecewise(Oraldose_on*BW, day < exposure_duration, 0)
   Drinkdose_PFAS := piecewise((Drinkconc*Drinkrate/1000)*BW, day < exposure_duration, 0)
   Dermaldose_PFAS := piecewise(Cdermal_day*Vsurf, age >= age_start_derm_exp && age <= age_stop_derm_exp, 0)
-  
+  Csurf_PFAS := piecewise(Cdermal_day, age >= age_start_derm_exp && age <= age_stop_derm_exp, 0)
+
   // Scaled cardiac output and perfusion
   QC := QCC*BW^0.75;  # Cardiac output adjusted for BW (L/d)
   QCP := QC*(1-Htc) ; # Cardiac output adjusted for plasma flow (L/d)
@@ -178,8 +179,8 @@ model generic_PFAS()
   
   // Define compartments
   compartment Lung := Vlun # Lung
-  compartment Trans = 0.0000001 # Transfer compartment
   compartment Sc := Vsc # Stratum corneum
+  compartment Trans = 0.0000001 # Transfer compartment
   compartment Ve := Vve # Viable epidermis
   compartment Skin := VSk;  # Skin compartment
   compartment Ven := Vven_plas
@@ -194,8 +195,8 @@ model generic_PFAS()
   compartment Rest := VR # Rest compartment
     
   substanceOnly species Alung in Lung
-  substanceOnly species Atrans in Trans
   substanceOnly species Asc in Sc
+  substanceOnly species Atrans in Trans
   substanceOnly species Ave in Ve
   substanceOnly species ASk in Skin
   substanceOnly species Aven in Ven
@@ -233,8 +234,8 @@ model generic_PFAS()
   Cart := CartFree/Free
   
   Alung = ALunbirth
-  Atrans = 0
   Asc = 0
+  Atrans = 0
   Ave = 0
   ASk = ASkbirth
   Aven = Avenbirth
@@ -252,8 +253,8 @@ model generic_PFAS()
   
   // Exposure
   -> AG; Oraldose_PFAS + Drinkdose_PFAS # Oral
-  -> Asc; Dermaldose_PFAS # Dermal
-  
+  -> Asc; 2*CLsc*Csurf_PFAS # Dermal # Absorption from surface is assumed to not influence the surface concentration
+  Asc -> ; 2*CLsc*Csc # represents transfer from stratum corneum to surface based on original model. As the surface concentration is assumed to be constant, there is no surface compartment
   Asc -> Atrans; 2*CLsc*Csc # 2*CLsc*(Asc / Vsc)
   Atrans -> Ave; 2*CLve*(Ctrans/Kscve) # 2*CLve*((Atrans / 0.0000001)/Kscve)
   Atrans -> Asc; 2*CLsc*Ctrans # 2*CLsc*(Atrans / 0.0000001)
