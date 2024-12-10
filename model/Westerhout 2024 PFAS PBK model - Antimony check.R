@@ -58,7 +58,7 @@ BWbirth=3.68 # Body weight at birth in kg new add opinion 2020
 # Skin parameters 
 # Dermal exposure 
 # Dermexpo = 0 # 0 = NO, 1 = YES
-Dermconc = 50 # 10.0 # Dermal concentration (ug/L) 
+Dermconc = 10.0 # Dermal concentration (ug/L) 
 Dermal_duration = 12 # Dermal exposure duration (e.g. skin lotion = 16 h, whereas shampoo is 0.25 h)
 Cdermal_day = Dermconc*Dermal_duration/24 # Correction of the daily dermal dose beased on exposure duration
 Skinthickness = 0.1 # Skin thickness (cm) 
