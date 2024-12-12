@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
   <model metaid="PFAS" id="PFAS" substanceUnits="MicroGM" timeUnits="DAY" volumeUnits="L">
-    <annotation>
-      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-        <rdf:Description rdf:about="#PFAS">
-          <bqbiol:is>
-            <rdf:Bag>
-              <rdf:li rdf:resource="http://identifiers.org/taxonomy/9443"/>
-            </rdf:Bag>
-          </bqbiol:is>
-        </rdf:Description>
-      </rdf:RDF>
-    </annotation>
     <listOfUnitDefinitions>
       <unitDefinition id="MicroGM">
         <listOfUnits>
@@ -36,7 +25,7 @@
       <unitDefinition id="L_PER_DAY_KiloGM3DIV4">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="1" multiplier="86400"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
           <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
@@ -53,7 +42,7 @@
       <unitDefinition id="CentiM_PER_HR">
         <listOfUnits>
           <unit kind="metre" exponent="1" scale="-2" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="GM_PER_MOL">
@@ -62,10 +51,15 @@
           <unit kind="mole" exponent="-1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="PER_DAY">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="L_PER_HR">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="1" multiplier="3600"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
         </listOfUnits>
       </unitDefinition>
     </listOfUnitDefinitions>
@@ -74,11 +68,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Lung">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000479"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -88,11 +82,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Sc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002027"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -102,11 +96,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Skin">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002097"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -115,11 +109,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Ven_Plas">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0013756"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -128,11 +122,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Art_Plas">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0013755"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -141,11 +135,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Gut">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001555"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -154,11 +148,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Liv">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002107"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -167,11 +161,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Fat">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001013"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -180,11 +174,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kid">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002113"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -194,11 +188,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Delay">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0004228"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -207,11 +201,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Urine">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001088"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -220,11 +214,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Rest">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00460"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -252,11 +246,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_BW">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/NCIT_C81328"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -265,11 +259,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QCC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -278,11 +272,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QFC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -291,11 +285,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QLC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -304,11 +298,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QKC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -317,11 +311,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QSkC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -330,11 +324,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QGC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -343,11 +337,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VLC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -356,11 +350,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VFC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -369,11 +363,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VKC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -382,11 +376,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VfilC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -395,11 +389,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VGC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -408,11 +402,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VlunC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -421,12 +415,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VPlasC">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -435,11 +428,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Htc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -448,11 +441,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Skinarea">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -461,11 +454,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Skinthickness">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -474,11 +467,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_fss">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -487,11 +480,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_hsurf">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -500,11 +493,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_hsc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -513,11 +506,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_hve">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -526,11 +519,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_hcell">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -539,11 +532,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_ffatsc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -552,11 +545,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_ffatve">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -565,11 +558,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_ffatepi">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -578,11 +571,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_ffatbl">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -591,11 +584,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kpcell">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -604,11 +597,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_MW">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -617,11 +610,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_logP">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://semanticscience.org/resource/CHEMINF_000251"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -630,11 +623,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VP">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -643,12 +636,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Tmc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -657,11 +649,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kt">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -670,11 +662,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_kurinec">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -683,24 +675,24 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Free">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Biotransformation" id="Biotransformation" value="0.003" constant="true">
+      <parameter metaid="meta_Biotransformation" id="Biotransformation" name="ratio of biotransformation" value="0.003" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Biotransformation">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -709,11 +701,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PL">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -722,11 +714,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PF">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -735,11 +727,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PK">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -748,11 +740,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PSk">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -761,11 +753,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PR">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -774,11 +766,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PG">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -787,558 +779,50 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_PLun">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Kpsc" id="Kpsc" value="8.8e-05" constant="true">
+      <parameter metaid="meta_Kpsc" id="Kpsc" name="permeability coefficient of stratum corneum" value="8.8e-05" units="CentiM_PER_HR" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kpsc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Kpve" id="Kpve" value="8.8e-05" constant="true">
+      <parameter metaid="meta_Kpve" id="Kpve" name="permeability coefficient of viable epidermis" value="8.8e-05" units="CentiM_PER_HR" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kpve">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_kurine" id="kurine" name="urinary elimination rate constant" value="0.00248918964942198" constant="false">
+      <parameter metaid="meta_kurine" id="kurine" name="urinary elimination rate constant" value="0.00248918964942198" units="PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_kurine">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
                 </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_SkinTarea" id="SkinTarea" name="total area of the skin" value="15341.8130743724" units="CentiM2" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_SkinTarea">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Kscve" id="Kscve" value="0.400185803316969" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Kscve">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Kver" id="Kver" value="0.350502983676703" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Kver">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Pab" id="Pab" value="0.0108983560368945" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Pab">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" value="0.00909090909090909" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeL">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeF" id="FreeF" name="free fraction of chemical in fat" value="0.5" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeF">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeK" id="FreeK" name="free fraction of chemical in kidney" value="0.019047619047619" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeK">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeSk" id="FreeSk" name="free fraction of chemical in skin" value="0.2" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeSk">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeR" id="FreeR" name="free fraction of chemical in rest of body" value="0.166666666666667" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeR">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeG" id="FreeG" name="free fraction of chemical in gut" value="0.4" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeG">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_FreeLun" id="FreeLun" name="free fraction of chemical in lung" value="0.015748031496063" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_FreeLun">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" value="7260.13647748076" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QC">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" value="4065.67642738923" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QCP">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" value="280.531673489857" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QL">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" value="211.41517422424" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QF">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" value="711.493374793115" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QK">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" value="142.298674958623" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Qfil">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" value="735.88743335745" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QG">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" value="235.809232788575" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QSk">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" value="1890.53953873599" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QR">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Qbal" id="Qbal" name="total substance exposure (mass balance)" value="0" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Qbal">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VL" id="VL" name="liver volume" value="1.82" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VL">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VF" id="VF" name="fat volume" value="14.98" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VF">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VK" id="VK" name="kidney volume" value="0.28" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VK">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vfil" id="Vfil" name="filtrate compartment volume" value="0.028" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vfil">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VG" id="VG" name="gut volume" value="1.197" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VG">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VPlas" id="VPlas" name="plasma volume" value="2.996" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VPlas">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VArt_Plas" id="VArt_Plas" name="arterial blood plasma volume" value="1.16844" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VArt_Plas">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VVen_Plas" id="VVen_Plas" name="venous blood plasma volume" value="1.82756" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VVen_Plas">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VSk" id="VSk" name="skin volume" value="0.0972" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VSk">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vlun" id="Vlun" name="lung volume" value="0.49" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vlun">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VR" id="VR" name="rest-of-body volume" value="36.9118" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VR">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VT" id="VT" name="tidal volume" value="0.49" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VT">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_VFRC" id="VFRC" value="2.1" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VFRC">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Valv" id="Valv" name="alveolar volume" value="2.345" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Valv">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vbal" id="Vbal" name="balance" value="36.9118" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vbal">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vsurf" id="Vsurf" name="volume of dermal layer on exposed skin surface" value="0.000767090653718623" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vsurf">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vsc" id="Vsc" name="stratum corneum volume" value="0.000115063598057793" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vsc">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
-      <parameter metaid="meta_Vve" id="Vve" name="viable epidermis corneum volume" value="0.000767090653718623" units="L" constant="false">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_Vve">
-              <bqbiol:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
-                </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1347,11 +831,518 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Tm">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_SkinTarea" id="SkinTarea" name="total area of the skin" value="15341.8130743724" units="CentiM2" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_SkinTarea">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Kscve" id="Kscve" value="0.400185803316969" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Kscve">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Kver" id="Kver" value="0.350502983676703" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Kver">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Pab" id="Pab" value="0.0108983560368945" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Pab">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" value="0.00909090909090909" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeL">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeF" id="FreeF" name="free fraction of chemical in fat" value="0.5" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeF">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeK" id="FreeK" name="free fraction of chemical in kidney" value="0.019047619047619" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeK">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeSk" id="FreeSk" name="free fraction of chemical in skin" value="0.2" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeSk">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeR" id="FreeR" name="free fraction of chemical in rest of body" value="0.166666666666667" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeR">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeG" id="FreeG" name="free fraction of chemical in gut" value="0.4" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeG">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_FreeLun" id="FreeLun" name="free fraction of chemical in lung" value="0.015748031496063" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FreeLun">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00128"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" value="7260.13647748076" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" value="4065.67642738923" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QCP">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" value="280.531673489857" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QL">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" value="211.41517422424" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QF">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" value="711.493374793115" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QK">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" value="142.298674958623" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Qfil">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" value="735.88743335745" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QG">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" value="235.809232788575" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QSk">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" value="1890.53953873599" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QR">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Qbal" id="Qbal" name="total substance exposure (mass balance)" value="0" units="L_PER_HR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Qbal">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VL" id="VL" name="liver volume" value="1.82" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VL">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VF" id="VF" name="fat volume" value="14.98" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VF">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VK" id="VK" name="kidney volume" value="0.28" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VK">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vfil" id="Vfil" name="filtrate compartment volume" value="0.028" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vfil">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VG" id="VG" name="gut volume" value="1.197" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VG">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VPlas" id="VPlas" name="plasma volume" value="2.996" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VPlas">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VArt_Plas" id="VArt_Plas" name="arterial blood plasma volume" value="1.16844" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VArt_Plas">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VVen_Plas" id="VVen_Plas" name="venous blood plasma volume" value="1.82756" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VVen_Plas">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VSk" id="VSk" name="skin volume" value="0.0972" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VSk">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vlun" id="Vlun" name="lung volume" value="0.49" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vlun">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VR" id="VR" name="rest-of-body volume" value="36.9118" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VR">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vsc" id="Vsc" name="stratum corneum volume" value="0.000115063598057793" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vsc">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vve" id="Vve" name="viable epidermis corneum volume" value="0.000767090653718623" units="L" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vve">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vsurf" id="Vsurf" name="volume of dermal layer on exposed skin surface" value="0.000767090653718623" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vsurf">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VT" id="VT" name="tidal volume" value="0.49" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VT">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_VFRC" id="VFRC" value="2.1" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VFRC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Valv" id="Valv" name="alveolar volume" value="2.345" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Valv">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Vbal" id="Vbal" name="balance" value="36.9118" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Vbal">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
+                </rdf:Bag>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1360,11 +1351,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_CLsc">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1373,11 +1364,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_CLve">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1386,11 +1377,11 @@
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_CLcell">
-              <bqbiol:is>
+              <bqmodel:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00007"/>
                 </rdf:Bag>
-              </bqbiol:is>
+              </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1461,6 +1452,19 @@
               <power/>
               <ci> BW </ci>
               <cn> -0.25 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Tm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> Tmc </ci>
+            <apply>
+              <power/>
+              <ci> BW </ci>
+              <cn> 0.75 </cn>
             </apply>
           </apply>
         </math>
@@ -1927,6 +1931,48 @@
           </apply>
         </math>
       </assignmentRule>
+      <assignmentRule variable="Vsc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hsc </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vve">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hve </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Vsurf">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
+              <ci> hsurf </ci>
+            </apply>
+            <cn type="integer"> 1000 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
       <assignmentRule variable="VT">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
@@ -1977,61 +2023,6 @@
               <ci> VPlas </ci>
               <ci> VSk </ci>
               <ci> Vlun </ci>
-            </apply>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="Vsurf">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <divide/>
-            <apply>
-              <times/>
-              <ci> fss </ci>
-              <ci> SkinTarea </ci>
-              <ci> hsurf </ci>
-            </apply>
-            <cn type="integer"> 1000 </cn>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="Vsc">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <divide/>
-            <apply>
-              <times/>
-              <ci> fss </ci>
-              <ci> SkinTarea </ci>
-              <ci> hsc </ci>
-            </apply>
-            <cn type="integer"> 1000 </cn>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="Vve">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <divide/>
-            <apply>
-              <times/>
-              <ci> fss </ci>
-              <ci> SkinTarea </ci>
-              <ci> hve </ci>
-            </apply>
-            <cn type="integer"> 1000 </cn>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="Tm">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <times/>
-            <ci> Tmc </ci>
-            <apply>
-              <power/>
-              <ci> BW </ci>
-              <cn> 0.75 </cn>
             </apply>
           </apply>
         </math>
@@ -2212,6 +2203,7 @@
             <apply>
               <times/>
               <ci> QCP </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> Alung </ci>
@@ -2241,6 +2233,7 @@
             <apply>
               <times/>
               <ci> QG </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2262,6 +2255,7 @@
             <apply>
               <times/>
               <ci> QL </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2283,6 +2277,7 @@
             <apply>
               <times/>
               <ci> QF </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2304,6 +2299,7 @@
             <apply>
               <times/>
               <ci> QK </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2325,6 +2321,7 @@
             <apply>
               <times/>
               <ci> Qfil </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2346,6 +2343,7 @@
             <apply>
               <times/>
               <ci> QR </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2367,6 +2365,7 @@
             <apply>
               <times/>
               <ci> QSk </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AArt_Plas </ci>
@@ -2595,6 +2594,7 @@
             <apply>
               <times/>
               <ci> QCP </ci>
+              <ci> Free </ci>
               <apply>
                 <divide/>
                 <ci> AVen_Plas </ci>
