@@ -1,0 +1,12 @@
+name: Validate
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+jobs:
+  validate-sbml:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: jwkruisselbrink/sbml-pbk-workflow/.github/workflows/validate.yml@v4
+    with:
+      model-name: PBK_PFAS
+    secrets: inherit
