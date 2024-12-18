@@ -127,6 +127,12 @@ model generic_PFAS()
   Intakemilkj := Intakemilki*(1-DECLINE) #intakeviabreastfeeding10month 
   Intakemilkk := Intakemilkj*(1-DECLINE) #intakeviabreastfeeding11month 
   Intakemilkl := Intakemilkk*(1-DECLINE) #intakeviabreastfeeding12month
+
+  # Milk intake is grouped per 3 months to prevent the model from becoming too complex
+  Intakemilkabc := (Intakemilka + Intakemilkb + Intakemilkc)/3
+  Intakemilkdef := (Intakemilkd + Intakemilke + Intakemilkf)/3
+  Intakemilkghi := (Intakemilkg + Intakemilkh + Intakemilki)/3
+  Intakemilkjkl := (Intakemilkj + Intakemilkk + Intakemilkl)/3
   
   CONCbirth := Maternal_conc*PT # PFOA concentration at birth, new add in 2020 
   APlasbirth := CONCbirth*Free*VPlasC*BWbirth # initial amount in plasma at birth 
@@ -139,13 +145,14 @@ model generic_PFAS()
   ALunbirth := APlasbirth*PLun # initial amount in the lung tissue at birth
   ASkbirth := APlasbirth*PSk # initial amount in the skin tissue at birth
   ARbirth := APlasbirth*PR # 74.9108792 # initial amount in rest of the body at birth 
-  Afilbirth := APlasbirth*0.0000209606 # initial amount filtrate at birth 
-  Adelaybirth := APlasbirth*42.27910714 # initial amount in storage at birth 
-  Aurinebirth := APlasbirth*769.1347494 # initial amount in urine at birth 
+  Afilbirth := 0 # APlasbirth*0.0000209606 # initial amount filtrate at birth 
+  Adelaybirth := 0 # APlasbirth*42.27910714 # initial amount in storage at birth 
+  Aurinebirth := 0 # APlasbirth*769.1347494 # initial amount in urine at birth 
   
   // Time dependent exposure
-  Oraldose_on := piecewise(Intakemilka/BW, age < 0.083, Intakemilkb/BW, age >= 0.083 && age < 0.167, Intakemilkc/BW, age >= 0.167 && age < 0.250, Intakemilkd/BW, age >= 0.250 && age < 0.333, Intakemilke/BW, age >= 0.333 && age < 0.417, Intakemilkf/BW, age >= 0.417 && age < 0.500, Intakemilkg/BW,age >= 0.500 && age < 0.583,Intakemilkh/BW,age >= 0.583 && age < 0.667,Intakemilki/BW,age >= 0.667 && age < 0.750, Intakemilkj/BW,age >= 0.750 && age < 0.833,Intakemilkk/BW,age >= 0.833 && age < 0.917, Intakemilkl/BW, age >= 0.917 && age < 1, Oraldose)  # (ug/day)
-  Oraldose_PFAS := piecewise(Oraldose_on*BW, day < exposure_duration, 0)
+  # Oraldose_on := piecewise(Intakemilka/BW, age < 0.083, Intakemilkb/BW, age >= 0.083 && age < 0.167, Intakemilkc/BW, age >= 0.167 && age < 0.250, Intakemilkd/BW, age >= 0.250 && age < 0.333, Intakemilke/BW, age >= 0.333 && age < 0.417, Intakemilkf/BW, age >= 0.417 && age < 0.500, Intakemilkg/BW,age >= 0.500 && age < 0.583,Intakemilkh/BW,age >= 0.583 && age < 0.667,Intakemilki/BW,age >= 0.667 && age < 0.750, Intakemilkj/BW,age >= 0.750 && age < 0.833,Intakemilkk/BW,age >= 0.833 && age < 0.917, Intakemilkl/BW, age >= 0.917 && age < 1, Oraldose)  # (ug/day)
+  # Oraldose_PFAS := piecewise(Oraldose_on*BW, day < exposure_duration, 0)
+  Oraldose_milk := piecewise(Intakemilkabc, age < 0.25, Intakemilkdef, age >= 0.25 && age < 0.5, Intakemilkghi, age >= 0.5 && age < 0.75, Intakemilkjkl, age >= 0.75 && age < 1, 0)
   Drinkdose_PFAS := piecewise((Drinkconc*Drinkrate/1000)*BW, day < exposure_duration, 0)
   Dermaldose_PFAS := piecewise(Cdermal_day*Vsurf, age >= age_start_derm_exp && age <= age_stop_derm_exp, 0)
   Csurf_PFAS := piecewise(Cdermal_day, age >= age_start_derm_exp && age <= age_stop_derm_exp, 0)
@@ -248,12 +255,25 @@ model generic_PFAS()
   Adelay = Adelaybirth
   Aurine = Aurinebirth
   AR = ARbirth
-  
+  Oral_dose = 0
+  Drink_dose = 0
+  Oral_on = 0
+  Dermal_dose = 0
+  Dermal_on = 0
+
   // Transfer equations
   
   // Exposure
-  -> AG; Oraldose_PFAS + Drinkdose_PFAS # Oral
-  -> Asc; 2*CLsc*Csurf_PFAS # Dermal # Absorption from surface is assumed to not influence the surface concentration
+  Oral_dose -> ; 0
+  Drink_dose -> ; 0
+  Oral_on -> ; 0
+  # -> AG; Oraldose_PFAS + Drinkdose_PFAS # Oral
+  -> AG; Oraldose_milk + (Oral_dose*Oral_on*BW) + (Drink_dose*(Drinkrate/1000)*Oral_on*BW)
+
+  Dermal_dose -> ; 0
+  Dermal_on -> ; 0
+  # -> Asc; 2*CLsc*Csurf_PFAS # Dermal # Absorption from surface is assumed to not influence the surface concentration
+  -> Asc; 2*CLsc*Dermal_dose*Dermal_on
   Asc -> ; 2*CLsc*Csc # represents transfer from stratum corneum to surface based on original model. As the surface concentration is assumed to be constant, there is no surface compartment
   Asc -> Atrans; 2*CLsc*Csc # 2*CLsc*(Asc / Vsc)
   Atrans -> Ave; 2*CLve*(Ctrans/Kscve) # 2*CLve*((Atrans / 0.0000001)/Kscve)
