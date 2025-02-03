@@ -1,6 +1,6 @@
 // Based on Westerhout et al., 2024 PFOA PBPK model
 
-model PFAS()
+model PBK_PFAS()
 
   // PHYSIOLOGY
   BW = 70              # Body weight (perhaps make time dependent: input age and bw-at-age)
