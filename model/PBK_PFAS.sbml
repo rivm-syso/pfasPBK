@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
-  <model metaid="PFAS" id="PFAS" substanceUnits="MicroGM" timeUnits="DAY" volumeUnits="L">
+  <model metaid="PBK_PFAS" id="PBK_PFAS" substanceUnits="MicroGM" timeUnits="DAY" volumeUnits="L">
     <listOfUnitDefinitions>
       <unitDefinition id="MicroGM">
         <listOfUnits>
