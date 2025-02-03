@@ -43,10 +43,10 @@ model PFAS()
   logP = 4.81
   VP = 2.34            # Vapor pressure (Pa) 10^0.37 [Zhang 2021]; 1 mmHg = 133.322368 Pa; 0.15 mmHg (https://haz-map.com/Agents/6596) = 20 Pa
 
-  Tmc = 144000         # 6000*24  # Maximum resorption rate (ug/d/kg^.75)^a (based on half-life of 2.3 years in humans)
+  Tmc = 144000         # 6000*24 # Maximum resorption rate (ug/d/kg^.75)^a (based on half-life of 2.3 years in humans)
   Kt = 55              # Resorption affinity (ug/L) (same as monkey)
   kurinec = 0.0072     # 0.0003*24 # urinary elimination rate constant (/d/kg^-0.25)# estimated
-  Free = 0.02          # Free fraction in plasma# same as monkey
+  Free = 0.02          # Free fraction in plasma (same as monkey)
 
   // Inhalation exposure
   Biotransformation = 0.003 # 8:2-FTOH to PFOA [Gomis 2016]
