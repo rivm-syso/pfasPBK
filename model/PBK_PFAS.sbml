@@ -82,7 +82,6 @@
             <rdf:Description rdf:about="#meta_Skin">
               <bqmodel:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002097"/>
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00470"/>
                 </rdf:Bag>
               </bqmodel:is>
