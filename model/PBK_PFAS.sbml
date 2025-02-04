@@ -97,7 +97,7 @@
         </annotation>
       </compartment>
       <compartment id="Ve" name="viable epidermis" spatialDimensions="3" size="0.000767090653718623" units="L" constant="false"/>
-      <compartment metaid="meta_Skin" id="Skin" name="skin" spatialDimensions="3" size="0.0972" units="L" constant="false">
+      <compartment metaid="meta_Skin" id="Skin" name="skin" spatialDimensions="3" size="0.00767090653718623" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Skin">
@@ -228,7 +228,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" size="36.9118" units="L" constant="false">
+      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" size="37.0013290934628" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Rest">
@@ -514,8 +514,9 @@
           </rdf:RDF>
         </annotation>
       </parameter>
+      <parameter id="VartC" value="0.39" constant="true"/>
+      <parameter id="VvenC" value="0.61" constant="false"/>
       <parameter id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true"/>
-      <parameter id="Skinarea" name="exposed area on skin" value="972" units="CentiM2" constant="true"/>
       <parameter id="Skinthickness" name="skin thickness" value="0.1" units="CentiM" constant="true"/>
       <parameter id="fss" name="fraction palm of hands" value="0.005" units="UNITLESS" constant="true"/>
       <parameter id="hsurf" name="applied layer thickness" value="0.01" units="CentiM" constant="true"/>
@@ -715,6 +716,7 @@
       <parameter id="kurine" name="urinary elimination rate constant" value="0.00248918964942198" units="PER_DAY" constant="false"/>
       <parameter id="Tm" name="transporter maximum" value="3484865.50919077" constant="false"/>
       <parameter id="SkinTarea" name="total area of the skin" value="15341.8130743724" units="CentiM2" constant="false"/>
+      <parameter id="Skinarea" name="exposed area on skin" value="76.7090653718623" units="CentiM2" constant="false"/>
       <parameter id="Kscve" name="stratum corneum/viable epidermis partition coefficient" value="0.400185803316969" units="UNITLESS" constant="false"/>
       <parameter id="Kver" name="viable epidermis/blood partition coefficient" value="0.350502983676703" units="UNITLESS" constant="false"/>
       <parameter id="Pab" name="air/blood partition coefficient" value="0.0108983560368945" units="UNITLESS" constant="false"/>
@@ -814,9 +816,9 @@
       <parameter id="VPlas" name="plasma volume" value="2.996" units="L" constant="false"/>
       <parameter id="VArt_Plas" name="arterial blood plasma volume" value="1.16844" units="L" constant="false"/>
       <parameter id="VVen_Plas" name="venous blood plasma volume" value="1.82756" units="L" constant="false"/>
-      <parameter id="VSk" name="skin volume" value="0.0972" units="L" constant="false"/>
+      <parameter id="VSk" name="skin volume" value="0.00767090653718623" units="L" constant="false"/>
       <parameter id="Vlun" name="lung volume" value="0.49" units="L" constant="false"/>
-      <parameter id="VR" name="rest-of-body volume" value="36.9118" units="L" constant="false"/>
+      <parameter id="VR" name="rest-of-body volume" value="37.0013290934628" units="L" constant="false"/>
       <parameter id="Vsc" name="stratum corneum volume" value="0.000115063598057793" units="L" constant="false"/>
       <parameter id="Vve" name="viable epidermis corneum volume" value="0.000767090653718623" units="L" constant="false"/>
       <parameter metaid="meta_Vsurf" id="Vsurf" name="volume of dermal layer on exposed skin surface" value="0.000767090653718623" units="L" constant="false">
@@ -931,6 +933,15 @@
           <ci> VR </ci>
         </math>
       </assignmentRule>
+      <assignmentRule variable="VvenC">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <cn type="integer"> 1 </cn>
+            <ci> VartC </ci>
+          </apply>
+        </math>
+      </assignmentRule>
       <assignmentRule variable="kurine">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
@@ -971,6 +982,15 @@
               </apply>
               <cn> 0.666 </cn>
             </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="Skinarea">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> fss </ci>
+            <ci> SkinTarea </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1325,7 +1345,7 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <times/>
-            <cn> 0.39 </cn>
+            <ci> VartC </ci>
             <ci> VPlas </ci>
           </apply>
         </math>
@@ -1334,7 +1354,7 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <times/>
-            <cn> 0.61 </cn>
+            <ci> VvenC </ci>
             <ci> VPlas </ci>
           </apply>
         </math>
