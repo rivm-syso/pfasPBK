@@ -1671,19 +1671,11 @@
             <apply>
               <times/>
               <ci> QCP </ci>
-              <ci> Free </ci>
+              <ci> FreeLun </ci>
               <apply>
                 <divide/>
                 <ci> Alung </ci>
-                <apply>
-                  <plus/>
-                  <apply>
-                    <times/>
-                    <ci> Valv </ci>
-                    <ci> Pab </ci>
-                  </apply>
-                  <ci> Vlun </ci>
-                </apply>
+                <ci> Vlun </ci>
               </apply>
             </apply>
           </math>
