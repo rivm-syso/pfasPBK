@@ -131,8 +131,8 @@ model PBK_PFAS()
   AArt_Plas -> ASk; QSk*Free*(AArt_Plas/Art_Plas)
 
   AG -> AL; QG*FreeG*(AG/Gut)
-  Afil -> AK; (Tm*(Afil/Filtrate))/(Kt+(Afil/Filtrate))
-  Afil -> Adelay; Qfil*(Afil/Filtrate)
+  Afil -> AK; (Tm*(Afil/Fil))/(Kt+(Afil/Fil))
+  Afil -> Adelay; Qfil*(Afil/Fil)
   Adelay -> Aurine; kurine*Adelay
 
   AL -> AVen_Plas; (QL+QG)*FreeL*(AL/Liv)
