@@ -28,16 +28,17 @@ model PBK_PFAS()
 
   // Skin parameters
   Skinthickness = 0.1  # Skin thickness (cm)
-  fss = 0.005          # Fraction of the skin exposed. 0.005 = palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
-  hsurf = 0.01         # Applied layer thickness in cm, value is assumed to be 0.1 mm
-  hsc = 0.0015         # Stratum corneum thickness (cm) # [Krüse 2007]
-  hve = 0.0100         # Viable epidermis thickness (cm) # [Krüse 2007]
-  hcell = 0.00005      # Blood vessel wall thickness (cm) # [Burton 1954] = 0.5 um capillary wall thickness
-  ffatsc = 0.05        # Fraction of fat in stratum corneum [Polak 2012]
-  ffatve = 0.02        # Fraction of fat in viable epidermis [Polak 2012]
-  ffatepi = 0.02       # Fraction of fat in epidermis [Polak 2012]
-  ffatbl = 0.007       # Fraction of fat in blood [Polak 2012]
-  Kpcell = 0.93        # cm/h; Krüse model is normalized to 1 cm^2 # Permeability coefficient from arterial wall into the blood compartment [Krüse 2007]
+  Skinarea = 972       # Exposed area on skin (cm^2)
+  #fss = 0.005          # Fraction of the skin exposed. 0.005 = palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
+  #hsurf = 0.01         # Applied layer thickness in cm, value is assumed to be 0.1 mm
+  #hsc = 0.0015         # Stratum corneum thickness (cm) # [Krüse 2007]
+  #hve = 0.0100         # Viable epidermis thickness (cm) # [Krüse 2007]
+  #hcell = 0.00005      # Blood vessel wall thickness (cm) # [Burton 1954] = 0.5 um capillary wall thickness
+  #ffatsc = 0.05        # Fraction of fat in stratum corneum [Polak 2012]
+  #ffatve = 0.02        # Fraction of fat in viable epidermis [Polak 2012]
+  #ffatepi = 0.02       # Fraction of fat in epidermis [Polak 2012]
+  #ffatbl = 0.007       # Fraction of fat in blood [Polak 2012]
+  #Kpcell = 0.93        # cm/h; Krüse model is normalized to 1 cm^2 # Permeability coefficient from arterial wall into the blood compartment [Krüse 2007]
 
   // Physicochemical properties
   MW = 414.07
@@ -62,8 +63,8 @@ model PBK_PFAS()
   PLun = 1.27          # Lung/plasma partition coefficient; [Fabrega 2014]
 
   // Dermal exposure
-  Kpsc = 0.000088      # [Franko 2011]
-  Kpve = 0.000088      # [Franko 2011]
+  #Kpsc = 0.000088      # [Franko 2011]
+  #Kpve = 0.000088      # [Franko 2011]
 
   // Assignments
   kurine := kurinec*BW^(-0.25)
@@ -71,12 +72,12 @@ model PBK_PFAS()
 
   // Skin parameters
   SkinTarea := 9.1*((BW*1000)^0.666)  # Total area of the skin (cm^2)
-  Skinarea := fss*SkinTarea # Exposed area on skin (cm^2)
-  Kscve := ((1-ffatve)+(ffatve*(10^logP)))/((1-ffatsc)+(ffatsc*(10^logP)))
-  Kver := ((1-ffatbl)+(ffatbl*(10^logP)))/((1-ffatepi)+(ffatepi*(10^logP)))
+  #Skinarea := fss*SkinTarea # Exposed area on skin (cm^2)
+  #Kscve := ((1-ffatve)+(ffatve*(10^logP)))/((1-ffatsc)+(ffatsc*(10^logP)))
+  #Kver := ((1-ffatbl)+(ffatbl*(10^logP)))/((1-ffatepi)+(ffatepi*(10^logP)))
 
   // Inhalation parameters
-  Pab := 1/(10^(6.96-(1.04*log10(VP)) - 0.533*logP - 0.00495*MW))
+  #Pab := 1/(10^(6.96-(1.04*log10(VP)) - 0.533*logP - 0.00495*MW))
 
   // Free fraction of chemical in tissues
   FreeL := Free/PL             # Free fraction in liver
@@ -110,22 +111,22 @@ model PBK_PFAS()
   VSk := (Skinarea*Skinthickness)/1000            # Skin volume (L)
   Vlun := VlunC*BW                                # Functional residual capacity
   VR := 0.84*BW-VL-VF-VK-Vfil-VG-VPlas-VSk-Vlun   # Rest of the body volume (L). Need to know where the number 0.84 comes from??? <- Originates from Loccisano 2011. This value indicates that 16% of BW is not accounted for in the rest compartment.
-  Vsc := fss*SkinTarea*hsc/1000                   # volume of exposed stratum corneum (L) cm^2 * cm = cm^3 = ml / 1000 = L
-  Vve := fss*SkinTarea*hve/1000                   # volume of exposed viable epidermis (L) cm^2 * cm = cm^3 = ml / 1000 = L
-  Vsurf := fss*SkinTarea*hsurf/1000               # volume of dermal layer on exposed skin surface (L) 1 m^2 = 10,000 cm^2 * cm = cm^3 = ml / 1000 = L
-  VT := 0.007*BW                                  # Tidal volume
-  VFRC := 0.030*BW                                # Tidal volume
-  Valv := VFRC + 0.5*VT                           # Alveolar volume
+  #Vsc := fss*SkinTarea*hsc/1000                   # volume of exposed stratum corneum (L) cm^2 * cm = cm^3 = ml / 1000 = L
+  #Vve := fss*SkinTarea*hve/1000                   # volume of exposed viable epidermis (L) cm^2 * cm = cm^3 = ml / 1000 = L
+  #Vsurf := fss*SkinTarea*hsurf/1000               # volume of dermal layer on exposed skin surface (L) 1 m^2 = 10,000 cm^2 * cm = cm^3 = ml / 1000 = L
+  #VT := 0.007*BW                                  # Tidal volume
+  #VFRC := 0.030*BW                                # Tidal volume
+  #Valv := VFRC + 0.5*VT                           # Alveolar volume
 
-  CLsc := 24*Kpsc*fss*SkinTarea/1000      # stratum corneum clearance (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
-  CLve := 24*Kpve*fss*SkinTarea/1000      # viable epidermis clearance (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
-  CLcell := 24*Kpcell*fss*SkinTarea/1000  # clearance from arterial wall into the blood compartment (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
+  #CLsc := 24*Kpsc*fss*SkinTarea/1000      # stratum corneum clearance (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
+  #CLve := 24*Kpve*fss*SkinTarea/1000      # viable epidermis clearance (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
+  #CLcell := 24*Kpcell*fss*SkinTarea/1000  # clearance from arterial wall into the blood compartment (L/h) cm^2 * cm/h = cm^3/h = ml/h / 1000 = L/h
 
   // Define compartments
   compartment Lung := Vlun           # Lung
-  compartment Trans = 0.0000001      # Transfer compartment
-  compartment Sc                     # Stratum corneum
-  compartment Ve := Vve              # Viable epidermis
+  #compartment Trans = 0.0000001      # Transfer compartment
+  #compartment Sc                     # Stratum corneum
+  #compartment Ve := Vve              # Viable epidermis
   compartment Skin := VSk            # Skin compartment
   compartment Ven_Plas := VVen_Plas  # Venous plasma
   compartment Art_Plas := VArt_Plas  # Arterial plasma
@@ -140,9 +141,9 @@ model PBK_PFAS()
 
   // Define species
   substanceOnly species Alung in Lung          # amount in lung
-  substanceOnly species Atrans in Trans        # amount in transfer compartment
-  substanceOnly species Asc in Sc              # amount in stratum corneum
-  substanceOnly species Ave in Ve              # amount in viable epidermis
+  #substanceOnly species Atrans in Trans        # amount in transfer compartment
+  #substanceOnly species Asc in Sc              # amount in stratum corneum
+  #substanceOnly species Ave in Ve              # amount in viable epidermis
   substanceOnly species ASk in Skin            # amount in skin
   substanceOnly species AVen_Plas in Ven_Plas  # amount in venous plasma
   substanceOnly species AArt_Plas in Art_Plas  # amount in arterial plasma
@@ -157,9 +158,9 @@ model PBK_PFAS()
 
   // Initial amounts
   Alung = 0
-  Atrans = 0
-  Asc = 0
-  Ave = 0
+  #Atrans = 0
+  #Asc = 0
+  #Ave = 0
   ASk = 0
   AVen_Plas = 0
   AArt_Plas = 0
@@ -173,11 +174,11 @@ model PBK_PFAS()
   AR = 0
 
   // Transfer equations
-  Asc -> Atrans; 2*CLsc*(Asc / Vsc)
-  Atrans -> Ave; 2*CLve*((Atrans / 0.0000001)/Kscve)
-  Atrans -> Asc; 2*CLsc*(Atrans / 0.0000001)
-  Ave -> Atrans; 2*CLve*(Ave / Vve)
-  Ave -> ASk; CLcell*(Ave / Vve)/Kver
+  #Asc -> Atrans; 2*CLsc*(Asc / Vsc)
+  #Atrans -> Ave; 2*CLve*((Atrans / 0.0000001)/Kscve)
+  #Atrans -> Asc; 2*CLsc*(Atrans / 0.0000001)
+  #Ave -> Atrans; 2*CLve*(Ave / Vve)
+  #Ave -> ASk; CLcell*(Ave / Vve)/Kver
 
   Alung -> AArt_Plas; QCP*FreeLun*(Alung/Vlun) # QCP*Free*(Alung/(Valv*Pab+Vlun))
   AArt_Plas -> AG; QG*Free*(AArt_Plas/VArt_Plas)
