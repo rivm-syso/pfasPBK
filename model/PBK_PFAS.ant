@@ -90,7 +90,7 @@ model PBK_PFAS()
   compartment Fil := VfilC*BW            # kidney filtrate compartment
   compartment Delay                  # Storage compartment of urine
   compartment Urine                  # Urine compartment
-  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VSkC-VlunC)*BW              # Rest compartment
+  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VlunC)*BW - Skin              # Rest compartment
 
   // Define species
   substanceOnly species Alung in Lung          # amount in lung
