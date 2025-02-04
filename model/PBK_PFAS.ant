@@ -179,7 +179,7 @@ model PBK_PFAS()
   Ave -> Atrans; 2*CLve*(Ave / Vve)
   Ave -> ASk; CLcell*(Ave / Vve)/Kver
 
-  Alung -> AArt_Plas; QCP*Free*(Alung/(Valv*Pab+Vlun))
+  Alung -> AArt_Plas; QCP*FreeLun*(Alung/Vlun) # QCP*Free*(Alung/(Valv*Pab+Vlun))
   AArt_Plas -> AG; QG*Free*(AArt_Plas/VArt_Plas)
   AArt_Plas -> AL; QL*Free*(AArt_Plas/VArt_Plas)
   AArt_Plas -> AF; QF*Free*(AArt_Plas/VArt_Plas)
