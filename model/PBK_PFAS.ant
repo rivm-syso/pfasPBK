@@ -22,12 +22,13 @@ model PBK_PFAS()
   VGC = 0.0171         # Fraction gut volume
   VlunC = 0.007        # Fraction lung volume (ICRP 89)
   VPlasC = 0.0428      # Fraction plasma volume (58% of blood)
+  VartC = 0.39         # Fraction of plasma in arteries
+  VvenC := 1-VartC     # Fraction of plasma in venes
   Htc = 0.44           # Hematocrit
 
   // Skin parameters
-  Skinarea = 972       # Exposed area on skin (cm^2)
   Skinthickness = 0.1  # Skin thickness (cm)
-  fss = 0.005          # Fraction palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
+  fss = 0.005          # Fraction of the skin exposed. 0.005 = palm of hands (Sheridan et al., 1995, Rhodes et al., 2013)
   hsurf = 0.01         # Applied layer thickness in cm, value is assumed to be 0.1 mm
   hsc = 0.0015         # Stratum corneum thickness (cm) # [Krüse 2007]
   hve = 0.0100         # Viable epidermis thickness (cm) # [Krüse 2007]
@@ -70,6 +71,7 @@ model PBK_PFAS()
 
   // Skin parameters
   SkinTarea := 9.1*((BW*1000)^0.666)  # Total area of the skin (cm^2)
+  Skinarea := fss*SkinTarea # Exposed area on skin (cm^2)
   Kscve := ((1-ffatve)+(ffatve*(10^logP)))/((1-ffatsc)+(ffatsc*(10^logP)))
   Kver := ((1-ffatbl)+(ffatbl*(10^logP)))/((1-ffatepi)+(ffatepi*(10^logP)))
 
@@ -103,11 +105,11 @@ model PBK_PFAS()
   Vfil := VfilC*BW                                # Scaled filtrate compartment volume
   VG := VGC*BW                                    # Gut volume (L)
   VPlas := VPlasC*BW                              # Scaled plasma volume(L)
-  VArt_Plas := 0.39*VPlas                         # Scaled arterial plasma volume [Brown 1997]
-  VVen_Plas := 0.61*VPlas                         # Scaled venous plasma volume [Brown 1997]
+  VArt_Plas := VartC*VPlas                        # Scaled arterial plasma volume [Brown 1997]
+  VVen_Plas := VvenC*VPlas                        # Scaled venous plasma volume [Brown 1997]
   VSk := (Skinarea*Skinthickness)/1000            # Skin volume (L)
   Vlun := VlunC*BW                                # Functional residual capacity
-  VR := 0.84*BW-VL-VF-VK-Vfil-VG-VPlas-VSk-Vlun   # Rest of the body volume (L). Need to know where the number 0.84 comes from???
+  VR := 0.84*BW-VL-VF-VK-Vfil-VG-VPlas-VSk-Vlun   # Rest of the body volume (L). Need to know where the number 0.84 comes from??? <- Originates from Loccisano 2011. This value indicates that 16% of BW is not accounted for in the rest compartment.
   Vsc := fss*SkinTarea*hsc/1000                   # volume of exposed stratum corneum (L) cm^2 * cm = cm^3 = ml / 1000 = L
   Vve := fss*SkinTarea*hve/1000                   # volume of exposed viable epidermis (L) cm^2 * cm = cm^3 = ml / 1000 = L
   Vsurf := fss*SkinTarea*hsurf/1000               # volume of dermal layer on exposed skin surface (L) 1 m^2 = 10,000 cm^2 * cm = cm^3 = ml / 1000 = L
