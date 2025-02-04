@@ -122,13 +122,13 @@ model PBK_PFAS()
 
   // Transfer equations
   Alung -> AArt_Plas; QCP*FreeLun*(Alung/Lung)
-  AArt_Plas -> AG; QG*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> AL; QL*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> AF; QF*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> AK; QK*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> Afil; Qfil*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> AR; QR*Free*(AArt_Plas/VArt_Plas)
-  AArt_Plas -> ASk; QSk*Free*(AArt_Plas/VArt_Plas)
+  AArt_Plas -> AG; QG*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AL; QL*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AF; QF*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AK; QK*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> Afil; Qfil*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AR; QR*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> ASk; QSk*Free*(AArt_Plas/Art_Plas)
 
   AG -> AL; QG*FreeG*(AG/Gut)
   Afil -> AK; (Tm*(Afil/Filtrate))/(Kt+(Afil/Filtrate))
@@ -141,6 +141,6 @@ model PBK_PFAS()
   AR -> AVen_Plas; QR*FreeR*(AR/Rest)
   ASk -> AVen_Plas; QSk*FreeSk*(ASk/Skin)
 
-  AVen_Plas -> Alung; QCP*Free*(AVen_Plas/VVen_Plas)
+  AVen_Plas -> Alung; QCP*Free*(AVen_Plas/Ven_Plas)
 
 end
