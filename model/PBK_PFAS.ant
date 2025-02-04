@@ -79,18 +79,18 @@ model PBK_PFAS()
   QR := QCP-QL-QF-QK-QG-QSk    # Plasma flow to the rest of the body
 
   // Define compartments
-  compartment Lung := VlunC*BW            # Lung
-  compartment Skin := (Skinarea*Skinthickness)/1000            # Skin compartment
-  compartment Ven_Plas := VvenC*VPlasC*BW  # Venous plasma
-  compartment Art_Plas := VartC*VPlasC*BW  # Arterial plasma
-  compartment Gut := VGC*BW              # Gut compartment
-  compartment Liv := VLC*BW              # Liver compartment
-  compartment Fat := VFC*BW              # Fat compartment
-  compartment Kid := VKC*BW              # Kidney compartment
-  compartment Fil := VfilC*BW            # kidney filtrate compartment
-  compartment Delay                  # Storage compartment of urine
-  compartment Urine                  # Urine compartment
-  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VlunC)*BW - Skin              # Rest compartment
+  compartment Lung := VlunC*BW                        # Lung
+  compartment Skin := (Skinarea*Skinthickness)/1000   # Skin compartment
+  compartment Ven_Plas := VvenC*VPlasC*BW             # Venous plasma
+  compartment Art_Plas := VartC*VPlasC*BW             # Arterial plasma
+  compartment Gut := VGC*BW                           # Gut compartment
+  compartment Liv := VLC*BW                           # Liver compartment
+  compartment Fat := VFC*BW                           # Fat compartment
+  compartment Kid := VKC*BW                           # Kidney compartment
+  compartment Fil := VfilC*BW                         # kidney filtrate compartment
+  compartment Delay                                   # Storage compartment of urine
+  compartment Urine                                   # Urine compartment
+  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VlunC)*BW - Skin  # Rest compartment
 
   // Define species
   substanceOnly species Alung in Lung          # amount in lung

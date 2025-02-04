@@ -2,8 +2,6 @@ Parameter,Value,Remark
 MW, 414.07,
 logP, 4.81,
 VP, 2.34,
-Kpsc,0.000088,from Franko 2011
-Kpve,0.000088,from Franko 2011
 Tmc, 144000,
 Kt, 55,
 Free, 0.02,
