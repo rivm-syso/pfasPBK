@@ -22,7 +22,7 @@
           <unit kind="gram" exponent="1" scale="3" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="L_PER_DAY_KiloGM3DIV4">
+      <unitDefinition id="L_PER_DAY_PER_KiloGM0P75">
         <listOfUnits>
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
           <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
@@ -50,14 +50,40 @@
           <unit kind="mole" exponent="-1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="PA">
+        <listOfUnits>
+          <unit kind="gram" exponent="1" scale="3" multiplier="1"/>
+          <unit kind="metre" exponent="-1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MicroGM_PER_DAY_PER_KiloGM0P75">
+        <listOfUnits>
+          <unit kind="gram" exponent="1" scale="-6" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
+          <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="MicroGM_PER_L">
         <listOfUnits>
           <unit kind="gram" exponent="1" scale="-6" multiplier="1"/>
           <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="PER_DAY_PER_KiloGM0P25">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
+          <unit kind="gram" exponent="-0.25" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="PER_DAY">
         <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MicroGM_PER_DAY">
+        <listOfUnits>
+          <unit kind="gram" exponent="1" scale="-6" multiplier="1"/>
           <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
         </listOfUnits>
       </unitDefinition>
@@ -386,7 +412,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QCC" id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_KiloGM3DIV4" constant="true">
+      <parameter metaid="meta_QCC" id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_PER_KiloGM0P75" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QCC">
@@ -624,7 +650,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VP" id="VP" name="vapor pressure" value="2.34" constant="true">
+      <parameter metaid="meta_VP" id="VP" name="vapor pressure" value="2.34" units="PA" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VP">
@@ -637,7 +663,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Tmc" id="Tmc" name="maximum resorption rate" value="144000" constant="true">
+      <parameter metaid="meta_Tmc" id="Tmc" name="maximum resorption rate" value="144000" units="MicroGM_PER_DAY_PER_KiloGM0P75" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Tmc">
@@ -663,7 +689,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_kurinec" id="kurinec" name="urinary elimination rate constant" value="0.0072" constant="true">
+      <parameter metaid="meta_kurinec" id="kurinec" name="urinary elimination rate constant" value="0.0072" units="PER_DAY_PER_KiloGM0P25" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_kurinec">
@@ -806,7 +832,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="Tm" name="transporter maximum" value="3484865.50919077" constant="false"/>
+      <parameter id="Tm" name="transporter maximum" value="3484865.50919077" units="MicroGM_PER_DAY" constant="false"/>
       <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" value="0.00909090909090909" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
