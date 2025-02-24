@@ -76,7 +76,7 @@
           <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition>
+      <unitDefinition id="PER_DAY_KiloGM0P25">
         <listOfUnits>
           <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
           <unit kind="gram" exponent="0.25" scale="3" multiplier="1"/>
@@ -637,7 +637,7 @@
         </annotation>
       </parameter>
       <parameter id="Kt" name="resorption affinity" value="55" units="MicroGM_PER_L" constant="true"/>
-      <parameter metaid="meta_kurinec" id="kurinec" name="urinary elimination rate constant" value="0.0072" constant="true">
+      <parameter metaid="meta_kurinec" id="kurinec" name="urinary elimination rate constant" value="0.0072" units="PER_DAY_KiloGM0P25" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_kurinec">
