@@ -8,10 +8,9 @@ model PBK_PFAS()
   // Perfusion fractions
   QCC = 300            # Cardiac blood output (L/d/kg^0.75) (12.5*24)
   QFC = 0.052          # Fraction cardiac output going to fat
-  QLC = 0.069          # Fraction cardiac output going to liver suggested by EFSA is 0.069, since they corrected for output to the gut
-                       # Loccisano used 0.25, but Brown actually reported 0.23
+  QLC = 0.069          # Fraction cardiac output going to liver
   QKC = 0.175          # Fraction cardiac output going to kidney
-  QfilC = 0.2		   # Fraction of kidney plasma flow to filtrate
+  QfilC = 0.2		       # Fraction of kidney plasma flow to filtrate
   QSkC = 0.058         # Fraction cardiac output going to skin
   QGC = 0.181          # Fraction of cardiac output going to gut and the liver via portal arthery
 
@@ -23,12 +22,12 @@ model PBK_PFAS()
   VfilC = 0.0004       # Fraction filtrate compartment volume (10% of kidney volume)
   VGC = 0.0171         # Fraction gut volume
   VlunC = 0.007        # Fraction lung volume (ICRP 89)
-  # VPlasC = 0.0428      # Fraction plasma volume (58% of blood)
-  VBlC = 0.0738		   # Fraction blood volume (based on reported plasma volume being 58% of blood [EFSA 2020])
+  # VPlasC = 0.0428    # Fraction plasma volume (58% of blood)
+  VBlC = 0.0738		     # Fraction blood volume (based on reported plasma volume being 58% of blood [EFSA 2020])
   VartC = 0.39         # Fraction of plasma in arteries
   VvenC = 0.61     	   # Fraction of plasma in venes
   Htc = 0.44           # Hematocrit
-  FPlas = 0.58		   # Fraction plasma (58% of blood (average of male and female [ICRP 89])) 
+  FPlas = 0.58         # Fraction plasma (58% of blood (average of male and female [ICRP 89])) 
 
   // Skin parameters
   SkinTarea := 9.1*((BW*1000)^0.666)  # Total area of the skin (cm^2)
