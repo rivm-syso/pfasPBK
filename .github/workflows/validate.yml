@@ -6,7 +6,7 @@ on:
 jobs:
   validate-sbml:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: jwkruisselbrink/sbml-pbk-workflow/.github/workflows/validate.yml@v5
+    uses: jwkruisselbrink/sbml-pbk-workflow/.github/workflows/validate.yml@v6
     with:
       model-name: PBK_PFAS
     secrets: inherit
