@@ -34,6 +34,12 @@
           <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="L_PER_KiloGM">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="gram" exponent="-1" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="CentiM2">
         <listOfUnits>
           <unit kind="metre" exponent="2" scale="-2" multiplier="1"/>
@@ -81,18 +87,6 @@
           <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="MicroGM_PER_DAY">
-        <listOfUnits>
-          <unit kind="gram" exponent="1" scale="-6" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
-        </listOfUnits>
-      </unitDefinition>
-      <unitDefinition id="L_PER_HR">
-        <listOfUnits>
-          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
-          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
-        </listOfUnits>
-      </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
       <compartment metaid="meta_Lung" id="Lung" name="lung" spatialDimensions="3" size="0.49" units="L" constant="false">
@@ -121,7 +115,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Ven_Plas" id="Ven_Plas" name="venous blood" spatialDimensions="3" size="1.82756" units="L" constant="false">
+      <compartment metaid="meta_Ven_Plas" id="Ven_Plas" name="venous blood" spatialDimensions="3" size="1.8277308" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Ven_Plas">
@@ -134,7 +128,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Art_Plas" id="Art_Plas" name="arterial blood" spatialDimensions="3" size="1.16844" units="L" constant="false">
+      <compartment metaid="meta_Art_Plas" id="Art_Plas" name="arterial blood" spatialDimensions="3" size="1.1685492" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Art_Plas">
@@ -238,7 +232,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" size="36.9118" units="L" constant="false">
+      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" size="36.91152" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Rest">
@@ -464,6 +458,19 @@
           </rdf:RDF>
         </annotation>
       </parameter>
+      <parameter metaid="meta_QfilC" id="QfilC" name="fraction of kidney plasma flow to filtrate" value="0.2" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QfilC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00511"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_QSkC" id="QSkC" name="fraction cardiac output going to skin" value="0.058" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -490,7 +497,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FBW" id="FBW" name="Fraction of the BW covered by the sum of the compartments" value="0.84" units="UNITLESS" constant="true">
+      <parameter metaid="meta_FBW" id="FBW" name="Fraction of the BW covered by the sum of the compartments" value="0.84" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FBW">
@@ -503,7 +510,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VLC" id="VLC" name="fraction liver volume" value="0.026" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VLC" id="VLC" name="fraction liver volume" value="0.026" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VLC">
@@ -516,7 +523,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VFC" id="VFC" name="fraction fat volume" value="0.214" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VFC" id="VFC" name="fraction fat volume" value="0.214" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VFC">
@@ -529,7 +536,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VKC" id="VKC" name="fraction kidney volume" value="0.004" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VKC" id="VKC" name="fraction kidney volume" value="0.004" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VKC">
@@ -542,7 +549,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VfilC" id="VfilC" name="fraction filtrate compartment volume" value="0.0004" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VfilC" id="VfilC" name="fraction filtrate compartment volume" value="0.0004" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VfilC">
@@ -555,7 +562,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VGC" id="VGC" name="fraction gut volume" value="0.0171" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VGC" id="VGC" name="fraction gut volume" value="0.0171" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VGC">
@@ -568,7 +575,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VlunC" id="VlunC" name="fraction lung volume" value="0.007" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VlunC" id="VlunC" name="fraction lung volume" value="0.007" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VlunC">
@@ -581,13 +588,13 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VPlasC" id="VPlasC" name="fraction plasma volume" value="0.0428" units="UNITLESS" constant="true">
+      <parameter metaid="meta_VBlC" id="VBlC" name="fraction blood volume" value="0.0738" units="L_PER_KiloGM" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_VPlasC">
+            <rdf:Description rdf:about="#meta_VBlC">
               <bqmodel:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00104"/>
+                  <rdf:li rdf:resource="-"/>
                 </rdf:Bag>
               </bqmodel:is>
             </rdf:Description>
@@ -607,7 +614,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_VvenC" id="VvenC" name="fraction venous plasma volume" value="0.61" units="UNITLESS" constant="false">
+      <parameter metaid="meta_VvenC" id="VvenC" name="fraction venous plasma volume" value="0.61" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_VvenC">
@@ -621,6 +628,19 @@
         </annotation>
       </parameter>
       <parameter id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true"/>
+      <parameter metaid="meta_FPlas" id="FPlas" name="fraction plasma" value="0.58" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_FPlas">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="SkinTarea" name="total area of the skin" value="15341.8130743724" units="CentiM2" constant="false"/>
       <parameter id="Skinthickness" name="skin thickness" value="0.1" units="CentiM" constant="true"/>
       <parameter id="Skinarea" name="exposed area on skin" value="972" units="CentiM2" constant="true"/>
@@ -832,7 +852,19 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="Tm" name="transporter maximum" value="3484865.50919077" units="MicroGM_PER_DAY" constant="false"/>
+      <parameter metaid="meta_Tm" id="Tm" name="transporter maximum" value="3484865.50919077" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Tm">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" value="0.00909090909090909" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -912,7 +944,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" value="7260.13647748076" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" value="7260.13647748076" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QC">
@@ -925,7 +957,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" value="4065.67642738923" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" value="4210.87915693884" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QCP">
@@ -938,7 +970,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" value="280.531673489857" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" value="290.55066182878" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QL">
@@ -951,7 +983,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" value="211.41517422424" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" value="218.96571616082" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QF">
@@ -964,7 +996,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" value="711.493374793115" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" value="736.903852464297" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QK">
@@ -977,7 +1009,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" value="142.298674958623" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" value="147.380770492859" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Qfil">
@@ -990,7 +1022,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" value="735.88743335745" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" value="762.16912740593" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QG">
@@ -1003,7 +1035,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" value="235.809232788575" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" value="244.230991102453" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QSk">
@@ -1016,7 +1048,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" value="1890.53953873599" units="L_PER_HR" constant="false">
+      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" value="1958.05880797656" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QR">
@@ -1058,8 +1090,9 @@
           <apply>
             <times/>
             <ci> VvenC </ci>
-            <ci> VPlasC </ci>
+            <ci> VBlC </ci>
             <ci> BW </ci>
+            <ci> FPlas </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1068,8 +1101,9 @@
           <apply>
             <times/>
             <ci> VartC </ci>
-            <ci> VPlasC </ci>
+            <ci> VBlC </ci>
             <ci> BW </ci>
+            <ci> FPlas </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1149,22 +1183,17 @@
                     </apply>
                     <ci> VGC </ci>
                   </apply>
-                  <ci> VPlasC </ci>
+                  <apply>
+                    <times/>
+                    <ci> VBlC </ci>
+                    <ci> FPlas </ci>
+                  </apply>
                 </apply>
                 <ci> VlunC </ci>
               </apply>
               <ci> BW </ci>
             </apply>
             <ci> Skin </ci>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="VvenC">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <minus/>
-            <cn type="integer"> 1 </cn>
-            <ci> VartC </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1292,11 +1321,7 @@
           <apply>
             <times/>
             <ci> QC </ci>
-            <apply>
-              <minus/>
-              <cn type="integer"> 1 </cn>
-              <ci> Htc </ci>
-            </apply>
+            <ci> FPlas </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -1331,7 +1356,7 @@
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <times/>
-            <cn> 0.2 </cn>
+            <ci> QfilC </ci>
             <ci> QK </ci>
           </apply>
         </math>
