@@ -22,17 +22,18 @@ model PBK_PFAS()
   VfilC = 0.0004       # Fraction filtrate compartment volume (10% of kidney volume)
   VGC = 0.0171         # Fraction gut volume
   VlunC = 0.007        # Fraction lung volume (ICRP 89)
-  # VPlasC = 0.0428    # Fraction plasma volume (58% of blood)
-  VBlC = 0.0738		     # Fraction blood volume (based on reported plasma volume being 58% of blood [EFSA 2020])
+  VPlasC = 0.0428      # Fraction plasma volume (58% of blood)
   VartC = 0.39         # Fraction of plasma in arteries
   VvenC = 0.61     	   # Fraction of plasma in venes
   Htc = 0.44           # Hematocrit
-  FPlas = 0.58         # Fraction plasma (58% of blood (average of male and female [ICRP 89])) 
-
+  
   // Skin parameters
-  SkinTarea := 9.1*((BW*1000)^0.666)  # Total area of the skin (cm^2)
+  fss = 0.05           # fraction of the skin exposed
+  Meeh_A = 910         # Meeh-type equation: BSA = A*BW^B, coefficient A (cm^2/kg^0.666)
+  Meeh_B = 0.666       # Meeh-type equation: BSA = A*BW^B, coefficient B
+  SkinTarea := Meeh_A*BW^Meeh_B  # Total area of the skin (cm^2)
   Skinthickness = 0.1  # Skin thickness (cm)
-  Skinarea = 972       # Exposed area on skin (cm^2)
+  Skinarea := fss*SkinTarea       # Exposed area on skin (cm^2)
   
   // Physicochemical properties
   MW = 414.07
@@ -71,8 +72,7 @@ model PBK_PFAS()
 
   // Scaled cardiac output and perfusion
   QC := QCC*BW^0.75            # Cardiac output adjusted for BW (L/d)
-  # QCP := QC*(1-Htc)            # Cardiac output adjusted for plasma flow (L/d)
-  QCP := QC*FPlas              # Cardiac output adjusted for plasma flow (L/d)
+  QCP := QC*(1-Htc)            # Cardiac output adjusted for plasma flow (L/d)
   QL := QLC*QCP                # Scaled plasma flow to liver (L/d)
   QF := QFC*QCP                # Scaled plasma flow to fat (L/d)
   QK := QKC*QCP                # Scaled plasma flow to kidney (L/d)
@@ -84,8 +84,8 @@ model PBK_PFAS()
   // Define compartments
   compartment Lung := VlunC*BW                        # Lung
   compartment Skin := (Skinarea*Skinthickness)/1000   # Skin compartment
-  compartment Ven_Plas := VvenC*VBlC*BW*FPlas         # Venous plasma
-  compartment Art_Plas := VartC*VBlC*BW*FPlas         # Arterial plasma
+  compartment Ven_Plas := VvenC*VPlasC*BW             # Venous plasma
+  compartment Art_Plas := VartC*VPlasC*BW             # Arterial plasma
   compartment Gut := VGC*BW                           # Gut compartment
   compartment Liv := VLC*BW                           # Liver compartment
   compartment Fat := VFC*BW                           # Fat compartment
@@ -93,7 +93,7 @@ model PBK_PFAS()
   compartment Fil := VfilC*BW                         # kidney filtrate compartment
   compartment Delay                                   # Storage compartment of urine
   compartment Urine                                   # Urine compartment
-  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VBlC*FPlas-VlunC)*BW - Skin  # Rest compartment
+  compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VlunC)*BW - Skin  # Rest compartment
 
   // Define species
   substanceOnly species Alung in Lung          # amount in lung
