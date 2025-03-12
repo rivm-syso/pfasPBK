@@ -619,13 +619,61 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="VPlasC" value="0.0428" constant="true"/>
+      <parameter metaid="meta_VPlasC" id="VPlasC" name="fraction plasma volume" value="0.0428" units="L_PER_KiloGM" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VPlasC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="VartC" name="fraction arterial plasma volume" value="0.39" units="UNITLESS" constant="true"/>
       <parameter id="VvenC" name="fraction venous plasma volume" value="0.61" units="UNITLESS" constant="true"/>
       <parameter id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true"/>
-      <parameter id="fss" value="0.05" constant="true"/>
-      <parameter id="Meeh_A" value="910" constant="true"/>
-      <parameter id="Meeh_B" value="0.666" constant="true"/>
+      <parameter metaid="meta_fss" id="fss" name="fraction of skin exposed" value="0.05" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_fss">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Meeh_A" id="Meeh_A" name="Meeh-type equation coefficient A" value="910" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Meeh_A">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter metaid="meta_Meeh_B" id="Meeh_B" name="Meeh-type equation coefficient B" value="0.666" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Meeh_B">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="-"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="SkinTarea" name="total area of the skin" value="15412.6276660141" units="CentiM2" constant="false"/>
       <parameter id="Skinthickness" name="skin thickness" value="0.1" units="CentiM" constant="true"/>
       <parameter id="Skinarea" name="exposed area on skin" value="770.631383300705" units="CentiM2" constant="false"/>
