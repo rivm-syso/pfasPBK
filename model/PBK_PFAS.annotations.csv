@@ -103,8 +103,6 @@ kurinec,parameter,urinary elimination rate constant,1/(d.kg^-0.25),rdf,BQM_IS,ht
 kurinec,parameter,,,rdf,BQB_IS,,
 Free,parameter,free fraction in plasma,UNITLESS,rdf,BQM_IS,http://purl.obolibrary.org/obo/PBPKO_00591,
 Free,parameter,,,rdf,BQB_IS,,
-Biotransformation,parameter,ratio of biotransformation,UNITLESS,rdf,BQM_IS,,
-Biotransformation,parameter,,,rdf,BQB_IS,,
 PL,parameter,partition coefficient liver/plasma,UNITLESS,rdf,BQM_IS,http://purl.obolibrary.org/obo/PBPKO_00170,
 PL,parameter,,,rdf,BQB_IS,,
 PF,parameter,partition coefficient fat/plasma,UNITLESS,rdf,BQM_IS,http://purl.obolibrary.org/obo/PBPKO_00174,
