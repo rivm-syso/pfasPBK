@@ -25,17 +25,15 @@ model PBK_PFAS()
   VfilC = 0.0004       # Fraction filtrate compartment volume [-] (10% of kidney volume)
   VGC = 0.0171         # Fraction gut volume [-]
   VlunC = 0.007        # Fraction lung volume [-] (ICRP 89)
-  VPlasC = 0.0428      # Fraction plasma volume (58% of blood)[-]
+  VPlasC = 0.0428      # Fraction plasma volume[-] (58% of blood)
   VartC = 0.39         # Fraction of plasma in arteries [-]
   VvenC = 0.61         # Fraction of plasma in venes [-]
   Htc = 0.44           # Hematocrit [-]
 
   ### Skin parameters
-  fss = 0.05                     # Fraction of the skin exposed [-]
-  Meeh_A = 910                   # Meeh-type equation: BSA = A*BW^B, coefficient A (cm^2/kg^0.666)
-  Meeh_B = 0.666                 # Meeh-type equation: BSA = A*BW^B, coefficient B
-  SkinTarea := Meeh_A*BW^Meeh_B  # Total area of the skin [cm^2]
-  Skinthickness = 0.1            # Skin thickness [cm]
+  BSA := 9.1*((BW*1000)^0.666)  # Total area of the skin [cm^2]
+  SkinThickness = 0.1           # Skin thickness [cm]
+  FSkinExposed = 0.05           # Fraction of the skin exposed [-]
 
   ## Physicochemical properties
   MW = 414.07
@@ -45,7 +43,7 @@ model PBK_PFAS()
   ## Biochemical parameters
   Tmc = 144000         # Maximum resorption rate [ug/d/kg^.75] (6000 * 24, based on half-life of 2.3 years in humans)
   Kt = 55              # Resorption affinity [ug/L] (same as monkey)
-  kurinec = 0.0072     # 0.0003*24 # urinary elimination rate constant [/d/kg^-0.25]
+  kurinec = 0.0072     # Urinary elimination rate constant [/d/kg^-0.25] (0.0003*24)
   Free = 0.02          # Free fraction in plasma [-] (same as monkey)
 
   ### Partition coefficients
@@ -82,66 +80,66 @@ model PBK_PFAS()
   QR := QCP-QL-QF-QK-QG-QSk    # Plasma flow to the rest of the body [L/d]
 
   # Compartments
-  compartment Lung := VlunC*BW                            # Lung
-  compartment Skin := (fss*SkinTarea*Skinthickness)/1000  # Skin compartment
-  compartment Ven_Plas := VvenC*VPlasC*BW                 # Venous plasma
-  compartment Art_Plas := VartC*VPlasC*BW                 # Arterial plasma
-  compartment Gut := VGC*BW                               # Gut compartment
-  compartment Liv := VLC*BW                               # Liver compartment
-  compartment Fat := VFC*BW                               # Fat compartment
-  compartment Kid := VKC*BW                               # Kidney compartment
-  compartment Fil := VfilC*BW                             # kidney filtrate compartment
-  compartment Delay                                       # Storage compartment of urine
-  compartment Urine                                       # Urine compartment
+  compartment Lung := VlunC*BW                               # Lung
+  compartment Skin := (FSkinExposed*BSA*SkinThickness)/1000  # Skin compartment
+  compartment Ven_Plas := VvenC*VPlasC*BW                    # Venous plasma
+  compartment Art_Plas := VartC*VPlasC*BW                    # Arterial plasma
+  compartment Gut := VGC*BW                                  # Gut compartment
+  compartment Liv := VLC*BW                                  # Liver compartment
+  compartment Fat := VFC*BW                                  # Fat compartment
+  compartment Kid := VKC*BW                                  # Kidney compartment
+  compartment Fil := VfilC*BW                                # kidney filtrate compartment
   compartment Rest := (FBW-VLC-VFC-VKC-VfilC-VGC-VPlasC-VlunC)*BW - Skin  # Rest-of-body compartment
+  compartment Delay                                          # Storage compartment of urine
+  compartment Urine                                          # Urine compartment
 
   # Species
   substanceOnly species Alung in Lung          # amount in lung
   substanceOnly species ASk in Skin            # amount in skin
   substanceOnly species AVen_Plas in Ven_Plas  # amount in venous plasma
   substanceOnly species AArt_Plas in Art_Plas  # amount in arterial plasma
-  substanceOnly species AG in Gut              # amount in gut
-  substanceOnly species AL in Liv              # amount in liver
-  substanceOnly species AF in Fat              # amount in fat
-  substanceOnly species AK in Kid              # amount in kidney
-  substanceOnly species Afil in Fil            # amount in kidney filtrate
-  substanceOnly species Adelay in Delay        # amount in storage compartment of urine
-  substanceOnly species Aurine in Urine        # amount in urine
-  substanceOnly species AR in Rest             # amount in the rest of the body
+  substanceOnly species AGut in Gut            # amount in gut
+  substanceOnly species ALiv in Liv            # amount in liver
+  substanceOnly species AFat in Fat            # amount in fat
+  substanceOnly species AKid in Kid            # amount in kidney
+  substanceOnly species AFil in Fil            # amount in kidney filtrate
+  substanceOnly species ADelay in Delay        # amount in storage compartment of urine
+  substanceOnly species AUrine in Urine        # amount in urine
+  substanceOnly species ARest in Rest          # amount in the rest of the body
 
   # Initial amounts
   Alung = 0
   ASk = 0
   AVen_Plas = 0
   AArt_Plas = 0
-  AG = 0
-  AL = 0
-  AF = 0
-  AK = 0
-  Afil = 0
-  Adelay = 0
-  Aurine = 0
-  AR = 0
+  AGut = 0
+  ALiv = 0
+  AFat = 0
+  AKid = 0
+  AFil = 0
+  ADelay = 0
+  AUrine = 0
+  ARest = 0
 
   # Transfer equations
   Alung -> AArt_Plas; QCP*FreeLun*(Alung/Lung)
-  AArt_Plas -> AG; QG*Free*(AArt_Plas/Art_Plas)
-  AArt_Plas -> AL; QL*Free*(AArt_Plas/Art_Plas)
-  AArt_Plas -> AF; QF*Free*(AArt_Plas/Art_Plas)
-  AArt_Plas -> AK; QK*Free*(AArt_Plas/Art_Plas)
-  AArt_Plas -> Afil; Qfil*Free*(AArt_Plas/Art_Plas)
-  AArt_Plas -> AR; QR*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AGut; QG*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> ALiv; QL*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AFat; QF*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AKid; QK*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> AFil; Qfil*Free*(AArt_Plas/Art_Plas)
+  AArt_Plas -> ARest; QR*Free*(AArt_Plas/Art_Plas)
   AArt_Plas -> ASk; QSk*Free*(AArt_Plas/Art_Plas)
 
-  AG -> AL; QG*FreeG*(AG/Gut)
-  Afil -> AK; (Tm*(Afil/Fil))/(Kt+(Afil/Fil))
-  Afil -> Adelay; Qfil*(Afil/Fil)
-  Adelay -> Aurine; kurine*Adelay
+  AGut -> ALiv; QG*FreeG*(AGut/Gut)
+  AFil -> AKid; (Tm*(AFil/Fil))/(Kt+(AFil/Fil))
+  AFil -> ADelay; Qfil*(AFil/Fil)
+  ADelay -> AUrine; kurine*ADelay
 
-  AL -> AVen_Plas; (QL+QG)*FreeL*(AL/Liv)
-  AF -> AVen_Plas; QF*FreeF*(AF/Fat)
-  AK -> AVen_Plas; QK*FreeK*(AK/Kid)
-  AR -> AVen_Plas; QR*FreeR*(AR/Rest)
+  ALiv -> AVen_Plas; (QL+QG)*FreeL*(ALiv/Liv)
+  AFat -> AVen_Plas; QF*FreeF*(AFat/Fat)
+  AKid -> AVen_Plas; QK*FreeK*(AKid/Kid)
+  ARest -> AVen_Plas; QR*FreeR*(ARest/Rest)
   ASk -> AVen_Plas; QSk*FreeSk*(ASk/Skin)
 
   AVen_Plas -> Alung; QCP*Free*(AVen_Plas/Ven_Plas)
