@@ -48,9 +48,6 @@ model PBK_PFAS()
   kurinec = 0.0072     # 0.0003*24 # urinary elimination rate constant (/d/kg^-0.25)# estimated
   Free = 0.02          # Free fraction in plasma (same as monkey)
 
-  // Inhalation exposure
-  Biotransformation = 0.003 # 8:2-FTOH to PFOA [Gomis 2016]
-
   ### Partition coefficients
   PL = 2.2             # Liver/plasma partition coefficient (Harada et al. 2005)
   PF = 0.04            # Fat/plasma partition coefficient (Harada et al. 2005)
