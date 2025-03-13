@@ -676,7 +676,6 @@
       </parameter>
       <parameter id="SkinTarea" name="total area of the skin" value="15412.6276660141" units="CentiM2" constant="false"/>
       <parameter id="Skinthickness" name="skin thickness" value="0.1" units="CentiM" constant="true"/>
-      <parameter id="Skinarea" name="exposed area on skin" value="770.631383300705" units="CentiM2" constant="false"/>
       <parameter metaid="meta_MW" id="MW" name="molar weight" value="414.07" units="GM_PER_MOL" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -744,7 +743,6 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="Biotransformation" name="ratio of biotransformation" value="0.003" units="UNITLESS" constant="true"/>
       <parameter metaid="meta_PL" id="PL" name="partition coefficient liver/plasma" value="2.2" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -1063,7 +1061,8 @@
             <divide/>
             <apply>
               <times/>
-              <ci> Skinarea </ci>
+              <ci> fss </ci>
+              <ci> SkinTarea </ci>
               <ci> Skinthickness </ci>
             </apply>
             <cn type="integer"> 1000 </cn>
@@ -1186,15 +1185,6 @@
               <ci> BW </ci>
               <ci> Meeh_B </ci>
             </apply>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="Skinarea">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <times/>
-            <ci> fss </ci>
-            <ci> SkinTarea </ci>
           </apply>
         </math>
       </assignmentRule>
