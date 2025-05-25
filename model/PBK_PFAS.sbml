@@ -29,6 +29,11 @@
               </rdf:li>
             </rdf:Bag>
           </dcterms:creator>
+          <bqbiol:hasTaxon>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://identifiers.org/taxonomy/9443"/>
+            </rdf:Bag>
+          </bqbiol:hasTaxon>
         </rdf:Description>
       </rdf:RDF>
     </annotation>
