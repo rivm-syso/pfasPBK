@@ -1,0 +1,29 @@
+idModelInstance,Parameter,Value,Remark
+PFOS_Human_Westerhout_2024, MW, 500.13,
+PFOS_Human_Westerhout_2024, logP, 4.49,
+PFOS_Human_Westerhout_2024, VP, 0.27,Pa; 1 mmHg = 133.322368 Pa; 0.002 mmHg 
+PFOS_Human_Westerhout_2024, Tmc, 84000,3500*24 
+PFOS_Human_Westerhout_2024, Kt, 23,same as monkey
+PFOS_Human_Westerhout_2024, Free, 0.025,same as monkey 
+PFOS_Human_Westerhout_2024, PL, 3.72,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PF, 0.14,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PK, 0.8,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PSk, 0.29,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PR, 0.2,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PG, 0.57,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, PLun, 0.15,from Harada et al. 2005
+PFOS_Human_Westerhout_2024, kurinec, 0.024,estimated (0.001*24)
+PFOS_Human_Westerhout_2024, QCC, 300,
+PFOS_Human_Westerhout_2024, QFC, 0.052,
+PFOS_Human_Westerhout_2024, QLC, 0.069,
+PFOS_Human_Westerhout_2024, QKC, 0.175,
+PFOS_Human_Westerhout_2024, QSkC, 0.058,
+PFOS_Human_Westerhout_2024, QGC, 0.181,
+PFOS_Human_Westerhout_2024, VLC, 0.026,
+PFOS_Human_Westerhout_2024, VFC, 0.214,
+PFOS_Human_Westerhout_2024, VKC, 0.004,
+PFOS_Human_Westerhout_2024, VfilC, 0.0004,
+PFOS_Human_Westerhout_2024, VGC, 0.0171,
+PFOS_Human_Westerhout_2024, VlunC, 0.007,
+PFOS_Human_Westerhout_2024, VPlasC, 0.0428,
+PFOS_Human_Westerhout_2024, Htc, 0.44,

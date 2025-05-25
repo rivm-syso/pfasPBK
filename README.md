@@ -1,6 +1,6 @@
 # PFAS PBK model
 
-This repository contains the source code of a PFAS PBK model implementation based on the PFOA and PFOS PBK model by [Loccisano et al.](https://www.sciencedirect.com/science/article/abs/pii/S0273230010002242?via%3Dihub]) and the subsequently modified version thereof by [Westerhout et al.](https://doi.org/10.1093/toxsci/kfae006). The model is implemented in Antimony and available as a FAIR PBK annotated SBML.
+This repository contains the source code of a PFAS PBK model implementation based on the PFOA and PFOS PBK model by [Loccisano et al. (2011)](https://www.sciencedirect.com/science/article/abs/pii/S0273230010002242?via%3Dihub]) and the subsequently modified version thereof by [Westerhout et al. (2024)](https://doi.org/10.1093/toxsci/kfae006). The model is implemented in Antimony and available as an annotated SBML file compliant with the FAIR PBK standard.
 
 # Model implementation
 
