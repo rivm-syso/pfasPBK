@@ -10,7 +10,7 @@ model PBK_PFAS()
   # Parameters
 
   ### Age
-  AgeInit = 10       # body weight at start of simulation [kg]
+  AgeInit = 10       # age at start of simulation [kg]
   AgeRef = 18        # reference age [kg]
   Age = AgeInit      # age during simulation [yr]
 
