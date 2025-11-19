@@ -11,12 +11,12 @@ model PBK_PFAS()
 
   ### Age
   AgeInit = 10       # age at start of simulation [yr]
-  AgeRef = 18        # reference age [yr]
+  AgeRef = 0         # reference age [yr]
   Age = AgeInit      # age during simulation [yr]
 
   ### Body size
-  BWRef = 50         # reference body weight [kg]
-  BWBirth = 3.5      # body weight at start of simulation [kg]
+  BWRef = 3.68       # reference body weight [kg]
+  BWBirth = 3.68     # nominal body weight at birth (of population) [kg]
 
   deltaBW := BWRef / f_BW(AgeRef, BWBirth)  # individual deviation of nominal BW [-]
   BW := deltaBW * f_BW(Age, BWBirth)        # body weight during simulation [kg]

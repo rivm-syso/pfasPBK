@@ -20,3 +20,9 @@ venv.bak/
 
 # Log files
 *.log
+
+# Cache files
+.cache/
+
+# Validation results
+validation/results/
