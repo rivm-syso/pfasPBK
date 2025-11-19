@@ -25,7 +25,7 @@ VALIDATION_SCENARIOS = [{
             {
                 'id': 'CVen',
                 'label': 'Concentration venous plasma PFOS (ug/L)',
-                'output_id_r': 'Cart_PFOS',
+                'output_id_r': 'Cven_PFOS',
                 'output_id_ant': '[AVen_Plas]'
             },
             {
@@ -50,7 +50,7 @@ VALIDATION_SCENARIOS = [{
             {
                 'id': 'CVen',
                 'label': 'Concentration venous plasma PFOA (ug/L)',
-                'output_id_r': 'Cart_PFOA',
+                'output_id_r': 'Cven_PFOA',
                 'output_id_ant': '[AVen_Plas]'
             }
         ]
