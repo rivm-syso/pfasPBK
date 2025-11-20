@@ -88,7 +88,7 @@ def run_antimony_validation_scenarios(
 
 def run_r_validation_scenarios(force_recompute: bool):
     # Check if out file exists or whether we want to force recalculation
-    if os.path.exists(OUT_FILE_R) or not force_recompute:
+    if os.path.exists(OUT_FILE_R) and not force_recompute:
         print("Skipping R validation scenarios: results already available")
         return
 
