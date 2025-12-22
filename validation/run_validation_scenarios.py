@@ -1,64 +1,15 @@
 import os
 import argparse
 import subprocess
+from typing import Dict
 import pandas as pd
 import tellurium as te
 import matplotlib.pyplot as plt
-
-PATH_VALIDATION_R_SCRIPT = 'validation/R_model/run_westerhout_2024.R'
-
-# Note: this is the path of the file that is written by the R script
-OUT_FILE_R = "validation/results/results_R_PFAS.csv"
-
-# Definition of validation scenarios and accompanying comparisons
-VALIDATION_SCENARIOS = [{
-        'id': 'PFOS',
-        'model_path': './model/PBK_PFAS_LT.ant',
-        'param_file': './validation/params_LT_validation_PFOS.csv',
-        'comparisons': [
-            {
-                'id': 'CArt',
-                'label': 'Concentration arterial plasma PFOS (ug/L)',
-                'output_id_r': 'Cart_PFOS',
-                'output_id_ant': '[AArt_Plas]'
-            },
-            {
-                'id': 'CVen',
-                'label': 'Concentration venous plasma PFOS (ug/L)',
-                'output_id_r': 'Cven_PFOS',
-                'output_id_ant': '[AVen_Plas]'
-            },
-            {
-                'id': 'BW',
-                'label': 'Bodyweight',
-                'output_id_r': 'BW',
-                'output_id_ant': 'BW'
-            }
-        ]
-    },
-    {
-        'id': 'PFOA',
-        'model_path': './model/PBK_PFAS_LT.ant',
-        'param_file': './validation/params_LT_validation_PFOA.csv',
-        'comparisons': [
-            {
-                'id': 'CArt',
-                'label': 'Concentration arterial plasma PFOA (ug/L)',
-                'output_id_r': 'Cart_PFOA',
-                'output_id_ant': '[AArt_Plas]'
-            },
-            {
-                'id': 'CVen',
-                'label': 'Concentration venous plasma PFOA (ug/L)',
-                'output_id_r': 'Cven_PFOA',
-                'output_id_ant': '[AVen_Plas]'
-            }
-        ]
-    }
-]
+import yaml
+from pathlib import Path
 
 def main():
-    parser = argparse.ArgumentParser(description="Demo of force_recompute argument")
+    parser = argparse.ArgumentParser(description="Run validation scripts arguments.")
     parser.add_argument(
         '-f',
         '--force_recompute',
@@ -69,35 +20,52 @@ def main():
     args = parser.parse_args()
     force_recompute = args.force_recompute
 
+    yaml_path = Path("validation/validation_scenarios.yaml")
+
+    with yaml_path.open("r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+
+    scenarios = config["validation_scenarios"]
+
     out_dir = 'validation/results'
-    run_antimony_validation_scenarios(out_dir, force_recompute)
-    run_r_validation_scenarios(force_recompute)
-    for scenario in VALIDATION_SCENARIOS:
+    for scenario in scenarios:
+        run_antimony_validation_scenarios(
+            out_dir,
+            scenario,
+            force_recompute
+        )
+        run_r_validation_scenarios(
+            scenario,
+            force_recompute
+        )
         plot_scenario_results(out_dir, scenario)
 
 def run_antimony_validation_scenarios(
     out_dir: str,
+    scenario: Dict,
     force_recompute: bool
 ):
-    for scenario in VALIDATION_SCENARIOS:
-        run_validaton_scenario_antimony(
-            scenario = scenario,
-            out_file = os.path.join(out_dir, f'results_ant_{scenario['id']}.csv'),
-            force_recompute = force_recompute
-        )
+    run_validaton_scenario_antimony(
+        scenario = scenario,
+        out_file = os.path.join(out_dir, f'results_ant_{scenario['id']}.csv'),
+        force_recompute = force_recompute
+    )
 
-def run_r_validation_scenarios(force_recompute: bool):
+def run_r_validation_scenarios(
+    scenario: Dict,
+    force_recompute: bool
+):
     # Check if out file exists or whether we want to force recalculation
-    if os.path.exists(OUT_FILE_R) and not force_recompute:
+    if os.path.exists(scenario['r_output_file']) and not force_recompute:
         print("Skipping R validation scenarios: results already available")
         return
 
     # Run R validation scenarios
     print("Running R validation scenarios")
-    subprocess.run(['Rscript', PATH_VALIDATION_R_SCRIPT])
+    subprocess.run(['Rscript', scenario['r_validation_script']])
 
 def run_validaton_scenario_antimony(
-  scenario,
+  scenario: Dict,
   out_file: str,
   force_recompute: bool
 ):
@@ -108,21 +76,9 @@ def run_validaton_scenario_antimony(
 
     print(f"Running Antimony validation scenario {scenario['id']}")
 
-    # Define dosing regimen
-    daily_intake = 0.001  # ug/day
-    days_of_exposure = int(80 * 365.25)
-    days_after_exposure = int(0 * 365.25)
-    num_days = days_of_exposure + days_after_exposure
-
     # Load the PBK model
     f_ant = scenario['model_path']
     rr_model = te.loada(f_ant)
-
-    # Make sure input is not constant and does not have boundary conditions
-    input_id = 'AGut'
-    rr_model.setInitAmount(input_id, 0)
-    rr_model.setConstant(input_id, False)
-    rr_model.setBoundary(input_id, False)
 
     # Set chemical parameters
     load_parametrisation(rr_model, scenario['param_file'])
@@ -132,17 +88,33 @@ def run_validaton_scenario_antimony(
     rr_model.AgeRef = 0
     rr_model.BWRef = rr_model.BWBirth
 
-    # Create a repeating daily oral dosing
-    eid = f"oral_dosing"
-    rr_model.addEvent(eid, False, f"time % 1 == 0 && time < {days_of_exposure}", False)
-    rr_model.addEventAssignment(eid, input_id, f"{input_id} + BW * {daily_intake}", False)
+    # Set initial amounts according to scenario
+    if 'initial_amounts' in scenario.keys():
+        for item in scenario['initial_amounts']:
+            rr_model.setInitAmount(item['target'], item['amount'])
+
+    # Define dosing regimen
+    num_days = int(scenario['duration'])
+
+    # Set initial amounts according to scenario
+    if 'dosing_events' in scenario.keys():
+        for item in scenario['dosing_events']:
+            target = item['target']
+            eid = item['id']
+            daily_intake = item['amount'] # ug/day
+            until = item['until']
+            rr_model.addEvent(eid, False, f"time % 1 == 0 && time < {until}", False)
+            rr_model.addEventAssignment(eid, target, f"{target} + BW * {daily_intake}", False)
+
+    # Regenerate model after setting initial amounts and adding all events
     rr_model.regenerateModel(True, True)
 
     # Define the output selections
     selections = ['time'] + [output['output_id_ant'] for output in scenario['comparisons']]
 
     # Simulate the PBPK model
-    results = rr_model.simulate(0, num_days, num_days + 1, selections)
+    evaluation_resolution = int(scenario['evaluation_resolution'])
+    results = rr_model.simulate(0, num_days, evaluation_resolution * (num_days + 1), selections)
 
     # Create output folder if not exists
     os.makedirs(os.path.dirname(out_file), exist_ok=True)
@@ -157,11 +129,11 @@ def load_parametrisation(model, filename):
     for index, row in df.iterrows():
         model[str(row['Parameter'])] = row['Value']
 
-def plot_scenario_results(out_dir: str, scenario):
+def plot_scenario_results(out_dir: str, scenario: Dict):
     # Load data
     out_file_ant = os.path.join(out_dir, f'results_ant_{scenario['id']}.csv')
     df_out_ant = pd.read_csv(out_file_ant)
-    df_out_r = pd.read_csv(OUT_FILE_R)
+    df_out_r = pd.read_csv(scenario['r_output_file'])
 
     for comparison in scenario['comparisons']:
         # Extract time and output variable from output Antimony model
