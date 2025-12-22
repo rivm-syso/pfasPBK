@@ -1,7 +1,13 @@
 # Westerhout et al., 2024 PFAS PBPK model
-# Changes:
-# - Initial amount of 100 ug in liver
+# Code changed to validate Antimony implementation 
+# Changed the calculation of CvenFree, Cven, CartFree and Cart to correctly present the free fraction (lines 501-504, 535-538)
+# Changed the 'Free' in the lung differential equation to 'FreeLun' (lines, 543, 547, 594, 598, 657, 659)
+
+# Changes for scenario:
+# - No exposure via breastfeeding
+# - Lifetime simulation starting at age 0
 # - No dosing
+# - Initial amount of 100 µg in liver
 # - Simulate 5 days
 # - Evaluation resolution: per hour
 
@@ -71,7 +77,6 @@ fss <- 0.05 # fraction palm of hands (Sheridan et al., 1995, Rhodes et al., 2013
 #### PFAS ----
 # Remark: the doses are given in ug, the volumes in L, so concentrations are in ug/L
 # From ug/L to uM is by dividing by MW
-
 #### PFOA ----
 # Physicochemical properties
 MW_PFOA = 414.07
@@ -112,7 +117,6 @@ Tmc_PFOA = 144000 # 6000*24   # Maximum resorption rate
 Kt_PFOA = 55   # Resorption affinity# same as monkey
 kurinec_PFOA = 0.0072 # 0.0003*24 # urinary elimination rate constant (/d/kg^-0.25)# estimated 
 Free_PFOA = 0.02  # Free fraction of PFOA in plasma# same as monkey 
-
 # Partition coefficients from Harada, et al 2005 
 PL_PFOA = 2.2   # Liver/plasma partition coefficient of PFOA
 PF_PFOA = 0.04   # Fat/plasma partition coefficient of PFOA
@@ -492,10 +496,16 @@ PFAS_extended <- function(t, A, parms) {
     # Csc_PFOA <- Asc_PFOA/Vsc
     # Ctrans_PFOA <- Atrans_PFOA/0.0000001
     # Cve_PFOA <- Ave_PFOA/Vve
-    CvenFree_PFOA <- Aven_PFOA/Vven_plas
-    Cven_PFOA <- CvenFree_PFOA/Free_PFOA
-    CartFree_PFOA <- Aart_PFOA/Vart_plas
-    Cart_PFOA <- CartFree_PFOA/Free_PFOA
+  # Original code:
+    # CvenFree_PFOA <- Aven_PFOA/Vven_plas
+    # Cven_PFOA <- CvenFree_PFOA/Free_PFOA
+    # CartFree_PFOA <- Aart_PFOA/Vart_plas
+    # Cart_PFOA <- CartFree_PFOA/Free_PFOA
+  # Corrected code:
+    Cven_PFOA <- Aven_PFOA/Vven_plas
+    CvenFree_PFOA <- Cven_PFOA*Free_PFOA
+    Cart_PFOA <- Aart_PFOA/Vart_plas
+    CartFree_PFOA <- Cart_PFOA*Free_PFOA
     
     # PFOS
     #CAFree_PFOS <- APlas_PFOS/VPlas # free concentration of chemical in plasma µg/L (ng/mL) 
@@ -520,17 +530,25 @@ PFAS_extended <- function(t, A, parms) {
     # Csc_PFOS <- Asc_PFOS/Vsc
     # Ctrans_PFOS <- Atrans_PFOS/0.0000001
     # Cve_PFOS <- Ave_PFOS/Vve
-    CvenFree_PFOS <- Aven_PFOS/Vven_plas
-    Cven_PFOS <- CvenFree_PFOS/Free_PFOS
-    CartFree_PFOS <- Aart_PFOS/Vart_plas
-    Cart_PFOS <- CartFree_PFOS/Free_PFOS
+  # Original code:
+    # CvenFree_PFOS <- Aven_PFOS/Vven_plas
+    # Cven_PFOS <- CvenFree_PFOS/Free_PFOS
+    # CartFree_PFOS <- Aart_PFOS/Vart_plas
+    # Cart_PFOS <- CartFree_PFOS/Free_PFOS
+  # Corrected code:
+    Cven_PFOS <- Aven_PFOS/Vven_plas
+    CvenFree_PFOS <- Cven_PFOS*Free_PFOS
+    Cart_PFOS <- Aart_PFOS/Vart_plas
+    CartFree_PFOS <- Cart_PFOS*Free_PFOS
     
     # Lung compartment
     # dAlun_PFOA <- QCP*Cven_PFOA*Free_PFOA + Qp*Inhalation_PFOA - QCP*Clun_bl_PFOA*Free_PFOA #- Qp*Calv_PFOA
-    dAlun_PFOA <- QCP*Cven_PFOA*Free_PFOA - QCP*Clun_PFOA*Free_PFOA # new (07-11-2025)
+    # dAlun_PFOA <- QCP*Cven_PFOA*Free_PFOA - QCP*Clun_PFOA*Free_PFOA # new (07-11-2025)
+    dAlun_PFOA <- QCP*Cven_PFOA*Free_PFOA - QCP*Clun_PFOA*FreeLun_PFOA # new (08-01-2026)
     
     # dAlun_PFOS <- QCP*Cven_PFOS*Free_PFOS + Qp*Inhalation_PFOS - QCP*Clun_bl_PFOS*Free_PFOS #- Qp*Calv_PFOS
-    dAlun_PFOS <- QCP*Cven_PFOS*Free_PFOS - QCP*Clun_PFOS*Free_PFOS # new (07-11-2025)
+    # dAlun_PFOS <- QCP*Cven_PFOS*Free_PFOS - QCP*Clun_PFOS*Free_PFOS # new (07-11-2025)
+    dAlun_PFOS <- QCP*Cven_PFOS*Free_PFOS - QCP*Clun_PFOS*FreeLun_PFOS # new (08-01-2026)
     
     # Skin compartment 
     # Skin surface
@@ -576,10 +594,12 @@ PFAS_extended <- function(t, A, parms) {
     
     # Arterial blood (plasma) compartment      
     # dAart_PFOA <- QCP*Clun_bl_PFOA*Free_PFOA - QCP*Cart_PFOA*Free_PFOA - Qfil*Cart_PFOA*Free_PFOA 
-    dAart_PFOA <- QCP*Clun_PFOA*Free_PFOA - QCP*Cart_PFOA*Free_PFOA - Qfil*Cart_PFOA*Free_PFOA # new (07-11-2025)
+    # dAart_PFOA <- QCP*Clun_PFOA*Free_PFOA - QCP*Cart_PFOA*Free_PFOA - Qfil*Cart_PFOA*Free_PFOA # new (07-11-2025)
+    dAart_PFOA <- QCP*Clun_PFOA*FreeLun_PFOA - QCP*Cart_PFOA*Free_PFOA - Qfil*Cart_PFOA*Free_PFOA # new (08-01-2026)
     
     # dAart_PFOS <- QCP*Clun_bl_PFOS*Free_PFOS - QCP*Cart_PFOS*Free_PFOS - Qfil*Cart_PFOS*Free_PFOS 
-    dAart_PFOS <- QCP*Clun_PFOS*Free_PFOS - QCP*Cart_PFOS*Free_PFOS - Qfil*Cart_PFOS*Free_PFOS # new (07-11-2025)
+    # dAart_PFOS <- QCP*Clun_PFOS*Free_PFOS - QCP*Cart_PFOS*Free_PFOS - Qfil*Cart_PFOS*Free_PFOS # new (07-11-2025)
+    dAart_PFOS <- QCP*Clun_PFOS*FreeLun_PFOS - QCP*Cart_PFOS*Free_PFOS - Qfil*Cart_PFOS*Free_PFOS # new (08-01-2026)
     
     # Gut compartment 
     dAG_PFOA <- QG*(Cart_PFOA*Free_PFOA-CG_PFOA*FreeG_PFOA) + Oraldose_PFOA + Drinkdose_PFOA 
@@ -638,9 +658,9 @@ PFAS_extended <- function(t, A, parms) {
 
 #### parms ----
 # Parameters used in the model
-parms_PFAS_extended <- c(Kt_PFOA, Free_PFOA, FreeL_PFOA, FreeF_PFOA, FreeK_PFOA, FreeSk_PFOA, FreeR_PFOA, FreeG_PFOA,
+parms_PFAS_extended <- c(Kt_PFOA, Free_PFOA, FreeL_PFOA, FreeF_PFOA, FreeK_PFOA, FreeSk_PFOA, FreeR_PFOA, FreeG_PFOA, FreeLun_PFOA,
                          PL_PFOA, PF_PFOA, PK_PFOA, PSk_PFOA, PR_PFOA, PG_PFOA,
-                         Kt_PFOS, Free_PFOS, FreeL_PFOS, FreeF_PFOS, FreeK_PFOS, FreeSk_PFOS, FreeR_PFOS, FreeG_PFOS,
+                         Kt_PFOS, Free_PFOS, FreeL_PFOS, FreeF_PFOS, FreeK_PFOS, FreeSk_PFOS, FreeR_PFOS, FreeG_PFOS, FreeLun_PFOS,
                          PL_PFOS, PF_PFOS, PK_PFOS, PSk_PFOS, PR_PFOS, PG_PFOS)
                          # Pab_PFOA,
                          # Pab_PFOS,
