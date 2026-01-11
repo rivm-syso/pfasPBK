@@ -95,9 +95,19 @@
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
+      <unitDefinition id="YR">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="31557600"/>
+        </listOfUnits>
+      </unitDefinition>
       <unitDefinition id="KiloGM">
         <listOfUnits>
           <unit kind="gram" exponent="1" scale="3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="UNITLESS">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="L_PER_DAY_PER_KiloGM0P75">
@@ -105,11 +115,6 @@
           <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
           <unit kind="second" exponent="-1" scale="0" multiplier="86400"/>
           <unit kind="gram" exponent="-0.75" scale="3" multiplier="1"/>
-        </listOfUnits>
-      </unitDefinition>
-      <unitDefinition id="UNITLESS">
-        <listOfUnits>
-          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="L_PER_KiloGM">
@@ -179,7 +184,7 @@
       </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment metaid="meta_Lung" id="Lung" name="lung" spatialDimensions="3" size="0.27783" units="L" constant="false">
+      <compartment metaid="meta_Lung" id="Lung" name="lung" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Lung">
@@ -192,7 +197,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Skin" id="Skin" name="skin" spatialDimensions="3" size="0.0525693985832402" units="L" constant="false">
+      <compartment metaid="meta_Skin" id="Skin" name="skin" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Skin">
@@ -205,7 +210,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Ven_Plas" id="Ven_Plas" name="venous blood" spatialDimensions="3" size="1.03622652" units="L" constant="false">
+      <compartment metaid="meta_Ven_Plas" id="Ven_Plas" name="venous blood" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Ven_Plas">
@@ -218,7 +223,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Art_Plas" id="Art_Plas" name="arterial blood" spatialDimensions="3" size="0.66250548" units="L" constant="false">
+      <compartment metaid="meta_Art_Plas" id="Art_Plas" name="arterial blood" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Art_Plas">
@@ -231,7 +236,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Gut" id="Gut" name="gut" spatialDimensions="3" size="0.678699" units="L" constant="false">
+      <compartment metaid="meta_Gut" id="Gut" name="gut" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Gut">
@@ -244,7 +249,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Liv" id="Liv" name="liver" spatialDimensions="3" size="1.03194" units="L" constant="false">
+      <compartment metaid="meta_Liv" id="Liv" name="liver" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Liv">
@@ -257,7 +262,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Fat" id="Fat" name="adipose tissue" spatialDimensions="3" size="8.49366" units="L" constant="false">
+      <compartment metaid="meta_Fat" id="Fat" name="adipose tissue" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Fat">
@@ -270,7 +275,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Kid" id="Kid" name="kidney" spatialDimensions="3" size="0.15876" units="L" constant="false">
+      <compartment metaid="meta_Kid" id="Kid" name="kidney" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Kid">
@@ -283,7 +288,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Fil" id="Fil" name="filtrate" spatialDimensions="3" size="0.015876" units="L" constant="false">
+      <compartment metaid="meta_Fil" id="Fil" name="filtrate" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Fil">
@@ -296,7 +301,7 @@
           </rdf:RDF>
         </annotation>
       </compartment>
-      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" size="20.9315336014168" units="L" constant="false">
+      <compartment metaid="meta_Rest" id="Rest" name="rest-of-body" spatialDimensions="3" units="L" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Rest">
@@ -495,13 +500,24 @@
       </species>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="AgeInit" value="10" constant="true"/>
-      <parameter id="AgeRef" value="0" constant="true"/>
-      <parameter id="Age" value="10" constant="false"/>
-      <parameter id="BWRef" value="3.68" constant="true"/>
-      <parameter id="BWBirth" value="3.68" constant="true"/>
-      <parameter id="deltaBW" value="1" constant="false"/>
-      <parameter metaid="meta_BW" id="BW" name="body weight" value="39.69" units="KiloGM" constant="false">
+      <parameter id="AgeRef" name="current age of reference indvididual in simulation" value="0" units="YR" constant="true"/>
+      <parameter metaid="meta_Age" id="Age" name="age during simulation" value="0" units="YR" constant="false">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Age">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00521"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
+      <parameter id="BWRef" name="body weight of reference indvididual in simulation" value="3.68" units="KiloGM" constant="true"/>
+      <parameter id="BWBirth" name="population nominal body weight at birth" value="3.68" units="KiloGM" constant="true"/>
+      <parameter id="deltaBW" name="relative body weight of reference individual compared to population nominal body weight" units="UNITLESS" constant="false"/>
+      <parameter metaid="meta_BW" id="BW" name="body weight" units="KiloGM" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_BW">
@@ -724,7 +740,7 @@
         </annotation>
       </parameter>
       <parameter id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true"/>
-      <parameter metaid="meta_BSA" id="BSA" name="total area of the skin" value="10513.879716648" units="CentiM2" constant="false">
+      <parameter metaid="meta_BSA" id="BSA" name="total area of the skin" units="CentiM2" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_BSA">
@@ -921,7 +937,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_kurine" id="kurine" name="urinary elimination rate constant" value="0.00286854866240254" units="PER_DAY" constant="false">
+      <parameter metaid="meta_kurine" id="kurine" name="urinary elimination rate constant" units="PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_kurine">
@@ -934,7 +950,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Tm" id="Tm" name="transporter maximum" value="2277053.92821514" units="MicroGM_PER_DAY" constant="false">
+      <parameter metaid="meta_Tm" id="Tm" name="transporter maximum" units="MicroGM_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Tm">
@@ -947,7 +963,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" value="0.00909090909090909" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeL" id="FreeL" name="free fraction of chemical in liver" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeL">
@@ -960,7 +976,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeF" id="FreeF" name="free fraction of chemical in fat" value="0.5" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeF" id="FreeF" name="free fraction of chemical in fat" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeF">
@@ -973,7 +989,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeK" id="FreeK" name="free fraction of chemical in kidney" value="0.019047619047619" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeK" id="FreeK" name="free fraction of chemical in kidney" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeK">
@@ -986,7 +1002,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeSk" id="FreeSk" name="free fraction of chemical in skin" value="0.2" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeSk" id="FreeSk" name="free fraction of chemical in skin" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeSk">
@@ -999,7 +1015,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeR" id="FreeR" name="free fraction of chemical in rest of body" value="0.166666666666667" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeR" id="FreeR" name="free fraction of chemical in rest of body" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeR">
@@ -1012,7 +1028,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeG" id="FreeG" name="free fraction of chemical in gut" value="0.4" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeG" id="FreeG" name="free fraction of chemical in gut" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeG">
@@ -1025,7 +1041,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_FreeLun" id="FreeLun" name="free fraction of chemical in lung" value="0.015748031496063" units="UNITLESS" constant="false">
+      <parameter metaid="meta_FreeLun" id="FreeLun" name="free fraction of chemical in lung" units="UNITLESS" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_FreeLun">
@@ -1038,7 +1054,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" value="4743.86235044821" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QC" id="QC" name="cardiac output adjusted for body weight" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QC">
@@ -1051,7 +1067,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" value="2656.562916251" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QCP" id="QCP" name="cardiac output adjusted for plasma flow" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QCP">
@@ -1064,7 +1080,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" value="183.302841221319" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QL" id="QL" name="scaled plasma flow to liver" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QL">
@@ -1077,7 +1093,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" value="138.141271645052" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QF" id="QF" name="scaled plasma flow to fat" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QF">
@@ -1090,7 +1106,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" value="464.898510343924" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QK" id="QK" name="scaled plasma flow to kidney" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QK">
@@ -1103,7 +1119,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" value="92.9797020687849" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_Qfil" id="Qfil" name="plasma flow to filtrate compartment" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Qfil">
@@ -1116,7 +1132,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" value="480.83788784143" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QG" id="QG" name="scaled plasma flow to gut" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QG">
@@ -1129,7 +1145,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" value="154.080649142558" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QSk" id="QSk" name="scaled plasma flow to the skin" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QSk">
@@ -1142,7 +1158,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" value="1235.30175605671" units="L_PER_DAY" constant="false">
+      <parameter metaid="meta_QR" id="QR" name="plasma flow to the rest of the body" units="L_PER_DAY" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_QR">
@@ -1156,7 +1172,6 @@
         </annotation>
       </parameter>
     </listOfParameters>
-    <listOfInitialAssignments/>
     <listOfRules>
       <assignmentRule variable="Lung">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1292,7 +1307,7 @@
           <apply>
             <divide/>
             <cn type="integer"> 1 </cn>
-            <cn> 365.25 </cn>
+            <cn type="integer"> 365 </cn>
           </apply>
         </math>
       </rateRule>
