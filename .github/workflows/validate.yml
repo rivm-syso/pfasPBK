@@ -1,12 +1,29 @@
-name: Validate
-on:
-  workflow_run:
-    workflows: ["Build"]
-    types: [completed]
+name: Build
+on: [push, workflow_dispatch]
+
 jobs:
-  validate-sbml:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: jwkruisselbrink/sbml-pbk-workflow/.github/workflows/validate.yml@v7
-    with:
-      model-name: PBK_PFAS
-    secrets: inherit
+  validate:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pip
+        run: python -m pip install --upgrade pip
+      - name: Install graphviz
+        run: sudo apt-get install graphviz
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Create and annotate SBML
+        run: python scripts/create_sbml.py
+      - name: Verify SBML model file unchanged
+        run: |
+          if ! git diff --quiet --diff-filter=M -- model/*.sbml; then
+            echo "One or more SBML files differ from repository versions."
+            git diff -- model/*.sbml
+            exit 1
+          fi
