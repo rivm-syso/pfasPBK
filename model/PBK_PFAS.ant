@@ -3,6 +3,22 @@
 
 model PBK_PFAS()
 
+  model notes ```
+    Generic PFAS PBK model implementation in Antimony based on the PFOA PBK 
+    model of Westerhout et al. (2024) without lifetime dynamics/equations.
+
+    Changes with respect to original model:
+
+    1) No lifetime dynamics/equations.
+
+    2) General model structure for PFAS.
+
+    3) Changed the calculation of CvenFree, Cven, CartFree and Cart to correctly present the free fraction.
+
+    4) Changed the 'Free' in the lung differential equation to 'FreeLun'.
+  ```
+  model description "https://doi.org/10.1093/toxsci/kfae006"
+
   # Parameters
 
   ## Physiology

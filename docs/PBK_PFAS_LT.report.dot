@@ -1,0 +1,241 @@
+digraph {
+	graph [ratio=fill,
+		size="7,4"
+	];
+	node [fontname=Arial];
+	subgraph cluster_Lung {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Lung",
+			label="Lung
+[PBPKO:00559]",
+			shape=box,
+			style="filled,rounded"
+		];
+		Alung	[color=black,
+			fillcolor=gold,
+			href="#species-Alung",
+			label="Alung
+[PBPKO:00504]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Skin {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Skin",
+			label="Skin
+[PBPKO:00470]",
+			shape=box,
+			style="filled,rounded"
+		];
+		ASk	[color=black,
+			fillcolor=gold,
+			href="#species-ASk",
+			label="ASk
+[PBPKO:00506]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Ven_Plas {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Ven_Plas",
+			label="Ven_Plas
+[PBPKO:00452]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AVen_Plas	[color=black,
+			fillcolor=gold,
+			href="#species-AVen_Plas",
+			label="AVen_Plas
+[PBPKO:00502]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Art_Plas {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Art_Plas",
+			label="Art_Plas
+[PBPKO:00451]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AArt_Plas	[color=black,
+			fillcolor=gold,
+			href="#species-AArt_Plas",
+			label="AArt_Plas
+[PBPKO:00502]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Gut {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Gut",
+			label="Gut
+[PBPKO:00477]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AGut	[color=black,
+			fillcolor=gold,
+			href="#species-AGut",
+			label="AGut
+[PBPKO:00496]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Liv {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Liv",
+			label="Liv
+[PBPKO:00558]",
+			shape=box,
+			style="filled,rounded"
+		];
+		ALiv	[color=black,
+			fillcolor=gold,
+			href="#species-ALiv",
+			label="ALiv
+[PBPKO:00497]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Fat {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Fat",
+			label="Fat
+[PBPKO:00460]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AFat	[color=black,
+			fillcolor=gold,
+			href="#species-AFat",
+			label="AFat
+[PBPKO:00550]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Kid {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Kid",
+			label="Kid
+[PBPKO:00557]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AKid	[color=black,
+			fillcolor=gold,
+			href="#species-AKid",
+			label="AKid
+[PBPKO:00498]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Fil {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Fil",
+			label="Fil
+[PBPKO:00397]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AFil	[color=black,
+			fillcolor=gold,
+			href="#species-AFil",
+			label="AFil
+[PBPKO:00499]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Rest {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Rest",
+			label="Rest
+[PBPKO:00450]",
+			shape=box,
+			style="filled,rounded"
+		];
+		ARest	[color=black,
+			fillcolor=gold,
+			href="#species-ARest",
+			label="ARest
+[PBPKO:00501]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Delay {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Delay",
+			label="Delay
+[PBPKO:00402]",
+			shape=box,
+			style="filled,rounded"
+		];
+		ADelay	[color=black,
+			fillcolor=gold,
+			href="#species-ADelay",
+			label="ADelay
+[PBPKO:00500]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	subgraph cluster_Urine {
+		graph [color=black,
+			fillcolor=lightblue,
+			fontname=Arial,
+			href="#compartment-Urine",
+			label="Urine
+[PBPKO:00556]",
+			shape=box,
+			style="filled,rounded"
+		];
+		AUrine	[color=black,
+			fillcolor=gold,
+			href="#species-AUrine",
+			label="AUrine
+[PBPKO:00274]",
+			shape=box,
+			style="filled,rounded"];
+	}
+	Alung -> AArt_Plas	[label=_J0];
+	ASk -> AVen_Plas	[label=_J16];
+	AVen_Plas -> Alung	[label=_J17];
+	AArt_Plas -> ASk	[label=_J7];
+	AArt_Plas -> AGut	[label=_J1];
+	AArt_Plas -> ALiv	[label=_J2];
+	AArt_Plas -> AFat	[label=_J3];
+	AArt_Plas -> AKid	[label=_J4];
+	AArt_Plas -> AFil	[label=_J5];
+	AArt_Plas -> ARest	[label=_J6];
+	AGut -> ALiv	[label=_J8];
+	ALiv -> AVen_Plas	[label=_J12];
+	AFat -> AVen_Plas	[label=_J13];
+	AKid -> AVen_Plas	[label=_J14];
+	AFil -> AKid	[label=_J9];
+	AFil -> ADelay	[label=_J10];
+	ARest -> AVen_Plas	[label=_J15];
+	ADelay -> AUrine	[label=_J11,
+		minlen=1];
+}

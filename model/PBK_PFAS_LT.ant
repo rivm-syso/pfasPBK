@@ -2,10 +2,21 @@ function f_BW(age, BW_birth)
     BW_birth + 4.47*age - 0.093*age^2 + 0.00061*age^3
 end
 
-# Generic PFAS PBK model implementation in Antimony based on
-# the PFOA PBK model of Westerhout et al. (2024).
-
 model PBK_PFAS()
+
+  model notes ```
+    Generic PFAS PBK model implementation in Antimony based on the PFOA PBK 
+    model of Westerhout et al. (2024).
+
+    Changes with respect to original model:
+
+    1) General model structure for PFAS.
+
+    2) Changed the calculation of CvenFree, Cven, CartFree and Cart to correctly present the free fraction.
+
+    3) Changed the 'Free' in the lung differential equation to 'FreeLun'.
+  ```
+  model description "https://doi.org/10.1093/toxsci/kfae006"
 
   # Parameters
 
