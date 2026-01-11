@@ -1,0 +1,106 @@
+id: PFOS
+label: PFOS
+model_instances:
+  - id: SBML
+    label: SBML
+    model_path: ./model/PBK_PFAS_LT.sbml
+    param_file: ./validation/params_LT_validation_PFOS.csv
+    target_mappings:
+      AArt: 'AArt_Plas'
+      CArt: '[AArt_Plas]'
+      CVen: '[AVen_Plas]'
+      CLiv: '[ALiv]'
+
+scenarios:
+  - id: oral_repeated
+    label: PFOS oral repeated
+    time_unit: DAY
+    amount_unit: MICROGRAMS
+    duration: 29200    # 80 * 365 = 29200
+    evaluation_resolution: 1
+    dosing_events:
+      - type: repeated_bolus
+        time: 0
+        target: AGut
+        amount: 0.001  # ug
+        adjustment: BW # adjust for BW
+        interval: 1    # every day
+    parameters:
+        Age: 0
+    outputs:
+      - id: Age
+        label: Age
+        output: Age
+      - id: BW
+        label: Bodyweight
+        output: BW
+      - id: AArt
+        label: Amount in arterial plasma PFOS (ug)
+        output: AArt
+      - id: CArt
+        label: Concentration arterial plasma PFOS (ug/L)
+        output: CArt
+      - id: CVen
+        label: Concentration venous plasma PFOS (ug/L)
+        output: CVen
+      - id: CLiv
+        label: Concentration liver PFOS (ug/L)
+        output: CLiv
+    reference_data:
+      - id: reference
+        label: R
+        script: 'validation/R/run_westerhout_2024.R'
+        file_path: 'validation/results/results_R_PFAS.csv'
+        series_type: TIMELINE
+        time_unit: DAY
+        mappings:
+          Age: age
+          BW: BW
+          CArt: Cart_PFOS
+          CVen: Cven_PFOS
+          CLiv: CL_PFOS
+          AArt: Aart_PFOS
+  - id: initial_amounts
+    label: initial amounts
+    time_unit: DAY
+    amount_unit: MICROGRAMS
+    duration: 5    # 80 * 365 = 29200
+    evaluation_resolution: 24
+    initial_states:
+      - target: ALiv
+        amount: 100 # ug
+    parameters:
+        Age: 0
+    outputs:
+      - id: Age
+        label: Age
+        output: Age
+      - id: BW
+        label: Bodyweight
+        output: BW
+      - id: AArt
+        label: Amount in arterial plasma PFOS (ug)
+        output: AArt
+      - id: CArt
+        label: Concentration arterial plasma PFOS (ug/L)
+        output: CArt
+      - id: CVen
+        label: Concentration venous plasma PFOS (ug/L)
+        output: CVen
+      - id: CLiv
+        label: Concentration liver PFOS (ug/L)
+        output: CLiv
+    reference_data:
+      - id: reference
+        label: R
+        script: 'validation/R/run_westerhout_2024_no_dosing.R'
+        file_path: 'validation/results/results_R_PFAS_no_dosing.csv'
+        series_type: TIMELINE
+        time_unit: DAY
+        mappings:
+          Age: age
+          BW: BW
+          CArt: Cart_PFOS
+          CVen: Cven_PFOS
+          CLiv: CL_PFOS
+          AArt: Aart_PFOS
