@@ -1,5 +1,13 @@
 # PBK_PFAS
 
+## Creators
+
+| first-name   | last-name     | affiliation   | email   |
+|:-------------|:--------------|:--------------|:--------|
+| Jordi        | Minnema       | RIVM          |         |
+| Joost        | Westerhout    | RIVM          |         |
+| Johannes     | Kruisselbrink | WUR           |         |
+
 ## Notes
 
 <notes>
@@ -25,14 +33,6 @@
 | Number of compartments       | 12                             |
 | Number of species            | 12                             |
 | Number of parameters         | 59 (37 external / 22 internal) |
-
-## Creators
-
-| first-name   | last-name     | affiliation   | email   |
-|:-------------|:--------------|:--------------|:--------|
-| Jordi        | Minnema       | RIVM          |         |
-| Joost        | Westerhout    | RIVM          |         |
-| Johannes     | Kruisselbrink | WUR           |         |
 
 ## Diagram
 
@@ -97,125 +97,68 @@
 
 ## ODEs
 
-d[Alung]/dt = - QCP * FreeLun * (Alung / Lung)
-              + QCP * Free * (AVen_Plas / Ven_Plas)
-
-d[ASk]/dt = QSk * Free * (AArt_Plas / Art_Plas)
-            - QSk * FreeSk * (ASk / Skin)
-
-d[AVen_Plas]/dt = (QL + QG) * FreeL * (ALiv / Liv)
-                  + QF * FreeF * (AFat / Fat)
-                  + QK * FreeK * (AKid / Kid)
-                  + QR * FreeR * (ARest / Rest)
-                  + QSk * FreeSk * (ASk / Skin)
-                  - QCP * Free * (AVen_Plas / Ven_Plas)
-
-d[AArt_Plas]/dt = QCP * FreeLun * (Alung / Lung)
-                  - QG * Free * (AArt_Plas / Art_Plas)
-                  - QL * Free * (AArt_Plas / Art_Plas)
-                  - QF * Free * (AArt_Plas / Art_Plas)
-                  - QK * Free * (AArt_Plas / Art_Plas)
-                  - Qfil * Free * (AArt_Plas / Art_Plas)
-                  - QR * Free * (AArt_Plas / Art_Plas)
-                  - QSk * Free * (AArt_Plas / Art_Plas)
-
-d[AGut]/dt = QG * Free * (AArt_Plas / Art_Plas)
-             - QG * FreeG * (AGut / Gut)
-
-d[ALiv]/dt = QL * Free * (AArt_Plas / Art_Plas)
-             + QG * FreeG * (AGut / Gut)
-             - (QL + QG) * FreeL * (ALiv / Liv)
-
-d[AFat]/dt = QF * Free * (AArt_Plas / Art_Plas)
-             - QF * FreeF * (AFat / Fat)
-
-d[AKid]/dt = QK * Free * (AArt_Plas / Art_Plas)
-             + Tm * (AFil / Fil) / (Kt + AFil / Fil)
-             - QK * FreeK * (AKid / Kid)
-
-d[AFil]/dt = Qfil * Free * (AArt_Plas / Art_Plas)
-             - Tm * (AFil / Fil) / (Kt + AFil / Fil)
-             - Qfil * (AFil / Fil)
-
-d[ADelay]/dt = Qfil * (AFil / Fil)
-               - kurine * ADelay
-
-d[AUrine]/dt = kurine * ADelay
-
-d[ARest]/dt = QR * Free * (AArt_Plas / Art_Plas)
-              - QR * FreeR * (ARest / Rest)
+| species   | equation                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Alung     | d[Alung]/dt = - QCP * FreeLun * (Alung / Lung)              + QCP * Free * (AVen_Plas / Ven_Plas)                                                                                                                                                                                                                                                                                                                                             |
+| ASk       | d[ASk]/dt = QSk * Free * (AArt_Plas / Art_Plas)            - QSk * FreeSk * (ASk / Skin)                                                                                                                                                                                                                                                                                                                                                      |
+| AVen_Plas | d[AVen_Plas]/dt = (QL + QG) * FreeL * (ALiv / Liv)                  + QF * FreeF * (AFat / Fat)                  + QK * FreeK * (AKid / Kid)                  + QR * FreeR * (ARest / Rest)                  + QSk * FreeSk * (ASk / Skin)                  - QCP * Free * (AVen_Plas / Ven_Plas)                                                                                                                                             |
+| AArt_Plas | d[AArt_Plas]/dt = QCP * FreeLun * (Alung / Lung)                  - QG * Free * (AArt_Plas / Art_Plas)                  - QL * Free * (AArt_Plas / Art_Plas)                  - QF * Free * (AArt_Plas / Art_Plas)                  - QK * Free * (AArt_Plas / Art_Plas)                  - Qfil * Free * (AArt_Plas / Art_Plas)                  - QR * Free * (AArt_Plas / Art_Plas)                  - QSk * Free * (AArt_Plas / Art_Plas) |
+| AGut      | d[AGut]/dt = QG * Free * (AArt_Plas / Art_Plas)             - QG * FreeG * (AGut / Gut)                                                                                                                                                                                                                                                                                                                                                       |
+| ALiv      | d[ALiv]/dt = QL * Free * (AArt_Plas / Art_Plas)             + QG * FreeG * (AGut / Gut)             - (QL + QG) * FreeL * (ALiv / Liv)                                                                                                                                                                                                                                                                                                        |
+| AFat      | d[AFat]/dt = QF * Free * (AArt_Plas / Art_Plas)             - QF * FreeF * (AFat / Fat)                                                                                                                                                                                                                                                                                                                                                       |
+| AKid      | d[AKid]/dt = QK * Free * (AArt_Plas / Art_Plas)             + Tm * (AFil / Fil) / (Kt + AFil / Fil)             - QK * FreeK * (AKid / Kid)                                                                                                                                                                                                                                                                                                   |
+| AFil      | d[AFil]/dt = Qfil * Free * (AArt_Plas / Art_Plas)             - Tm * (AFil / Fil) / (Kt + AFil / Fil)             - Qfil * (AFil / Fil)                                                                                                                                                                                                                                                                                                       |
+| ADelay    | d[ADelay]/dt = Qfil * (AFil / Fil)               - kurine * ADelay                                                                                                                                                                                                                                                                                                                                                                            |
+| AUrine    | d[AUrine]/dt = kurine * ADelay                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ARest     | d[ARest]/dt = QR * Free * (AArt_Plas / Art_Plas)              - QR * FreeR * (ARest / Rest)                                                                                                                                                                                                                                                                                                                                                   |
 
 ## Rate rules
 
-dAge/dt = 1 / 365
+| variable   | rule              |
+|:-----------|:------------------|
+| Age        | dAge/dt = 1 / 365 |
 
 ## Assignment rules
 
-Lung = VlunC * BW
-
-Skin = FSkinExposed * BSA * SkinThickness / 1000
-
-Ven_Plas = VvenC * VPlasC * BW
-
-Art_Plas = VartC * VPlasC * BW
-
-Gut = VGC * BW
-
-Liv = VLC * BW
-
-Fat = VFC * BW
-
-Kid = VKC * BW
-
-Fil = VfilC * BW
-
-Rest = (FBW - VLC - VFC - VKC - VfilC - VGC - VPlasC - VlunC) * BW - Skin
-
-deltaBW = BWRef / f_BW(AgeRef, BWBirth)
-
-BW = deltaBW * f_BW(Age, BWBirth)
-
-BSA = 9.1 * pow(BW * 1000, 0.666)
-
-kurine = kurinec * pow(BW, -0.25)
-
-Tm = Tmc * pow(BW, 0.75)
-
-FreeL = Free / PL
-
-FreeF = Free / PF
-
-FreeK = Free / PK
-
-FreeSk = Free / PSk
-
-FreeR = Free / PR
-
-FreeG = Free / PG
-
-FreeLun = Free / PLun
-
-QC = QCC * pow(BW, 0.75)
-
-QCP = QC * (1 - Htc)
-
-QL = QLC * QCP
-
-QF = QFC * QCP
-
-QK = QKC * QCP
-
-Qfil = QfilC * QK
-
-QG = QGC * QCP
-
-QSk = QSkC * QCP
-
-QR = QCP - QL - QF - QK - QG - QSk
+| variable   | assignment                                                         |
+|:-----------|:-------------------------------------------------------------------|
+| Lung       | VlunC * BW                                                         |
+| Skin       | FSkinExposed * BSA * SkinThickness / 1000                          |
+| Ven_Plas   | VvenC * VPlasC * BW                                                |
+| Art_Plas   | VartC * VPlasC * BW                                                |
+| Gut        | VGC * BW                                                           |
+| Liv        | VLC * BW                                                           |
+| Fat        | VFC * BW                                                           |
+| Kid        | VKC * BW                                                           |
+| Fil        | VfilC * BW                                                         |
+| Rest       | (FBW - VLC - VFC - VKC - VfilC - VGC - VPlasC - VlunC) * BW - Skin |
+| deltaBW    | BWRef / f_BW(AgeRef, BWBirth)                                      |
+| BW         | deltaBW * f_BW(Age, BWBirth)                                       |
+| BSA        | 9.1 * pow(BW * 1000, 0.666)                                        |
+| kurine     | kurinec * pow(BW, -0.25)                                           |
+| Tm         | Tmc * pow(BW, 0.75)                                                |
+| FreeL      | Free / PL                                                          |
+| FreeF      | Free / PF                                                          |
+| FreeK      | Free / PK                                                          |
+| FreeSk     | Free / PSk                                                         |
+| FreeR      | Free / PR                                                          |
+| FreeG      | Free / PG                                                          |
+| FreeLun    | Free / PLun                                                        |
+| QC         | QCC * pow(BW, 0.75)                                                |
+| QCP        | QC * (1 - Htc)                                                     |
+| QL         | QLC * QCP                                                          |
+| QF         | QFC * QCP                                                          |
+| QK         | QKC * QCP                                                          |
+| Qfil       | QfilC * QK                                                         |
+| QG         | QGC * QCP                                                          |
+| QSk        | QSkC * QCP                                                         |
+| QR         | QCP - QL - QF - QK - QG - QSk                                      |
 
 ## Function definitions
 
-f_BW(age, BW_birth) = lambda(age, BW_birth, BW_birth + 4.47 * age - 0.093 * pow(age, 2) + 0.00061 * pow(age, 3))
+| function   | definition                                                                                                       |
+|:-----------|:-----------------------------------------------------------------------------------------------------------------|
+| f_BW       | f_BW(age, BW_birth) = lambda(age, BW_birth, BW_birth + 4.47 * age - 0.093 * pow(age, 2) + 0.00061 * pow(age, 3)) |
 
 ## Parameters
 
