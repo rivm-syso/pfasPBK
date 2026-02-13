@@ -44,6 +44,16 @@
               <rdf:li rdf:resource="https://doi.org/10.1093/toxsci/kfae006"/>
             </rdf:Bag>
           </bqbiol:isDescribedBy>
+          <bqbiol:hasProperty>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_134091"/>
+            </rdf:Bag>
+          </bqbiol:hasProperty>
+          <bqbiol:hasTaxon>
+            <rdf:Bag>
+              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9443"/>
+            </rdf:Bag>
+          </bqbiol:hasTaxon>
         </rdf:Description>
       </rdf:RDF>
     </annotation>
@@ -476,19 +486,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QCC" id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_PER_KiloGM0P75" constant="true">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QCC">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00013"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
+      <parameter id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_PER_KiloGM0P75" constant="true"/>
       <parameter metaid="meta_QFC" id="QFC" name="fraction cardiac output going to fat" value="0.052" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -554,19 +552,7 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter metaid="meta_QGC" id="QGC" name="fraction of cardiac output going to gut and the liver via portal vein" value="0.181" units="UNITLESS" constant="true">
-        <annotation>
-          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#meta_QGC">
-              <bqmodel:is>
-                <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00531"/>
-                </rdf:Bag>
-              </bqmodel:is>
-            </rdf:Description>
-          </rdf:RDF>
-        </annotation>
-      </parameter>
+      <parameter id="QGC" name="fraction of cardiac output going to gut and the liver via portal vein" value="0.181" units="UNITLESS" constant="true"/>
       <parameter id="FBW" name="Fraction of the BW covered by the sum of the compartments" value="0.84" units="L_PER_KiloGM" constant="true"/>
       <parameter metaid="meta_VLC" id="VLC" name="fraction liver volume" value="0.026" units="L_PER_KiloGM" constant="true">
         <annotation>
@@ -665,7 +651,7 @@
             <rdf:Description rdf:about="#meta_VartC">
               <bqmodel:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00602"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00627"/>
                 </rdf:Bag>
               </bqmodel:is>
             </rdf:Description>
@@ -678,14 +664,26 @@
             <rdf:Description rdf:about="#meta_VvenC">
               <bqmodel:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00603"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00628"/>
                 </rdf:Bag>
               </bqmodel:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true"/>
+      <parameter metaid="meta_Htc" id="Htc" name="hematocrit" value="0.44" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_Htc">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00527"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_BSA" id="BSA" name="total area of the skin" units="CentiM2" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -699,7 +697,19 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="SkinThickness" name="skin thickness" value="0.1" units="CentiM" constant="true"/>
+      <parameter metaid="meta_SkinThickness" id="SkinThickness" name="skin thickness" value="0.1" units="CentiM" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_SkinThickness">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00635"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_FSkinExposed" id="FSkinExposed" name="fraction of skin exposed" value="0.05" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -967,7 +977,7 @@
             <rdf:Description rdf:about="#meta_FreeR">
               <bqmodel:is>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00596"/>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00624"/>
                 </rdf:Bag>
               </bqmodel:is>
             </rdf:Description>

@@ -22,17 +22,17 @@
 
 ## Overview
 
-| key                          | value                          |
-|:-----------------------------|:-------------------------------|
-| Modelled species/orgamism(s) | *not specified*                |
-| Model chemical(s)            | *not specified*                |
-| Input route(s)               | 3 (inhalation, dermal, oral)   |
-| Time resolution              | d                              |
-| Amounts unit                 | ug                             |
-| Volume unit                  | L                              |
-| Number of compartments       | 12                             |
-| Number of species            | 12                             |
-| Number of parameters         | 59 (37 external / 22 internal) |
+| key                          | value                                         |
+|:-----------------------------|:----------------------------------------------|
+| Modelled species/orgamism(s) | http://purl.obolibrary.org/obo/NCBITaxon_9443 |
+| Model chemical(s)            | http://purl.obolibrary.org/obo/CHEBI_134091   |
+| Input route(s)               | 3 (inhalation, dermal, oral)                  |
+| Time resolution              | d                                             |
+| Amounts unit                 | ug                                            |
+| Volume unit                  | L                                             |
+| Number of compartments       | 12                                            |
+| Number of species            | 12                                            |
+| Number of parameters         | 59 (37 external / 22 internal)                |
 
 ## Diagram
 
@@ -170,13 +170,13 @@
 | BWBirth       | population nominal body weight at birth                                                 | kg            | *not specified*                            |
 | deltaBW       | relative body weight of reference individual compared to population nominal body weight | dimensionless | *not specified*                            |
 | BW            | body weight                                                                             | kg            | http://purl.obolibrary.org/obo/PBPKO_00008 |
-| QCC           | cardiac blood output                                                                    | L/d/kg^0.75   | http://purl.obolibrary.org/obo/PBPKO_00013 |
+| QCC           | cardiac blood output                                                                    | L/d/kg^0.75   | *not specified*                            |
 | QFC           | fraction cardiac output going to fat                                                    | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00033 |
 | QLC           | fraction cardiac output going to liver                                                  | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00025 |
 | QKC           | fraction cardiac output going to kidney                                                 | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00027 |
 | QfilC         | fraction of kidney plasma flow to filtrate                                              | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00511 |
 | QSkC          | fraction cardiac output going to skin                                                   | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00037 |
-| QGC           | fraction of cardiac output going to gut and the liver via portal vein                   | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00531 |
+| QGC           | fraction of cardiac output going to gut and the liver via portal vein                   | dimensionless | *not specified*                            |
 | FBW           | Fraction of the BW covered by the sum of the compartments                               | L/kg          | *not specified*                            |
 | VLC           | fraction liver volume                                                                   | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00078 |
 | VFC           | fraction fat volume                                                                     | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00086 |

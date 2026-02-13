@@ -23,17 +23,17 @@
 
 ## Overview
 
-| key                          | value                          |
-|:-----------------------------|:-------------------------------|
-| Modelled species/orgamism(s) | *not specified*                |
-| Model chemical(s)            | *not specified*                |
-| Input route(s)               | 3 (inhalation, dermal, oral)   |
-| Time resolution              | d                              |
-| Amounts unit                 | ug                             |
-| Volume unit                  | L                              |
-| Number of compartments       | 12                             |
-| Number of species            | 12                             |
-| Number of parameters         | 54 (35 external / 19 internal) |
+| key                          | value                                         |
+|:-----------------------------|:----------------------------------------------|
+| Modelled species/orgamism(s) | http://purl.obolibrary.org/obo/NCBITaxon_9443 |
+| Model chemical(s)            | http://purl.obolibrary.org/obo/CHEBI_134091   |
+| Input route(s)               | 3 (inhalation, dermal, oral)                  |
+| Time resolution              | d                                             |
+| Amounts unit                 | ug                                            |
+| Volume unit                  | L                                             |
+| Number of compartments       | 12                                            |
+| Number of species            | 12                                            |
+| Number of parameters         | 54 (35 external / 19 internal)                |
 
 ## Diagram
 
@@ -152,13 +152,13 @@
 | id            | name                                                                  | unit          | model qualifier                            |
 |:--------------|:----------------------------------------------------------------------|:--------------|:-------------------------------------------|
 | BW            | body weight                                                           | kg            | http://purl.obolibrary.org/obo/PBPKO_00008 |
-| QCC           | cardiac blood output                                                  | L/d/kg^0.75   | http://purl.obolibrary.org/obo/PBPKO_00013 |
+| QCC           | cardiac blood output                                                  | L/d/kg^0.75   | *not specified*                            |
 | QFC           | fraction cardiac output going to fat                                  | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00033 |
 | QLC           | fraction cardiac output going to liver                                | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00025 |
 | QKC           | fraction cardiac output going to kidney                               | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00027 |
 | QfilC         | fraction of kidney plasma flow to filtrate                            | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00511 |
 | QSkC          | fraction cardiac output going to skin                                 | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00037 |
-| QGC           | fraction of cardiac output going to gut and the liver via portal vein | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00531 |
+| QGC           | fraction of cardiac output going to gut and the liver via portal vein | dimensionless | *not specified*                            |
 | FBW           | Fraction of the BW covered by the sum of the compartments             | L/kg          | *not specified*                            |
 | VLC           | fraction liver volume                                                 | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00078 |
 | VFC           | fraction fat volume                                                   | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00086 |
@@ -167,11 +167,11 @@
 | VGC           | fraction gut volume                                                   | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00509 |
 | VlunC         | fraction lung volume                                                  | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00098 |
 | VPlasC        | fraction plasma volume                                                | L/kg          | http://purl.obolibrary.org/obo/PBPKO_00104 |
-| VartC         | fraction arterial plasma volume                                       | dimensionless | *not specified*                            |
-| VvenC         | fraction venous plasma volume                                         | dimensionless | *not specified*                            |
-| Htc           | hematocrit                                                            | dimensionless | *not specified*                            |
+| VartC         | fraction arterial plasma volume                                       | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00627 |
+| VvenC         | fraction venous plasma volume                                         | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00628 |
+| Htc           | hematocrit                                                            | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00527 |
 | BSA           | total area of the skin                                                | cm^2          | http://purl.obolibrary.org/obo/PBPKO_00010 |
-| SkinThickness | skin thickness                                                        | cm            | *not specified*                            |
+| SkinThickness | skin thickness                                                        | cm            | http://purl.obolibrary.org/obo/PBPKO_00635 |
 | FSkinExposed  | fraction of skin exposed                                              | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00061 |
 | MW            | molar weight                                                          | g/mol         | http://purl.obolibrary.org/obo/PBPKO_00127 |
 | logP          | logP                                                                  | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00131 |
@@ -193,7 +193,7 @@
 | FreeF         | free fraction of chemical in fat                                      | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00158 |
 | FreeK         | free fraction of chemical in kidney                                   | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00155 |
 | FreeSk        | free fraction of chemical in skin                                     | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00160 |
-| FreeR         | free fraction of chemical in rest of body                             | dimensionless | *not specified*                            |
+| FreeR         | free fraction of chemical in rest of body                             | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00624 |
 | FreeG         | free fraction of chemical in gut                                      | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00150 |
 | FreeLun       | free fraction of chemical in lung                                     | dimensionless | http://purl.obolibrary.org/obo/PBPKO_00163 |
 | QC            | cardiac output adjusted for body weight                               | L/d           | http://purl.obolibrary.org/obo/PBPKO_00013 |
