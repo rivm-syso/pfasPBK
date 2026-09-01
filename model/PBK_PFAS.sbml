@@ -46,12 +46,12 @@
           </bqbiol:isDescribedBy>
           <bqbiol:hasProperty>
             <rdf:Bag>
-              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_134091"/>
+              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
             </rdf:Bag>
           </bqbiol:hasProperty>
           <bqbiol:hasTaxon>
             <rdf:Bag>
-              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9443"/>
+              <rdf:li rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
             </rdf:Bag>
           </bqbiol:hasTaxon>
         </rdf:Description>
@@ -324,6 +324,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00504"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -337,6 +342,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00506"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -350,6 +360,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00502"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -363,6 +378,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00502"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -376,6 +396,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00496"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -389,6 +414,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00497"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -402,6 +432,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00550"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -415,6 +450,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00498"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -428,6 +468,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00499"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -441,6 +486,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00500"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -454,6 +504,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00274"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -467,6 +522,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00501"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -486,7 +546,19 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_PER_KiloGM0P75" constant="true"/>
+      <parameter metaid="meta_QCC" id="QCC" name="cardiac blood output" value="300" units="L_PER_DAY_PER_KiloGM0P75" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QCC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00013"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_QFC" id="QFC" name="fraction cardiac output going to fat" value="0.052" units="UNITLESS" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -552,7 +624,19 @@
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="QGC" name="fraction of cardiac output going to gut and the liver via portal vein" value="0.181" units="UNITLESS" constant="true"/>
+      <parameter metaid="meta_QGC" id="QGC" name="fraction of cardiac output going to gut and the liver via portal vein" value="0.181" units="UNITLESS" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_QGC">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00531"/>
+                </rdf:Bag>
+              </bqmodel:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter id="FBW" name="Fraction of the BW covered by the sum of the compartments" value="0.84" units="L_PER_KiloGM" constant="true"/>
       <parameter metaid="meta_VLC" id="VLC" name="fraction liver volume" value="0.026" units="L_PER_KiloGM" constant="true">
         <annotation>
@@ -732,6 +816,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00127"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -745,11 +834,33 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00131"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
       </parameter>
-      <parameter id="VP" name="vapor pressure" value="2.34" units="PA" constant="true"/>
+      <parameter metaid="meta_VP" id="VP" name="vapor pressure" value="2.34" units="PA" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+            <rdf:Description rdf:about="#meta_VP">
+              <bqmodel:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_05003"/>
+                </rdf:Bag>
+              </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </parameter>
       <parameter metaid="meta_Tmc" id="Tmc" name="maximum resorption rate" value="144000" units="MicroGM_PER_DAY_PER_KiloGM0P75" constant="true">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
@@ -759,6 +870,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00535"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -772,6 +888,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00536"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -785,6 +906,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00520"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -798,6 +924,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00591"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -811,6 +942,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00170"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -824,6 +960,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00174"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -837,6 +978,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00171"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -850,6 +996,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00176"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -863,6 +1014,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00518"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -876,6 +1032,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00166"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -889,6 +1050,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00179"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -902,6 +1068,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00520"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -915,6 +1086,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00535"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -928,6 +1104,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00154"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -941,6 +1122,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00158"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -954,6 +1140,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00155"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -967,6 +1158,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00160"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -980,6 +1176,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00624"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -993,6 +1194,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00150"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -1006,6 +1212,11 @@
                   <rdf:li rdf:resource="http://purl.obolibrary.org/obo/PBPKO_00163"/>
                 </rdf:Bag>
               </bqmodel:is>
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="http://purl.obolibrary.org/obo/CHEBI_172397"/>
+                </rdf:Bag>
+              </bqbiol:is>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
