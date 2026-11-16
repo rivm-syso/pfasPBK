@@ -22,7 +22,8 @@ model PBK_PFAS()
 
   ### Age
   AgeRef = 0         # reference age [yr]
-  Age = 0            # age during simulation [yr]
+  AgeInit = 0        # age at start of simulation [yr]
+  Age = AgeInit      # age during simulation [yr]
 
   ### Body size
   BWRef = 3.68       # reference body weight [kg]

@@ -525,7 +525,8 @@
     </listOfSpecies>
     <listOfParameters>
       <parameter id="AgeRef" name="current age of reference indvididual in simulation" value="0" units="YR" constant="true"/>
-      <parameter metaid="meta_Age" id="Age" name="age during simulation" value="0" units="YR" constant="false">
+      <parameter id="AgeInit" name="age at start of simulation" value="0" units="YR" constant="true"/>
+      <parameter metaid="meta_Age" id="Age" name="age during simulation" units="YR" constant="false">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
             <rdf:Description rdf:about="#meta_Age">
@@ -1172,6 +1173,13 @@
         </annotation>
       </parameter>
     </listOfParameters>
+    <listOfInitialAssignments>
+      <initialAssignment symbol="Age">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> AgeInit </ci>
+        </math>
+      </initialAssignment>
+    </listOfInitialAssignments>
     <listOfRules>
       <assignmentRule variable="Lung">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
